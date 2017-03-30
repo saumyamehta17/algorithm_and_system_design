@@ -22,6 +22,7 @@ class BinaryTree
   class << self
 
     def inorder_widout_recursion(tree)
+      tmp_arr = []
       node = tree.root
       arr = []
       arr.push(node)
@@ -35,12 +36,15 @@ class BinaryTree
 
         node = arr.pop
         puts node.value
+        tmp_arr << node.value
 
         if(!node.right.nil?)
           node = node.right
           arr.push node
         end
       end
+
+      tmp_arr
     end
 
     def inorder_wid_recursion(node)
@@ -61,6 +65,44 @@ class BinaryTree
       puts node.value
     end  
 
+    def get_height_of_tree(tree)  
+      nodes = inorder_widout_recursion(tree)
+      h = Math.log2 (nodes.size + 1)
+      puts h.ceil
+    end  
+
+    # Get the height of tree with recursion passing root of the tree
+    def get_height_wid_recursion(node = root)
+      if node.nil?
+        return 0
+      end
+      ldepth = get_height_wid_recursion(node.left)
+      rdepth = get_height_wid_recursion(node.right)
+      depth = [ldepth, rdepth].max + 1
+      return depth
+    end 
+
+    # diameter of a tree
+    def diameter(node)
+      if node.nil?
+        return 0
+      end  
+      lheight = get_height_wid_recursion(node.left)
+      rheight = get_height_wid_recursion(node.right)
+
+      ldiameter = diameter(node.left)
+      rdiameter = diameter(node.right)
+
+      return [(lheight + rheight + 1), [ldiameter, rdiameter].max].max
+    end  
+
+    def count_leaf_nodes(root_node)
+      return 0 if root_node.nil?
+      return 1 if root_node.left.nil? & root_node.right.nil?
+
+      return count_leaf_nodes(root_node.left) + count_leaf_nodes(root_node.right)
+    end  
+
     def sample
       sample_tree = BinaryTree.new 1
       root = sample_tree.root 
@@ -68,13 +110,14 @@ class BinaryTree
       root.right = Node.new 3
       root.left.left = Node.new 4
       root.left.right = Node.new 5
-      # root.left.right.left = Node.new 6
+      root.left.right.left = Node.new 6
 
-      # root.right.left = Node.new 7
-      # root.right.left.left = Node.new 8
-      # root.right.left.right = Node.new 9
+      root.right.left = Node.new 7
+      root.right.left.left = Node.new 8
+      root.right.left.right = Node.new 9
 
-      # root.left.left.right = Node.new 10
+      root.left.left.right = Node.new 10
+      root.left.left.right.left = Node.new 11
 
       sample_tree
     end
@@ -82,11 +125,19 @@ class BinaryTree
 end  
 
 b = BinaryTree.sample
-puts "---------Inorder Traversal without recursion using stack--"
-BinaryTree.inorder_widout_recursion(b)
-puts "---------Inorder Traversal with recursion-----------------"
-BinaryTree.inorder_wid_recursion(b.root)
-puts "---------Preorder Traversal with recursion-----------------"
-BinaryTree.preorder_wid_recursion(b.root)
-puts "---------Postorder Traversal with recursion-----------------"
-BinaryTree.postorder_wid_recursion(b.root)
+# puts "---------Inorder Traversal without recursion using stack--"
+# BinaryTree.inorder_widout_recursion(b)
+# puts "---------Inorder Traversal with recursion-----------------"
+# BinaryTree.inorder_wid_recursion(b.root)
+# puts "---------Preorder Traversal with recursion-----------------"
+# BinaryTree.preorder_wid_recursion(b.root)
+# puts "---------Postorder Traversal with recursion-----------------"
+# BinaryTree.postorder_wid_recursion(b.root)
+# puts "---------Height Of Tree-----------------"
+# BinaryTree.get_height_of_tree(b)
+puts "---------Height of tree with recursion--"
+puts BinaryTree.get_height_wid_recursion(b.root)
+puts "---------Diameter of Tree---------------"
+puts BinaryTree.diameter(b.root)
+puts "---------Count the leaf nodes of Tree----"
+puts BinaryTree.count_leaf_nodes(b.root)
