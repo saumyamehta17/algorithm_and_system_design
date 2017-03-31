@@ -103,6 +103,37 @@ class BinaryTree
       return count_leaf_nodes(root_node.left) + count_leaf_nodes(root_node.right)
     end  
 
+    # level order or breadth first search traversal of tree
+    def level_order_traversal(root_node)
+      queue = Queue.new
+      queue.enq root_node
+      while(!queue.empty?)
+        magic_node = queue.deq
+
+        puts magic_node.value
+
+        queue.enq(magic_node.left) unless magic_node.left.nil?
+
+        queue.enq(magic_node.right) unless magic_node.right.nil?
+      end  
+    end  
+
+    # return 1 if both tree is same else 0
+    def is_identical?(node1,node2)
+      if (node1.nil? && node2.nil?)
+        return true
+      elsif !node1.nil? && !node2.nil?
+
+        return node1.value == node2.value &&
+               is_identical?(node1.left, node2.left) &&
+               is_identical?(node1.right, node2.right)
+
+      elsif (node1.nil? && !node2.nil?) || (node2.nil? && !node1.nil?)
+        return false
+      end
+
+    end  
+
     def sample
       sample_tree = BinaryTree.new 1
       root = sample_tree.root 
@@ -110,21 +141,32 @@ class BinaryTree
       root.right = Node.new 3
       root.left.left = Node.new 4
       root.left.right = Node.new 5
-      root.left.right.left = Node.new 6
+      # root.left.right.left = Node.new 6
 
-      root.right.left = Node.new 7
-      root.right.left.left = Node.new 8
-      root.right.left.right = Node.new 9
+      # root.right.left = Node.new 7
+      # root.right.left.left = Node.new 8
+      # root.right.left.right = Node.new 9
 
-      root.left.left.right = Node.new 10
-      root.left.left.right.left = Node.new 11
+      # root.left.left.right = Node.new 10
+      # root.left.left.right.left = Node.new 11
 
       sample_tree
     end
+
+    def sample1
+      sample_tree = BinaryTree.new 1
+      root = sample_tree.root 
+      root.left = Node.new 2
+      root.right = Node.new 3
+      root.left.left = Node.new 4
+      root.left.right = Node.new 8
+      sample_tree
+    end  
   end
 end  
 
 b = BinaryTree.sample
+b1 = BinaryTree.sample1
 # puts "---------Inorder Traversal without recursion using stack--"
 # BinaryTree.inorder_widout_recursion(b)
 # puts "---------Inorder Traversal with recursion-----------------"
@@ -141,3 +183,7 @@ puts "---------Diameter of Tree---------------"
 puts BinaryTree.diameter(b.root)
 puts "---------Count the leaf nodes of Tree----"
 puts BinaryTree.count_leaf_nodes(b.root)
+puts "---------BFS/level order traversal of Tree----"
+BinaryTree.level_order_traversal(b.root)
+puts "---------Is both tree are same??----"
+puts BinaryTree.is_identical?(b.root, b1.root)
