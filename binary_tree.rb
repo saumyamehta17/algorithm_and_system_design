@@ -133,6 +133,14 @@ class BinaryTree
       end
 
     end  
+    
+    def delete_tree(node, tmp_tree)
+      return 0 if node.nil?
+      delete_tree(node.left, tmp_tree)
+      delete_tree(node.right, tmp_tree)  
+      puts "delete #{node.value}"
+      node.value = nil  
+    end  
 
     def sample
       sample_tree = BinaryTree.new 1
@@ -179,11 +187,13 @@ b1 = BinaryTree.sample1
 # BinaryTree.get_height_of_tree(b)
 puts "---------Height of tree with recursion--"
 puts BinaryTree.get_height_wid_recursion(b.root)
-puts "---------Diameter of Tree---------------"
-puts BinaryTree.diameter(b.root)
-puts "---------Count the leaf nodes of Tree----"
-puts BinaryTree.count_leaf_nodes(b.root)
-puts "---------BFS/level order traversal of Tree----"
-BinaryTree.level_order_traversal(b.root)
-puts "---------Is both tree are same??----"
-puts BinaryTree.is_identical?(b.root, b1.root)
+# puts "---------Diameter of Tree---------------"
+# puts BinaryTree.diameter(b.root)
+# puts "---------Count the leaf nodes of Tree----"
+# puts BinaryTree.count_leaf_nodes(b.root)
+# puts "---------BFS/level order traversal of Tree----"
+# BinaryTree.level_order_traversal(b.root)
+# puts "---------Is both tree are same??----"
+# puts BinaryTree.is_identical?(b.root, b1.root)
+puts "---------Deleting Tree??----"
+puts BinaryTree.delete_tree(b.root,b.root)
