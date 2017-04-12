@@ -20,7 +20,6 @@ class BinaryTree
   end
 
   class << self
-
     def inorder_widout_recursion(tree)
       tmp_arr = []
       node = tree.root
@@ -43,7 +42,6 @@ class BinaryTree
           arr.push node
         end
       end
-
       tmp_arr
     end
 
@@ -133,13 +131,45 @@ class BinaryTree
       end
 
     end  
-    
+
     def delete_tree(node, tmp_tree)
       return 0 if node.nil?
       delete_tree(node.left, tmp_tree)
       delete_tree(node.right, tmp_tree)  
       puts "delete #{node.value}"
       node.value = nil  
+    end 
+
+    def get_mirror_of_tree(node)
+      if node.nil?
+        return 
+      else
+        get_mirror_of_tree(node.left)
+        get_mirror_of_tree(node.right)
+        tmp = node.left
+        node.left = node.right
+        node.right = tmp
+      end  
+      node
+    end 
+
+
+    def root_to_leaf_paths(node, path_arr)
+      return if node.nil?
+      path_arr << node
+      if is_leaf?(node)
+        p path_arr.map(&:value).join('->')
+        while((node.left.nil? && node.right.nil?))
+          binding.pry
+          node = path_arr.pop
+        end  
+      end
+      root_to_leaf_paths(node.left, path_arr)        
+      root_to_leaf_paths(node.right, path_arr)        
+    end
+
+    def is_leaf?(node)
+      node.left.nil? && node.right.nil?
     end  
 
     def sample
@@ -149,14 +179,16 @@ class BinaryTree
       root.right = Node.new 3
       root.left.left = Node.new 4
       root.left.right = Node.new 5
-      # root.left.right.left = Node.new 6
 
-      # root.right.left = Node.new 7
-      # root.right.left.left = Node.new 8
-      # root.right.left.right = Node.new 9
+      # uncomment follow to gave big tree
+      root.left.right.left = Node.new 6
 
-      # root.left.left.right = Node.new 10
-      # root.left.left.right.left = Node.new 11
+      root.right.left = Node.new 7
+      root.right.left.left = Node.new 8
+      root.right.left.right = Node.new 9
+
+      root.left.left.right = Node.new 10
+      root.left.left.right.left = Node.new 11
 
       sample_tree
     end
@@ -177,8 +209,8 @@ b = BinaryTree.sample
 b1 = BinaryTree.sample1
 # puts "---------Inorder Traversal without recursion using stack--"
 # BinaryTree.inorder_widout_recursion(b)
-# puts "---------Inorder Traversal with recursion-----------------"
-# BinaryTree.inorder_wid_recursion(b.root)
+puts "---------Inorder Traversal with recursion-----------------"
+BinaryTree.inorder_wid_recursion(b.root)
 # puts "---------Preorder Traversal with recursion-----------------"
 # BinaryTree.preorder_wid_recursion(b.root)
 # puts "---------Postorder Traversal with recursion-----------------"
@@ -195,5 +227,11 @@ puts BinaryTree.get_height_wid_recursion(b.root)
 # BinaryTree.level_order_traversal(b.root)
 # puts "---------Is both tree are same??----"
 # puts BinaryTree.is_identical?(b.root, b1.root)
-puts "---------Deleting Tree??----"
-puts BinaryTree.delete_tree(b.root,b.root)
+# puts "---------Deleting Tree??----"
+# puts BinaryTree.delete_tree(b.root,b.root)
+puts "----------mirror of binary tree-------------"
+mirrored_tree = BinaryTree.get_mirror_of_tree(b.root)
+BinaryTree.inorder_wid_recursion(mirrored_tree)
+
+puts "-----Prining all path from root to left--------"
+BinaryTree.root_to_leaf_paths(b.root, [])
