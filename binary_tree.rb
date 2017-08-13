@@ -45,6 +45,42 @@ class BinaryTree
       tmp_arr
     end
 
+    def preorder_widout_recursion(tree)
+      node = tree.root
+      arr = []
+      arr.push(node)
+      while(1)
+        while(!node.nil?)
+          puts node.value
+          arr << node.left
+          node = node.left
+        end  
+        return if arr.empty?
+        node = arr.pop
+        node = node.right unless node.nil?
+      end  
+    end  
+
+    # def postorder_widout_recursion(tree)
+    #   node = tree.root
+    #   arr = []
+    #   arr.push(node)
+    #   while(1)
+    #     while(!node.nil?)
+    #       arr.push(node)
+    #       node = node.left
+    #     end  
+    #     return nil if arr.empty?
+    #     node = arr.pop
+    #     if(!node.nil?)
+    #       node = node.right
+    #     else
+    #       puts node.value  
+    #     end  
+
+    #   end  
+    # end  
+
     def inorder_wid_recursion(node)
       inorder_wid_recursion(node.left) if(node.left != nil)
       puts node.value
@@ -209,16 +245,20 @@ b = BinaryTree.sample
 b1 = BinaryTree.sample1
 # puts "---------Inorder Traversal without recursion using stack--"
 # BinaryTree.inorder_widout_recursion(b)
-puts "---------Inorder Traversal with recursion-----------------"
-BinaryTree.inorder_wid_recursion(b.root)
+
+# puts "---------Inorder Traversal with recursion-----------------"
+# BinaryTree.inorder_wid_recursion(b.root)
 # puts "---------Preorder Traversal with recursion-----------------"
-# BinaryTree.preorder_wid_recursion(b.root)
-# puts "---------Postorder Traversal with recursion-----------------"
-# BinaryTree.postorder_wid_recursion(b.root)
+# BinaryTree.preorder_wid_recursion(b1.root)
+# BinaryTree.preorder_widout_recursion(b1)
+puts "---------Postorder Traversal with recursion-----------------"
+BinaryTree.postorder_wid_recursion(b1.root)
+puts 'kjhjhj'
+BinaryTree.postorder_widout_recursion(b1)
 # puts "---------Height Of Tree-----------------"
 # BinaryTree.get_height_of_tree(b)
-puts "---------Height of tree with recursion--"
-puts BinaryTree.get_height_wid_recursion(b.root)
+# puts "---------Height of tree with recursion--"
+# puts BinaryTree.get_height_wid_recursion(b.root)
 # puts "---------Diameter of Tree---------------"
 # puts BinaryTree.diameter(b.root)
 # puts "---------Count the leaf nodes of Tree----"
@@ -229,9 +269,9 @@ puts BinaryTree.get_height_wid_recursion(b.root)
 # puts BinaryTree.is_identical?(b.root, b1.root)
 # puts "---------Deleting Tree??----"
 # puts BinaryTree.delete_tree(b.root,b.root)
-puts "----------mirror of binary tree-------------"
-mirrored_tree = BinaryTree.get_mirror_of_tree(b.root)
-BinaryTree.inorder_wid_recursion(mirrored_tree)
+# puts "----------mirror of binary tree-------------"
+# mirrored_tree = BinaryTree.get_mirror_of_tree(b.root)
+# BinaryTree.inorder_wid_recursion(mirrored_tree)
 
-puts "-----Prining all path from root to left--------"
-BinaryTree.root_to_leaf_paths(b.root, [])
+# puts "-----Prining all path from root to left--------"
+# BinaryTree.root_to_leaf_paths(b.root, [])
