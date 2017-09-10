@@ -150,6 +150,25 @@ class BinaryTree
 
         queue.enq(magic_node.right) unless magic_node.right.nil?
       end  
+    end
+
+    # level order or breadth first search traversal of tree line by line
+    def level_order_traversal_line_by_line_sol1(root_node)
+      queue = Queue.new
+      queue.enq root_node
+      while(!queue.empty?)
+        node_count = queue.size
+        while(node_count > 0)
+          node = queue.deq
+          print node.value
+          print "\s"
+
+          queue.enq node.left unless node.left.nil?
+          queue.enq node.right unless node.right.nil?
+          node_count -= 1
+        end
+        puts "\n"
+      end      
     end  
 
     # return 1 if both tree is same else 0
@@ -251,10 +270,10 @@ b1 = BinaryTree.sample1
 # puts "---------Preorder Traversal with recursion-----------------"
 # BinaryTree.preorder_wid_recursion(b1.root)
 # BinaryTree.preorder_widout_recursion(b1)
-puts "---------Postorder Traversal with recursion-----------------"
-BinaryTree.postorder_wid_recursion(b1.root)
-puts 'kjhjhj'
-BinaryTree.postorder_widout_recursion(b1)
+# puts "---------Postorder Traversal with recursion-----------------"
+# BinaryTree.postorder_wid_recursion(b1.root)
+# puts 'kjhjhj'
+# BinaryTree.postorder_widout_recursion(b1)
 # puts "---------Height Of Tree-----------------"
 # BinaryTree.get_height_of_tree(b)
 # puts "---------Height of tree with recursion--"
@@ -265,6 +284,8 @@ BinaryTree.postorder_widout_recursion(b1)
 # puts BinaryTree.count_leaf_nodes(b.root)
 # puts "---------BFS/level order traversal of Tree----"
 # BinaryTree.level_order_traversal(b.root)
+puts "---------BFS/level order traversal of Tree One By One----"
+BinaryTree.level_order_traversal_line_by_line_sol1(b1.root)
 # puts "---------Is both tree are same??----"
 # puts BinaryTree.is_identical?(b.root, b1.root)
 # puts "---------Deleting Tree??----"
