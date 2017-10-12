@@ -56,6 +56,35 @@ class Graph
       end  
     end  
     print visited
+  end
+
+  def depth_first_search(start_from)
+    puts "*********DFS starting from #{start_from}***********"
+
+    visited = Array.new(vertices_count, 0) #all visited node will be 1 else 0
+    dfs = []
+    dfs.push(start_from)
+    print start_from
+    visited[start_from] = 1
+    ajacents = array[start_from].ajacents  
+    while(!ajacents.empty?)
+      node = ajacents[0] #random
+      break if visited[node] == 1
+      print node if visited[node] == 0
+      visited[node] = 1
+      dfs.push(node)
+      ajacents = array[node].ajacents  
+    end  
+    while(!dfs.empty?)
+      node = dfs.pop
+      ajacents = array[node].ajacents  
+      ajacents.each do |a|
+        if visited[a] == 0
+          print a 
+          visited[1] == 1
+        end  
+      end  
+    end  
   end  
 
 end 
@@ -79,7 +108,8 @@ graph.add_edge(3, 3);
 # graph.add_edge(3,2)
 # graph.add_edge(3,4)
 
-graph.print_it
+# graph.print_it
 
-graph.breadth_first_search(2)
+# graph.breadth_first_search(2)
+graph.depth_first_search(2)
 
