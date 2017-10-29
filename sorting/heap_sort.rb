@@ -8,15 +8,19 @@ class HeapSort
   end  
 
   def sort_me
+    print array
+    print "\n"
+    # getting rightmost element at second last height 
     index = (length/2 - 1)
-    
+
+    # building ordred tree as binary heap
     while(index >= 0)
       heapify(index) 
       index -= 1
     end  
 
     index = length - 1
-
+    # now sorting
     while(index > 0)
       swap(0, index)
       heapify(0, index)
@@ -30,7 +34,9 @@ class HeapSort
     lindex = indx * 2 + 1
     rindex = indx * 2 + 2
     largest = indx
-    
+    puts "index is #{largest}"
+    puts "Lindex is #{lindex}"
+    puts "Rindex is #{rindex}"
 
     if (lindex < n && array[largest] < array[lindex])
       largest = lindex
@@ -42,6 +48,8 @@ class HeapSort
     if largest != indx
       swap(indx, largest)
       heapify(largest,n)
+      print array
+      print "\n"
     end  
   end  
 
@@ -52,9 +60,10 @@ class HeapSort
   end  
 
   def self.exec_me
-    h = HeapSort.new([29,8,12,34,55,2,7])
+    # h = HeapSort.new([29,8,12,34,55,2,7])
+    h = HeapSort.new([15, 19, 10, 7, 17, 16])
     h.sort_me
-    puts h.array
+    print h.array
   end  
 end 
 
