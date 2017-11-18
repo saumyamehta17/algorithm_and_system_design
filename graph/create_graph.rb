@@ -77,7 +77,7 @@ class Graph
     end  
     while(!dfs.empty?)
       node = dfs.pop
-      ajacents = array[node].ajacents  
+      ajacents = array[node].ajacents  `
       ajacents.each do |a|
         if visited[a] == 0
           print a 
