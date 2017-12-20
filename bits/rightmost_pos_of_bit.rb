@@ -54,4 +54,5 @@ def print_right_most_bit(num)
   puts "right most set bit --> #{right_most_bit}"
 end  
 
-print_right_most_bit(19)
+# print_right_most_bit(19)
+print_right_most_bit(12)

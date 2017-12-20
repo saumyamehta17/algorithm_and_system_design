@@ -35,4 +35,4 @@ def print_next_greater_elem(arr)
   end  
 end  
 
-print_next_greater_elem([4, 5, 2, 25])
+print_next_greater_elem([4, 5, 27, 25])
