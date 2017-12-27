@@ -1,6 +1,9 @@
 # ex - 1
-@arr = [1, 4, 20, 3, 10, 5]
-@sum = 33
+# @arr = [1, 4, 20, 3, 10, 5]
+# @sum = 33
+
+@arr = [2, 5, 4, 3, 1, 6, 9]
+@sum = 8
 
 # ex - 2
 # @arr = [1, 4, 0, 0, 3, 10, 5]
@@ -29,8 +32,8 @@ while(@start < @len && @end >= @start)
     @max_sum -= @arr[@start]
     @start += 1
   elsif @max_sum < @sum
+    @end += 1
     @max_sum += @arr[@end]
-    @end -= 1
   end  
 end  
 
