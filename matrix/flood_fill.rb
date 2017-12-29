@@ -23,7 +23,7 @@ class FloodFill
     obj = FloodFill.new(new_color)
     obj.prev_color = obj.matrix[x][y]
     obj.flood_fill(x,y)
-    obj.print_it
+    obj.print_it  
   end 
 
   def flood_fill(x,y)
