@@ -1,4 +1,6 @@
 require 'pry'
+require 'set'
+
 class Node
   attr_accessor :left, :right, :value
 
@@ -18,6 +20,7 @@ end
 class BinaryTree
   attr_accessor :root
   @hsh = {}
+  @@sorted_set = SortedSet.new
 
   def initialize(val)
     @root = Node.new(val)
@@ -40,6 +43,7 @@ class BinaryTree
     q.enq(QD.new(hd, node))
     while(!q.empty?)
       qd_node = q.deq
+      @@sorted_set.add(qd_node.hd)
       @hsh[qd_node.hd] = qd_node.node.value
       hd = qd_node.hd
       node = qd_node.node
@@ -62,6 +66,10 @@ class BinaryTree
   end  
 
   def self.print_it
+    @@sorted_set.each do |ss|
+      puts @hsh[ss]
+    end  
+    puts 'dfdf----------------'
     @hsh.each do |k,v|
       print v
       puts "\n"
@@ -70,8 +78,8 @@ class BinaryTree
 end  
 
 root = BinaryTree.sample
-# BinaryTree.bottom_view(root)
-# BinaryTree.print_it
-BinaryTree.print_in_vertical_order(root)
-BinaryTree.print_it     
+BinaryTree.bottom_view(root)
+BinaryTree.print_it
+# BinaryTree.print_in_vertical_order(root)
+# BinaryTree.print_it     
 

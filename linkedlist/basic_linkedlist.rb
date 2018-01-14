@@ -39,6 +39,19 @@ class LinkedList
     @head = @prev_node
   end
 
+  def recursive_reverse(curr, prev)
+    if(curr.next.nil?)
+      self.head = curr
+      curr.next = prev
+      return nil
+    end
+
+    next1 = curr.next
+    curr.next = prev
+    recursive_reverse(next1, curr)
+    return head  
+  end    
+
   def find_middle_elem
     # take 2 pointers
     p1 = p2 = head
@@ -66,8 +79,9 @@ ll.insert_at_end(4)
 ll.insert_at_end(5)
 ll.insert_at_end(6)
 ll.print_it
-# puts "\nreverse is...."
+puts "\nreverse is...."
+ll.recursive_reverse(ll.head, nil)
 # ll.reverse
-# ll.print_it
-puts "\nMiD element is...."
-ll.find_middle_elem
+ll.print_it
+# puts "\nMiD element is...."
+# ll.find_middle_elem

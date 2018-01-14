@@ -1,5 +1,6 @@
 # anagram - one string is permutation of another string..
 # ex SILENT is permutation of LISTEN
+require 'pry'
 def is_permutation(str1, str2)
   # if length is not same , they are never 
   str1_length = str1.length
@@ -23,4 +24,5 @@ def is_permutation(str1, str2)
   return true 
 end  
 
-puts is_permutation('Silent', 'Listenn')
+# puts is_permutation('Silennnt', 'Listenn')
+puts is_permutation('catc', 'tac')

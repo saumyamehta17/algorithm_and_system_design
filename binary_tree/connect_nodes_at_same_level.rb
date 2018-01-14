@@ -45,7 +45,32 @@ class BinaryTree
     end
   end
 
+  def self.connect_nodes_with_queue(node)
+    q = Queue.new
+    q.enq(node)
+    while(!q.empty?)
+      nsize = q.size
+      prev = nil
+      while(nsize > 0)
+        node = q.deq
+        
+        if !prev.nil?
+          prev.next_pointer = node 
+          print "#{prev.val} --> "
+        end  
+        print "#{node.val} -->"
+        q.enq(node.left) if !node.left.nil?
+        q.enq(node.right) if !node.right.nil?
+        nsize -= 1
+      end
+      node.next_pointer = nil  
+      print " nil"
+      puts "\n"
+    end  
+  end  
+
 end  
 
 root = BinaryTree.sample
-BinaryTree.connect_nodes(root)
+# BinaryTree.connect_nodes(root)
+BinaryTree.connect_nodes_with_queue(root)
