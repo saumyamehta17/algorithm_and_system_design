@@ -27,6 +27,7 @@ def get_permutation(str)
 
   permutations = Set.new
   all_permutations.each do |substr|
+
     (0..all_char_except_last.length).each do |position|
       permutation = substr[0...position]  + last_char + substr[position..-1]
       permutations.add(permutation)

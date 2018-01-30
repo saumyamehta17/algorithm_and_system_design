@@ -26,7 +26,6 @@ class BinaryTree
   end 
 
   def self.find_postorder_from_given_inorder_and_preorder(inorder, preorder, n)
-    binding.pry
     root = search_root_index(inorder, preorder[0], n)
 
     if(root == -1)
@@ -35,11 +34,12 @@ class BinaryTree
     end  
     if(root != 0) #mean I have left subtree
       pre = preorder; pre.shift
+      puts "left subtree --> preorder: #{preorder} pre: #{pre.to_s} -- root: #{root} -- n: #{n}"
       find_postorder_from_given_inorder_and_preorder(inorder, pre, root)
     end  
     if(root != n-1) #mean I have right subtree
       pre = preorder; inorder.shift(root+1); pre.shift(root+1)
-      
+      puts "right subtree --> preorder: #{preorder} inorder: #{inorder} pre: #{pre.to_s} -- root: #{root} -- n: #{n}"
       find_postorder_from_given_inorder_and_preorder(inorder, pre, n-root-1)
     end
     puts " #{preorder[0]}"  

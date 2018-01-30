@@ -7,15 +7,15 @@ require 'pry'
 
 # thru nodes
 Node = Struct.new(:data, :next)
-
+require 'pry'
 class LinkedList
   attr_accessor :head
 
-  def initialize(val)
-    @head = Node.new(val)
+  def initialize(data = nil)
+    @head = Node.new(data)
   end
 
-  def insert(val)
+  def insert_data(val)
     if head.nil?
       @head = Node.new(val)
     else
@@ -26,62 +26,53 @@ class LinkedList
       current_node.next = Node.new(val)  
     end
     head  
-  end  
+  end
 
-  def print_it(curr_head = nil)
-    current_node = curr_head || head
-    while(!current_node.nil?)
-      print "#{current_node.data}  "
-      current_node = current_node.next
-    end  
-  end  
+  def dutch_flag_sol
+    dummy_node0 = Node.new(0)
+    dummy_node1 = Node.new(0)
+    dummy_node2 = Node.new(0)
+    end0 = dummy_node0
+    end1 = dummy_node1
+    end2 = dummy_node2
 
-  def sort_now
-    current_node = head
-
-    # three dummy nodes
-    dummy_zero_node = Node.new(0)
-    dummy_one_node  = Node.new(0)
-    dummy_two_node  = Node.new(0)
-    zero_node = dummy_zero_node
-    one_node = dummy_one_node
-    two_node = dummy_two_node
-
-    while(!current_node.nil?)
-      if    current_node.data == 0
-        zero_node.next = current_node
-        zero_node = zero_node.next
-      elsif current_node.data == 1
-        one_node.next = current_node
-        one_node = one_node.next
+    curr = head
+    while(!curr.nil?)
+      data = curr.data
+      if(data == 0)
+        end0.next = curr; end0 = end0.next
+      elsif data == 1
+        end1.next = curr; end1 = end1.next
       else
-        two_node.next = current_node
-        two_node = two_node.next
+        end2.next = curr; end2 = end2.next
       end
-      current_node = current_node.next  
+      curr = curr.next  
     end
 
-    # Merge all three pointers
-    zero_node.next = dummy_one_node.next ? dummy_one_node.next : dummy_two_node.next
-    one_node.next = dummy_two_node.next
-    dummy_two_node.next = nil
-    # skipping first dummy node 0 and returing zero_node.next
-    dummy_zero_node.next
+    end0.next = dummy_node1.next.nil? ? dummy_node2.next : dummy_node1.next
+    end1.next = dummy_node2.next
+    end2.next = nil
+
+    dummy_node0.next  
+  end
+
+  def print_it(curr = head)
+    while(!curr.nil?)
+      print "#{curr.data}  "
+      curr = curr.next
+    end  
   end  
 end
 
-ll = LinkedList.new(1)
-ll.insert(1)
-# ll.insert(2)
-ll.insert(0)   
-ll.insert(1)
-ll.insert(2)
-puts "Before sorting"
+ll = LinkedList.new(1)  
+ll.insert_data(0)
+ll.insert_data(2)
+ll.insert_data(1)
+ll.insert_data(0)
+ll.insert_data(1)
+ll.insert_data(0)
 ll.print_it
-
-puts "\nAfter sorting"
-
-head = ll.sort_now
-ll.print_it(head)
-puts "\n"
+puts "---------------------------"
+h = ll.dutch_flag_sol
+ll.print_it(h)
 

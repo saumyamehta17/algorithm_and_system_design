@@ -69,6 +69,5 @@ t = Trie.new
 t.insert('abc')
 t.insert('abced')
 t.insert('xyz')
-byebug
 puts t.have?('abce')
 puts t.have?('xyz')  

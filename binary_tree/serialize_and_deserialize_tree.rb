@@ -5,17 +5,66 @@ class BinaryTree
 
   def initialize(val)
     @root = Node.new(val)
-    @curr_file = File.open('binarytree.txt', 'w')
+    # only write
+    # @curr_file = File.open('binarytree.txt', 'w')
+    # read-write both
+    @curr_file = File.open('binarytree.txt', 'r+')
   end
 
-  def self.sample
+  # BST
+  def self.sample_bst
     bt = BinaryTree.new(10)
     root = bt.root
-    root.left = Node.new(11)
+    root.left = Node.new(7)
+    root.left.left = Node.new(3)
+    root.left.right = Node.new(8)
     root.right = Node.new(12)
     bt
   end
 
+  # to serialize BST we can use preorder traversal
+  def serialize_bst(node)
+    s = []
+    while(1)
+      while(!node.nil?)
+        curr_file.print("#{node.data} ")
+        s.push(node)
+        node = node.left
+      end
+      return 0 if(s.empty?)
+      node = s.pop
+      node = node.right  
+    end  
+  end
+
+  def bst_deserialize
+    curr_file = File.open('binarytree.txt', 'r+')
+    pre = curr_file.read
+    pre.strip.split(' ')
+    s = []
+    s.push(Node.new(pre[0]))
+    i = 1
+    while(i < pre.length-1)
+      peek = s.last
+      while(!s.empty? && pre[i] > peek.data)
+        temp = s.pop
+        peek = s.last
+      end
+
+      # put in right
+      if(!temp.nil?)
+        temp.right = Node.new(pre[i])
+        s.push(Node.new(pre[i]))
+      # put in left
+      else
+        peek.left = Node.new(pre[i])
+        s.push(Node.new(pre[i]))
+      end  
+
+      i += 1
+    end  
+  end  
+    
   def serialize(root)
     if(root.nil?)
       curr_file.print '` '
@@ -32,6 +81,10 @@ class BinaryTree
 
 end  
 
-bt = BinaryTree.sample
-bt.serialize(bt.root)
+# bt = BinaryTree.sample
+# bt.serialize(bt.root)
+
+bt = BinaryTree.sample_bst
+bt.serialize_bst(bt.root)
+bt.bst_deserialize
 bt.curr_file.close

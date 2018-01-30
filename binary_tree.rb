@@ -131,7 +131,7 @@ class BinaryTree
     end  
 
     def count_leaf_nodes(root_node)
-      return 0 if root_node.nil?
+      return 0 if root_node.nil?   
       return 1 if root_node.left.nil? & root_node.right.nil?
 
       return count_leaf_nodes(root_node.left) + count_leaf_nodes(root_node.right)
