@@ -21,6 +21,7 @@ def get_permutation(str)
   end  
 
   all_char_except_last = str[0...-1]
+  
   last_char = str[-1]
 
   all_permutations = get_permutation(all_char_except_last)

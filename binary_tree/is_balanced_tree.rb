@@ -43,23 +43,19 @@ class BinaryTree
     bt
   end  
 
-  def is_balanced_with_recursion(node)
-    if node.nil?
+  def isBalancedRecursion?(node)
+    if(node.nil?)
       return 0
     end
 
-    left = is_balanced_with_recursion(node.left)
-    right = is_balanced_with_recursion(node.right)  
-    if left & right
-      h = (left - right).abs
-      if h > 1
-        self.is_bal = false
-        return false
-      end  
-      return [left, right].max + 1
-    else
+    l = isBalanced?(node.left)
+    r = isBalanced?(node.right)  
+
+    if (l-r).abs > 1
       return false
-    end  
+    else
+      return [l,r].max+1
+    end
   end  
 
   def self.is_balanced?(node)
@@ -104,4 +100,5 @@ tree = BinaryTree.unbalanced_sample2
 # puts tree.is_bal
 # tree = BinaryTree.unbalanced_sample
 # tree = BinaryTree.balanced_sample
-puts BinaryTree.is_balanced?(tree.root)
+res = tree.isBalancedRecursion?(tree.root)
+res ? (puts "Yeah Balanced") : (puts "Uhhhh Not balanced")

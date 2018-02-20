@@ -1,4 +1,4 @@
-# Get width od tree
+                               # Get width od tree
 
 Node = Struct.new(:data, :left, :right)
 

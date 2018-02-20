@@ -1,76 +1,70 @@
-require 'pry'
-# doubly linkedlist
-class DLNode
-  attr_accessor :prev, :next, :data
-  def initialize(data)
-    @data = data
-  end
-end
+DLNode = Struct.new(:data, :prev, :next)
+Node   = Struct.new(:data, :left, :right)
 
-# Tree Node
-class TNode
-  attr_accessor :left, :right, :data
+class Binary
+  attr_accessor :dlnode, :root
 
-  def initialize(data)
-    @data = data
-  end
-end  
-
-class BinaryTree
-  attr_accessor :root, :llnode
-
-  def initialize(data)
-    @root = TNode.new(data)
-    @llnode = DLNode.new(0)
+  def initialize(val)
+    @root = Node.new(val)
+    @dlnode = DLNode.new(0)
   end
 
   def self.sample
-    bt = BinaryTree.new(1)
-    root = bt.root
-    root.left = TNode.new(2)
-    root.right = TNode.new(3)
-    root.left.left = TNode.new(4)
-    root.left.right = TNode.new(5)
-    root.right.left = TNode.new(6)
-    root.right.right = TNode.new(7)
+    bt = Binary.new(1)
+    _r = bt.root
+    _r.left = Node.new(2)
+    _r.right = Node.new(3)
+    _r.left.left = Node.new(4)
+    _r.left.right = Node.new(5)
+    _r.right.left = Node.new(6)
+    _r.right.right = Node.new(7)
     bt
+  end 
+
+  def process_vertically(node = root, dl_node = dlnode)
+    return nil if node.nil?
+
+    dl_node.data += node.data
+
+    if(!node.left.nil?)
+      if(dl_node.prev.nil?)
+        dl_node.prev = DLNode.new(0)
+        dl_node.prev.next = dl_node
+      end
+      process_vertically(node.left, dl_node.prev)  
+    end
+    
+    if(!node.right.nil?)
+      if(dl_node.next.nil?)
+        dl_node.next = DLNode.new(0)
+        dl_node.next.prev = dl_node
+      end
+      process_vertically(node.right, dl_node.next)  
+    end
+  end  
+
+  def traverse_to_front
+    curr = dlnode
+    while(!curr.prev.nil?)
+      curr = curr.prev
+    end
+    @dlnode = curr  
   end
 
-  def print_vertical_sum
-    print_vertical_sum_util(root, llnode)
-
-    # move doubly linked list at first
-    while(!llnode.prev.nil?)
-      self.llnode = llnode.prev
-    end
-    # now traverse
-    curr_node = llnode
-    while(!curr_node.nil?)
-      puts curr_node.data
-      curr_node = curr_node.next
+  def print_now
+    curr = dlnode
+    while(!curr.nil?)
+      p curr.data
+      curr = curr.next
     end  
   end  
 
-  def print_vertical_sum_util(tnode, llnode)
-    llnode.data = llnode.data + tnode.data
-
-    if(!tnode.left.nil?)
-      if(llnode.prev.nil?)
-        llnode.prev = DLNode.new(0)
-        llnode.prev.next = llnode
-      end
-      print_vertical_sum_util(tnode.left, llnode.prev)  
-    end
-
-    if(!tnode.right.nil?)
-      if(llnode.next.nil?)
-        llnode.next = DLNode.new(0)
-        llnode.next.prev = llnode
-      end
-      print_vertical_sum_util(tnode.right, llnode.next)  
-    end
+  def process
+    process_vertically
+    traverse_to_front
+    print_now
   end  
-end
+end 
 
-bt = BinaryTree.sample  
-bt.print_vertical_sum
+bt = Binary.sample 
+bt.process

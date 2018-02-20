@@ -18,14 +18,14 @@ class BinarySearchTree
   end
 
   def self.sample1
-    bt = BinarySearchTree.new(20)
+    bt = BinarySearchTree.new(1)
     root = bt.root
-    root.left = Node.new(8)
+    root.left = Node.new(2)
+    root.right = Node.new(3)
     root.left.left = Node.new(4)
-    root.left.right = Node.new(12)
-    root.left.right.left = Node.new(10)
-    root.left.right.right = Node.new(14)
-    root.right = Node.new(22)
+    root.left.right = Node.new(5)
+    root.right.left = Node.new(6)
+    root.right.right = Node.new(7)
     bt
   end
 
@@ -108,11 +108,10 @@ class BinarySearchTree
   end  
 end
 
-n1 = 8; n2 = 14
-# node = BinarySearchTree.sample1
-bt = BinarySearchTree.sample2
+node = BinarySearchTree.sample1
+# bt = BinarySearchTree.sample2
 # puts BinarySearchTree.lca(bt.root, n1, n2)
-puts bt.lca_with_binary_tree(bt.root, n1, n2)
-n1 = 10; n2 = 14
+# puts bt.lca_with_binary_tree(bt.root, n1, n2)
+# n1 = 10; n2 = 14
 puts bt.lca_with_binary_tree(bt.root, n1, n2)
 

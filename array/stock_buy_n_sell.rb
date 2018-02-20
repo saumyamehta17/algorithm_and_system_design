@@ -1,22 +1,41 @@
-buy = sell = i = 0
-arr = [100, 180, 260, 20, 10, 5]
-# arr = [100, 180, 260, 310, 40, 300, 20, 30]
-len = arr.length
+Node = Struct.new(:buy, :sell)
 
-while( i < len - 1)
-  if(arr[i] < arr[i+1])
-    sell = i + 1
-  else
-    if (sell - buy) > 0
-      puts "buy at #{buy}"
-      puts "sell at #{sell}"
-    end
-    buy = sell = i + 1  
+class StockBuySell
+  attr_accessor :prices, :count, :n, :sol
+
+  def initialize(prices)
+    @prices = prices
+    @count = 0
+    @sol = []
+    @n = prices.length
   end
-  i = i + 1  
-end
 
-if (sell - buy) > 0
-  puts "buy at #{buy}"
-  puts "sell at #{sell}"
-end
+  def process
+    i = 0
+    while(i < n-1)
+      while(i < n-1 && prices[i] >= prices[i+1])
+        i += 1
+      end
+      @sol[count] = Node.new(i)
+      i+=1
+
+      while (i<n && prices[i] >= prices[i-1])
+        i += 1
+      end 
+
+      @sol[count].sell = i-1
+      # i += 1
+      @count += 1
+      end
+  end  
+
+  def print_it
+    sol.each do |s|
+      puts "buy at #{s.buy} and sell at #{s.sell}"
+    end  
+  end  
+end  
+
+s = StockBuySell.new([100, 180, 260, 310, 40, 535, 695])
+s.process
+s.print_it

@@ -22,7 +22,7 @@ def min_platform_needed(arr, dep)
   puts "Platform needed for railway station are #{result}"  
 end  
 
-arr = [900,  940, 950,  1100, 1500, 1800]
-dep = [910, 1200, 1120, 1130, 1900, 2000]
+arr = [1900,  940, 950,  1100, 1500, 1800]
+dep = [2310, 1200, 1120, 1130, 1900, 2000]
 
 min_platform_needed(arr, dep)

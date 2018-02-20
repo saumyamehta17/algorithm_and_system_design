@@ -1,36 +1,58 @@
-@str = 'GeeksforGeeks'
-@len = @str.length
-@count_arr = Array.new(256,0)
-@inc = 1
-def first_non_repeating_char
-  # count array with count of each char
-  0.upto(@len-1) do |x|
-    ascii_val = @str[x].ord
-    @count_arr[ascii_val] += 1
-  end  
+require 'pry'
+class Node
+  attr_accessor :count, :index
 
-  @count_arr.each_with_index do |x,i|
-    return i.chr if(x == 1)
-  end  
-end
-
-def kth_non_repeating_char(k)
-  # count array with count of each char
-  0.upto(@len-1) do |x|
-    ascii_val = @str[x].ord
-    @count_arr[ascii_val] += 1
-  end  
-
-  @count_arr.each_with_index do |x,i|
-    if(x == 1)
-     if(@inc == k) 
-      return i.chr 
-     end
-      @inc += 1
-    end 
+  def initialize
+    @count = 0
+    @index = -1
   end
-  return "Not found" 
 end  
+class StringOpr
+  attr_accessor :str, :arr, :len, :index
 
-# puts first_non_repeating_char  
-puts kth_non_repeating_char(3)  
+  def initialize(str)
+    @str = str
+    @len = str.length
+    @arr = Array.new(127) {|e| Node.new}
+    @index = Array.new(127, 256)
+  end
+
+  def first_non_repeating_chr
+    0.upto(len-1) do |i|
+      @arr[str[i].ord].count += 1
+      @arr[str[i].ord].index = i
+    end
+    res = 461168607387903 #MAxVALUE
+    arr.each do |elem|
+      if(elem.count == 1)
+        res = [res, elem.index].min
+      end  
+    end
+
+    puts "first non repeating is #{str[res]}"
+  end
+
+  def kth_non_repeating_chr(k)
+    0.upto(len-1).each do |i|
+      @arr[str[i].ord].count += 1
+      if(@arr[str[i].ord].count == 1)
+        @index[str[i].ord] = i
+      end  
+
+      if(@arr[str[i].ord].count > 1)
+        @index[str[i].ord] = 256
+      end  
+      @arr[str[i].ord].index = i
+    end
+    # sort index array will take o(1)
+    res = index.sort[k-1]
+
+    puts "puts kth non repeating char #{str[res]}"
+  end  
+end 
+
+# obj = StringOpr.new('GeekszforGeeks')
+# obj.first_non_repeating_chr
+k = 1
+obj1 = StringOpr.new('GeekszforGeeks')
+obj1.kth_non_repeating_chr(k)
