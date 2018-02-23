@@ -1,3 +1,4 @@
+# using hasing...
 def relative_sort(a1, a2)
   hsh = {}
   a1.each do |a|
