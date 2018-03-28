@@ -3,25 +3,22 @@ def print_in_zig_zag(arr, n)
   # array length is 1
   return if(n == 1)
 
-  i = 1; flag = 0
+  i = 0
+  while(i < n-1)
+      min = [arr[i], arr[i+1]].min
+      max = [arr[i], arr[i+1]].max
 
-  while(i < n)
-    if(flag == 0 && arr[i] < arr[i-1])
-      swap(arr, i,i-1)
-    elsif (flag == 1 && arr[i] > arr[i-1])
-      swap(arr, i,i-1)
-    end  
-
-    i += 1; flag = flag == 0 ? 1 : 0
+      if(i%2 == 0)
+          arr[i] = min
+          arr[i+1] = max
+      else
+          arr[i] = max
+          arr[i+1] = min
+      end    
+      i+=1
   end
-  puts "After zig zag"
+  puts "After..."
   puts arr.to_s  
-end  
-
-def swap(arr, index1, index2)
-  temp = arr[index1]
-  arr[index1] = arr[index2]
-  arr[index2] = temp
 end  
 
 arr = [4, 3, 7, 8, 6, 2, 1]

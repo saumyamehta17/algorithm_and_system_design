@@ -1,65 +1,39 @@
-require 'pry'
-class Node
-  attr_accessor :left, :right, :value
-
-  def initialize(val)
-    @value = value
-  end  
-end  
-
-
-class BinaryTree
-  attr_accessor :root
-
-  def initialize(val)
-    @root = Node.new(val)
-  end  
-
-  def self.sample
-    tree = BinaryTree.new(1)
-    root = tree.root
-    root.left  = Node.new(2)
-    root.right  = Node.new(3)
-    root.left.left = Node.new(4)
-    root.left.right = Node.new(5)
-    tree
-  end 
-
-  def self.find_postorder_from_given_inorder_and_preorder(inorder, preorder, n)
-    root = search_root_index(inorder, preorder[0], n)
-
-    if(root == -1)
+def topost(inorder, preorder, n)
+  indx = search(inorder, preorder[0], n)
+  # puts indx
+  if(indx == -1)
       puts 'Something went wrong'
       return
-    end  
-    if(root != 0) #mean I have left subtree
-      pre = preorder; pre.shift
-      puts "left subtree --> preorder: #{preorder} pre: #{pre.to_s} -- root: #{root} -- n: #{n}"
-      find_postorder_from_given_inorder_and_preorder(inorder, pre, root)
-    end  
-    if(root != n-1) #mean I have right subtree
-      pre = preorder; inorder.shift(root+1); pre.shift(root+1)
-      puts "right subtree --> preorder: #{preorder} inorder: #{inorder} pre: #{pre.to_s} -- root: #{root} -- n: #{n}"
-      find_postorder_from_given_inorder_and_preorder(inorder, pre, n-root-1)
-    end
-    puts " #{preorder[0]}"  
-  end 
+  end
+  if(indx != 0)
+    # puts "---left subtree --> preorder: #{preorder} -- root: #{indx} -- n: #{n}"
+    pr = preorder.dup; pr.shift
+    # puts "left subtree --> preorder: #{preorder} pre: #{pr.to_s} -- root: #{indx} -- n: #{n}"
+    topost(inorder, pr, indx)
+  end
 
-  def self.search_root_index(inorder, element, n)
-    i = 0
-    while(i < n)
-      if(inorder[i] == element)
-        puts 'found'
-        return i
-      end  
-      i += 1
+  if(indx != n-1)
+    pr = preorder.dup; pr.shift(indx+1)
+    ino = inorder.dup
+    # puts "right subtree --> preorder: #{preorder} inorder: #{inorder} pre: #{pr.to_s} -- root: #{indx} -- n: #{n}"
+    ino.shift(indx+1)
+    topost(ino, pr, n-indx-1)
+  end
+  puts " #{preorder[0]}"  
+  return  
+end
+
+def search(inorder, pre, n)  
+  i = 0
+  while(i < n)
+    if(inorder[i] == pre)
+      return i
     end
-    # return -1  
-  end  
+    i += 1  
+  end
+  return -1  
 end  
-
-
-tree = BinaryTree.sample
-inorder = [4,2,5,1,3] #hardcoded inorder traversal result
-preorder = [1,2,4,5,3]
-BinaryTree.find_postorder_from_given_inorder_and_preorder(inorder, preorder, inorder.length)
+inorder = [4, 2, 5, 1, 3, 6]
+preorder = [1, 2, 4, 5, 3, 6]
+n = 6
+topost(inorder, preorder, n)

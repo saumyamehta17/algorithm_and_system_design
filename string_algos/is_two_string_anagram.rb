@@ -1,28 +1,27 @@
 # anagram - one string is permutation of another string..
 # ex SILENT is permutation of LISTEN
-require 'pry'
-def is_permutation(str1, str2)
-  # if length is not same , they are never 
-  str1_length = str1.length
-  str2_length = str2.length
-  if(str1_length != str2_length)
-    return false
+
+def anagram?(str1, str2)
+  len1 = str1.length
+  len2 = str2.length
+  if(len1 != len2)
+    return "No"
   end  
-  letters = []
-  0.upto(126){|x| letters[x] = 0}
-
-  0.upto(str1_length - 1) do |x|
-    letters[x] += 1
-  end 
-
-  0.upto(str2_length - 1).each do |x|
-    count = letters[x] -= 1
-    if(count < 0)
-      return false
-    end  
+  arr = Array.new(128, 0)
+  0.upto(len1-1).each do |ind|
+    arr[str1[ind].ord] += 1
   end
-  return true 
-end  
 
-# puts is_permutation('Silennnt', 'Listenn')
-puts is_permutation('catc', 'tac')
+  0.upto(len2-1).each do |ind|
+    if arr[str1[ind].ord] == 0
+      return "No"
+    else
+      arr[str1[ind].ord] -= 1
+    end  
+  end  
+  return "YES"
+end
+
+str1 = "anamgram"
+str2 = "nagamram"
+puts anagram?(str1, str2)  

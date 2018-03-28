@@ -28,6 +28,31 @@ def trapped_water(arr, n)
   end 
 
   puts "Trapped Water units #{val}"
+end
+
+
+def find_water_optimized(arr, n)
+    low = 0; hi = n-1
+    left_max = 0; right_max = 0
+    res = 0
+    while(low <= hi)
+      if(arr[low] < arr[hi])
+        if(arr[low] > left_max)
+            left_max = arr[low]
+        else
+            res += (left_max - arr[low])
+            low += 1
+        end    
+      else
+        if(arr[hi] > right_max)
+          right_max = arr[hi]
+        else
+          res += (right_max - arr[hi])
+          hi -= 1
+        end  
+      end    
+    end
+    res    
 end  
 
 arr = [3,0,0,2,0,4]
