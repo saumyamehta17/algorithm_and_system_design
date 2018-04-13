@@ -1,5 +1,5 @@
 # Kadane's Algo
-
+  
 def kadane(arr)
   n = arr.length
   curr = arr[0]

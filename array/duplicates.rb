@@ -1,4 +1,4 @@
-# print duplicate only once
+  # print duplicate only once
 def print_repeating_uniqly(arr, n)
   i = 0
   while(i < n)

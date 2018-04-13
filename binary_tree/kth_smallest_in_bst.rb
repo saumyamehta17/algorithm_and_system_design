@@ -1,49 +1,41 @@
 Node = Struct.new(:data, :left, :right)
 class BST
-  attr_accessor :root
 
+  attr_reader :root
   def initialize(val)
     @root = Node.new(val)
   end
-
   def self.sample
     bst = BST.new(20)
     root = bst.root
-    root.left = Node.new(15)
-    root.right = Node.new(30)
-    root.left.left = Node.new(10)
-    root.left.right = Node.new(18)
-    root.right.left = Node.new(24)
-    root.right.right = Node.new(50)
-    root.left.right.left = Node.new(16)
-    root.right.right.left = Node.new(32)
+    root.left = Node.new(8)
+    root.left.left = Node.new(4)
+    root.left.right = Node.new(12)
+    root.left.right.left = Node.new(10)
+    root.left.right.right = Node.new(14)
+    root.right = Node.new(22)
     bst
   end
 
-  def kth_smallest(node, k)  
-    s1 = []
-    i = 0
-    s1.push(node)
-    node = node.left
-    while(!s1.empty?)
+  def kth(node, k)
+    s = []; c = 1
+    while(true)
       while(!node.nil?)
-        s1.push(node)
+        s.push(node)
         node = node.left
-      end  
-      node = s1.pop
-      i += 1
-      # puts i
-      # puts node.data
-      if(i == k)
-        return node.data
       end
-
-      s1.push(node.right)  if !node.right.nil?
-      node = node.right && node.right.left || nil
-    end
-    return 'not found.'  
+      return "Stack empty" if s.empty?
+      node = s.pop
+      if(c == k)
+        return node.data
+      end  
+      c += 1
+      s.push(node.right) if !node.right.nil?
+      node = node.right
+    end  
   end  
 end
 
+
 bst = BST.sample  
-puts bst.kth_smallest(bst.root, 2)
+puts bst.kth(bst.root, 4)

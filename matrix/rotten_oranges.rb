@@ -24,7 +24,7 @@ class RotOranges
     end
     q.enq(Point.new(-1,-1))
     
-    while(!q.empty?)
+    while(!q.empty?)  
       flag = false
       point = q.deq
       while(!delimiter?(point))
