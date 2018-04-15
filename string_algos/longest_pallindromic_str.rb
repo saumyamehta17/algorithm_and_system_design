@@ -36,5 +36,6 @@ end
 str = "okgegk"
 str = "forgeegfor"
 str = "forgeeksskeegfor"
+str = "geeksskeeg"
 longest_pallimdromic_substr(str)
 

@@ -21,6 +21,7 @@ def solve(input, n, res, sum, l, i)
     end  
     l.push(input[start])
     solve(input, n, res, sum - input[start], l, start+1)
+    # solve(input, n, res, sum - input[start], l, start)
     l.pop
     start += 1
   end
@@ -29,5 +30,6 @@ end
 
 arr = [1,1,2,4,5,7,10]
 # arr = [2,2,4]
+arr = [2,4,6,8]
 sum = 8
 combinational_sum(arr, sum)  

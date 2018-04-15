@@ -1,41 +1,59 @@
-class Node
-  attr_accessor :left, :right, :val
-
-  def initialize(val)
-    @val = val
-  end  
-end  
+Node = Struct.new(:data, :left, :right)  
 
 class LeftViewTree
-  attr_accessor :root
+  attr_accessor :root, :maxlevel
 
   def initialize(val)
     @root = Node.new(val)
+    @maxlevel = 0
   end
 
   def self.sample
-    root = LeftViewTree.new(10).root
-    root.left = Node.new(20)
-    root.right = Node.new(30)
-    root.left.left = Node.new(40)
-    root.left.right = Node.new(60)
-    root
+    bst = LeftViewTree.new(4)
+    root = bst.root
+    root.left = Node.new(5)
+    root.right = Node.new(2)
+    root.right.left = Node.new(3)
+    root.right.right = Node.new(1)
+    root.right.left.left = Node.new(6)
+    root.right.left.right = Node.new(7)
+    bst
   end
 
-  def self.print_left_view(node, level, max_level)
-    @@max_level = max_level || 0
+  def left_view_iterative(node = root)
+    q = Queue.new
+    q.enq(node)
+    while(!q.empty?)
+      node_count = q.length
+      flag = true
+      while node_count > 0
+        node = q.deq
+        if flag
+          puts node.data
+          flag = false
+        end  
+        q.enq(node.left) if node.left
+        q.enq(node.right)  if node.right
+        node_count -= 1
+      end
+    end  
+  end
+
+  def left_view_recursive(node, level)
     return if node.nil?
-    # puts @max_level
-    if(@@max_level <= level)
-      print node.val
-      @@max_level = level + 1
+    if(maxlevel <= level)
+      puts node.data
+      @maxlevel = level + 1
     end
 
-    self.print_left_view(node.left, level + 1, @@max_level) unless node.left.nil?
-    self.print_left_view(node.right, level + 1, @@max_level) unless node.right.nil? 
+    left_view_recursive(node.left, level + 1)
+    left_view_recursive(node.right, level + 1)
   end  
 end  
 
 
-root = LeftViewTree.sample
-LeftViewTree.print_left_view(root, 0, 0)
+bst = LeftViewTree.sample
+# bst.left_view_iterative
+maxlevel = 0
+level = 0
+bst.left_view_recursive(bst.root, level)
