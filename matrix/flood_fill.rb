@@ -27,14 +27,12 @@ class FloodFill
   end 
 
   def flood_fill(x,y)
-    return if x > m || x < 0 || y > n || y < 0
-    if(matrix[x][y] == prev_color)
-      matrix[x][y] = new_color
-      flood_fill(x+1, y)
-      flood_fill(x-1, y)
-      flood_fill(x, y+1)
-      flood_fill(x, y-1)
-    end  
+    return if x > m || x < 0 || y > n || y < 0 || matrix[x][y] != prev_color
+    matrix[x][y] = new_color
+    flood_fill(x+1, y)
+    flood_fill(x-1, y)
+    flood_fill(x, y+1)
+    flood_fill(x, y-1)
   end  
 
   def print_it

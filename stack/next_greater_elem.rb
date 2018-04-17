@@ -19,6 +19,7 @@ def print_next_greater_elem(arr)
           puts "#{pop_again} --> #{current_elem}"
         else
           nge.push(pop_again)  
+          break
         end  
       end  
     # else push back to nge stack  

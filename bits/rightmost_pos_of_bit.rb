@@ -1,58 +1,27 @@
-require 'pry'
-def num_to_binary(num)
-  arr = []
+def rightmost_bit(num)
+  binary_str = ''
   while(num > 0)
-    reminder = num % 2
-    arr.push reminder
+    binary_str += (num%2).to_s
     num = num/2
-  end 
-  arr.reverse 
+  end
+  n = binary_str.length
+  i = 0
+  while(i < n)
+    if(binary_str[i].to_i == 1)
+      puts binary_str[i].to_i*(2**i)
+      break
+    end
+    i += 1  
+  end
+
+  # puts 'Not Found'  
 end
 
-def negate(bits)
-  i = 0
-  while(i < bits.length)
-    bits[i] = bits[i] == 0 ? 1 : 0
-    i += 1
-  end 
-  bits
-end  
+rightmost_bit(18)  
 
-
-def anding(bits,negate_bits)
-  i = 0
-  arr = []
-  while(i < bits.length)
-    arr[i] = bits[i] & negate_bits[i]
-    i += 1
-  end 
-  arr 
-end  
-
-def binary_to_decimal(arr)
-  sum = 0
-  arr.reverse.each_with_index do |a,i|
-    sum += 2**i if a == 1
-  end   
-  sum
-end  
-
-def print_right_most_bit(num)
-  bits = num_to_binary(num)
-  print bits
-  puts "\n"
-  bits_minus_one = num_to_binary(num-1)
-  print bits_minus_one
-  puts "\n"
-  negate_bits = negate(bits_minus_one)
-  print negate_bits
-  puts "\n"
-  final = anding(bits, negate_bits)
-  print final
-  puts "\n"
-  right_most_bit = binary_to_decimal(final)
-  puts "right most set bit --> #{right_most_bit}"
-end  
-
-# print_right_most_bit(19)
-print_right_most_bit(12)
+# or we can do it like following 
+# binary of 18    = 010010
+# binary of 18-1  = 010001
+# and negate 18-1 = 101110
+# anding of 18 and 17 - 010010 & 101110 = 000010 i.e 2
+# you will find rightmost bit of 1

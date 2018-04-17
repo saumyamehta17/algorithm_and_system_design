@@ -1,10 +1,9 @@
-@m = 3
-@n = 3
-def num_of_paths(l,h)
-  return 1 if(l == @m-1 && h == @n-1)
-  return 0 if(l == @m || h == @n)
+# The problem is opposite of this post. We are given a stack data structure with 
+# push and pop operations, the task is to implement a queue using instances of 
+# stack data structure and operations on them.
 
-  num_of_paths(l+1, h) + num_of_paths(l, h+1)
-end  
+# Stack and Queue with insert and delete operations
 
-puts num_of_paths(0,0)
+# A queue can be implemented using two stacks. 
+# Let queue to be implemented be q and stacks used to implement q 
+# be stack1 and stack2. q can be implemented in two ways
