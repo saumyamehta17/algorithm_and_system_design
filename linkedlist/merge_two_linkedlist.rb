@@ -1,3 +1,4 @@
+require 'pry'
 Node = Struct.new(:value, :next)
 
 class LinkedList
@@ -46,6 +47,29 @@ class LinkedList
     end
 
     return res    
+  end
+
+  def self.merge_iterative(h1,h2)
+    result = Node.new(0)
+    new_head = result
+    while(!h1.nil? && !h2.nil?)
+      if(h1.value < h2.value)
+        result.next = Node.new(h1.value)
+        h1 = h1.next
+      else
+        result.next = Node.new(h2.value)
+        h2 = h2.next
+      end 
+      result = result.next 
+    end
+    if(h1.nil? && h2.nil?)
+      # 
+    elsif h1.nil?
+      result.next = h2
+    else
+      result.next = h1
+    end  
+    new_head.next
   end 
 end  
 # n =  Node.new(12)
@@ -65,8 +89,14 @@ l2.insert_at_end(21)
 l2.insert_at_end(34)
 l2.print
 
-res = LinkedList.merge_sort(l1.head, l2.head)
-puts "-----------Merge Result-----------"
+# res = LinkedList.merge_sort(l1.head, l2.head)
+# puts "-----------Merge Result Recursive-----------"
+# while(!res.nil?)
+#   puts res.value
+#   res = res.next
+# end  
+res = LinkedList.merge_iterative(l1.head, l2.head)
+puts "-----------Merge Result Iterative-----------"
 while(!res.nil?)
   puts res.value
   res = res.next
