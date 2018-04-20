@@ -78,8 +78,8 @@ class BinaryTree
 end  
 
 root = BinaryTree.sample
-BinaryTree.bottom_view(root)
-BinaryTree.print_it
-# BinaryTree.print_in_vertical_order(root)
-# BinaryTree.print_it     
+# BinaryTree.bottom_view(root)
+# BinaryTree.print_it
+BinaryTree.print_in_vertical_order(root)
+BinaryTree.print_it     
 
