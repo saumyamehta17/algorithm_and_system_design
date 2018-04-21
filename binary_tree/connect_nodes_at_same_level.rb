@@ -7,10 +7,11 @@ end
 
 
 class BinaryTree
-  attr_accessor :root
+  attr_accessor :root, :left_view_nodes
 
   def initialize(val)
     @root = Node.new(val)
+    @left_view_nodes = []
   end
 
   def self.sample
@@ -49,25 +50,34 @@ class BinaryTree
     q = Queue.new
     q.enq(node)
     while(!q.empty?)
-      nsize = q.size
+      node_count = q.length
       prev = nil
-      while(nsize > 0)
-        node = q.deq
-        
-        if !prev.nil?
-          prev.next_pointer = node 
-          print "#{prev.val} --> "
+      while(node_count != 0)
+        curr_node = q.deq
+        if prev
+          prev.next = curr_node
+        else
+          @left_view_nodes << curr_node
         end  
-        print "#{node.val} -->"
-        q.enq(node.left) if !node.left.nil?
-        q.enq(node.right) if !node.right.nil?
-        nsize -= 1
-      end
-      node.next_pointer = nil  
-      print " nil"
-      puts "\n"
+        prev = curr_node
+        q.enq(curr_node.left) if !curr_node.left.nil?
+        q.enq(curr_node.right) if !curr_node.right.nil?
+        node_count -= 1
+      end  
     end  
   end  
+
+  def print_it
+    for node in left_view_nodes
+      curr = node
+      while !curr.nil?
+        print curr.data
+        curr = curr.next
+        print '-->' if !curr.nil?
+      end  
+      puts "\n"
+    end  
+  end
 
 end  
 

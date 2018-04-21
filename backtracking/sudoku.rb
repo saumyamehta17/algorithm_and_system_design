@@ -1,96 +1,74 @@
 class SudokuGame
-  attr_reader :row, :col, :num, :arr
+  attr_reader :num, :arr, :divider_num
 
-  def initialize(arr)
+  def initialize(arr, num, divider_num)
     @arr = arr
-    @num = 9
-    @row = 0
-    @col = 0
+    @num = num
+    @divider_num = divider_num
   end
 
   def solve_it
 
-    if !have_more_location
+    #base case
+    i,j = have_more_location
+    if i.nil?
       return true
     end 
-    l_row = row
-    l_col = col
-    i = 1
-    while(i <= num) 
 
-      if is_safe(i)
+    for x in 1..num
+      # puts "i: #{i} j: #{j}  x: #{x}"
+      if is_safe(x, i, j)
+        
+        @arr[i][j] = x
 
-          @arr[l_row][l_col] = i
+        if solve_it
+          return true
+        end
 
-          if solve_it
-            return true
-          end
-          puts "#{l_row} - #{l_col}"
-          @arr[l_row][l_col] = 0
+        @arr[i][j] = 0
       end
-      i += 1
     end  
-    false
+    return false  
   end
 
-  def is_safe(i)
-   return !not_in_curr_row(i) && 
-          !not_in_curr_col(i) && 
-          !not_in_curr_box(i, row - row%3, col - col%3)
+  def is_safe(x, i, j)
+   return !not_in_curr_row(x, i) && 
+          !not_in_curr_col(x, j) && 
+          !not_in_curr_box(x, i,j)
   end  
 
-  def not_in_curr_row(val)
-    i = 0
-    while(i < num)
-      if arr[row][i] == val
-        return true
-      end  
-      i += 1
+  def not_in_curr_row(val, row)
+    for x in 0...num
+      return true if arr[row][x] == true
     end
     false  
   end
 
-  def not_in_curr_col(val)
-    i = 0
-    while(i < num)
-      if(arr[i][col] == val)
-        return true
-      end
-      i += 1  
-    end  
+  def not_in_curr_col(val, col)
+    for x in 0...num
+      return true if arr[x][col] == true
+    end    
     false
   end
 
-  def not_in_curr_box(val, i_start_from, j_start_from)  
-    i = 0
-    while(i < 3)
-      j = 0
-      while(j < 3)
-        if arr[i+i_start_from][j+j_start_from] == val
-          return true
-        end 
-        j += 1 
+  def not_in_curr_box(val, i, j)  
+    start_x = (i/divider_num) * divider_num
+    start_y = (j/divider_num) * divider_num
+    for x in start_x...(start_x+divider_num)
+      for y in start_y...(start_y+divider_num)
+        return true if arr[x][y] == val
       end
-      i += 1  
-    end
+    end    
     false  
   end  
 
   def have_more_location
-    i = 0
-    while(i < num)
-      j = 0
-      while(j < num)
-        if(arr[i][j] == 0)
-          @row = i
-          @col = j
-          return true
-        end  
-        j += 1
+    for x in 0...num
+      for y in 0...num
+        return x,y if arr[x][y] == 0
       end
-      i += 1
     end
-    false    
+    return nil
   end  
 end 
 
@@ -103,7 +81,17 @@ arr = [[3,0,6,5,0,8,4,0,0],
       [1,3,0,0,0,0,2,5,0],
       [0,0,0,0,0,0,0,7,4],
       [0,0,5,2,0,6,3,0,0]]
-sg = SudokuGame.new(arr) 
+num = 9
+divider_num = 3
+# arr = [
+#         [1,0,3,0],
+#         [0,0,2,1],
+#         [0,1,0,2],
+#         [2,4,0,3]
+#       ]      
+# num = 4
+# divider_num = 2      
+sg = SudokuGame.new(arr, num, divider_num) 
 puts "Before.."
 puts sg.arr.to_s
 sg.solve_it
