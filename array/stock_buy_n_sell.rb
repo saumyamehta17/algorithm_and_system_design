@@ -16,6 +16,10 @@ class StockBuySell
       while(i < n-1 && prices[i] >= prices[i+1])
         i += 1
       end
+
+      if(i == n-1)
+        break
+      end
       @sol[count] = Node.new(i)
       i+=1
 

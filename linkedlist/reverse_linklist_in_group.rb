@@ -1,71 +1,55 @@
-# Reverse a Linked List in groups of given size 
-
-class Node
-  attr_accessor :next, :value
-
-  def initialize(value)
-    @value = value
-  end
-end  
-
-class LinkedList
-  attr_accessor :head
+Node = Struct.new(:data, :next)
+class LinkList
+  attr_reader :head
 
   def initialize(val)
     @head = Node.new(val)
   end
 
-  def insert_at_end(val)
-    if head.nil?
-      @head = Node.new(val)
-    else
-      current_node = head
-      while(!current_node.next.nil?)
-        current_node = current_node.next
-      end
-      current_node.next = Node.new(val)  
-    end
-    head  
+  def self.sample
+    ll = LinkList.new(1)
+    head = ll.head
+    head.next = Node.new(2)
+    head.next.next = Node.new(3)
+    head.next.next.next = Node.new(4)
+    head.next.next.next.next = Node.new(5)
+    head.next.next.next.next.next = Node.new(6)
+    head.next.next.next.next.next.next = Node.new(7)
+    head.next.next.next.next.next.next.next = Node.new(8)
+    ll
   end
 
-  def print_it(head)
-    current_node = head
-    while(!current_node.nil?)
-      puts current_node.value
-      current_node = current_node.next
-    end  
-  end 
-
-  def self.reverse_in_group(head, k) 
-    i = 0; current_node = head; prev = nil; next_node = nil
-
-    while(i < k && !current_node.nil?)
-      next_node = current_node.next
-      current_node.next = prev
-      prev = current_node
-      current_node = next_node
-      i += 1
+  def reverse_in_grp(head, k)
+    c = 0
+    curr = head
+    prev = nil
+    while(c < k && !curr.nil?)
+      next_node = curr.next
+      curr.next = prev
+      prev = curr
+      curr = next_node
+      c += 1
     end
 
-    if(!current_node.nil?)
-      head.next = reverse_in_group(current_node, k)
+    if !curr.nil?
+      head.next = reverse_in_grp(curr, k)
     end  
+    prev
+  end
 
-    return prev
+  def print_it(node = head)
+    curr = node
+    while(!curr.nil?)
+      print "#{curr.data} --> "
+      curr = curr.next
+    end  
   end  
-end  
+end 
 
-ll = LinkedList.new(1)
-ll.insert_at_end(2)
-ll.insert_at_end(3)
-ll.insert_at_end(4)
-ll.insert_at_end(5)
-ll.insert_at_end(6)
-ll.insert_at_end(7)
-ll.insert_at_end(8)
+ll = LinkList.sample 
+k = 3
 ll.print_it(ll.head)
-k = 5
-head = LinkedList.reverse_in_group(ll.head, k)
-puts "-----------------------"
-ll.print_it(head)
-
+puts "\nAfter reverse in #{k}"
+node = ll.reverse_in_grp(ll.head, k)
+ll.print_it(node)
+puts "\n"
