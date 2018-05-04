@@ -27,7 +27,7 @@ class SudokuGame
 
         @arr[i][j] = 0
       end
-    end  
+    end   
     return false  
   end
 

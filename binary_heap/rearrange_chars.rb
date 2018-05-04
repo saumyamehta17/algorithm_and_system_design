@@ -12,7 +12,7 @@ class RearrangeChar
   def process
     n = str.length
     i = 0
-    char_arr = Array.new(128, 0)
+    char_arr = Array.new(26, 0)
     while(i < n)
       char_arr[str[i].ord - 'a'.ord] += 1
       i += 1
@@ -46,7 +46,7 @@ class RearrangeChar
 
     end 
 
-    # puts "No Possible" if(prev_freq > 0) 
+    puts "No Possible" if(prev_freq > 0) 
   end  
 
   def insert(char, freq)
@@ -99,6 +99,8 @@ end
 
 str = 'aabb'
 str = 'bbbaa'
+str = 'geeksforgeeks'
+# str = 'bbbb'
 rc = RearrangeChar.new(str)
 rc.process
 puts rc.output

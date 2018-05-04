@@ -19,5 +19,21 @@ def atoi(str)
   sign*res  
 end  
 
+
+# def atoi(str)
+#   i = 0; sign = 1
+#   if str[i] == '-'
+#     sign = -1
+#     i += 1
+#   end  
+#   res = ""
+#   for x in i...str.length
+#     val = str[x].ord - '0'.ord
+#     res += val.to_s
+#   end
+
+#   res.to_i * sign  
+# end
+
 str = "-13a4"
 puts atoi(str)

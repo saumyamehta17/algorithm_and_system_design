@@ -1,26 +1,6 @@
+# time complexity is no of glass i.e (row* (row+1))/2
+# space complexity is no of glass, as we take an array of size (row* (row+1))/2
 require 'pry'
-# def water_flow(a,i,j,row,col)
-#   if col > row
-#     puts "Incorrect Input" 
-#     return false
-#   end  
-
-#   if(i == row && j == col)
-#     puts a > 1 ? 1 : a
-#     return true
-#   end
-
-#   for x in 1..(i+1)
-#     return false if(i+1>row)
-#     puts "#{i+1} -- #{x}"
-#     new_a = a > 1 ? ((a-1).to_f/2).to_f : 0
-#     if water_flow(new_a, i+1, x, row, col)
-#       return true
-#     end  
-#   end  
-# end  
-
-
 def water_overflow(a, row, col)
   return if col > row
   index = 0
