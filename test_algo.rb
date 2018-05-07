@@ -1,30 +1,32 @@
-Sample = Struct.new(:buy, :sell)
-def stock_buy_sell(arr)
+Node = Struct.new(:buy, :sell)
+
+def kadane(arr)
+  return nil if arr.empty?
   n = arr.length
-  c = 0
   i = 0
-  counter = []
-  while(i < n-1)
-
-    while(i < n-1 && arr[i] >= arr[i+1])
-      i += 1
+  s = 0
+  start = 0
+  _end = 0
+  local_sum = 0
+  max_sum = arr[0]
+  while(i < n)
+    local_sum += arr[i]
+    if local_sum > max_sum
+      max_sum = local_sum
+      _end = i
+      start = s
     end
-    if(i == n-1)
-      break
+
+    if local_sum < 0
+      local_sum = 0
+      s = i
     end  
-    counter[c] = Sample.new(i)
     i += 1
-    while(i < n && arr[i] > arr[i-1])
-      i += 1
-    end
-
-    counter[c].sell = i-1
-
-    c += 1  
-  end 
-
-  puts counter.to_s
+  end
+  
+  puts max_sum  
 end
 
-arr = [100, 180, 260, 310, 40, 30]
-stock_buy_sell(arr)  
+arr = [-1, -2, -3, -4]
+arr = [-2, -3, 4, -1, -2, 1, 5, -3]
+kadane(arr)

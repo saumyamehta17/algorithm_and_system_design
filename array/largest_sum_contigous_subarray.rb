@@ -1,4 +1,18 @@
 # Kadane's Algo
+
+def kadane_v2(arr)
+  n = arr.length
+  i = 0
+  max_sum = arr[0]
+  local_sum = 0
+  while(i < n)
+    local_sum = [arr[i], local_sum+arr[i]].max
+    max_sum = [max_sum, local_sum].max
+    i += 1
+  end
+
+  puts max_sum  
+end  
   
 def kadane(arr)
   n = arr.length
@@ -28,3 +42,4 @@ end
 
 arr = [-2, -3,  -1,4,6,-1]
 kadane(arr)
+kadane_v2(arr)
