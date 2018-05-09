@@ -1,3 +1,12 @@
+# Disjoints set is a data structure which maintain a collection s1, s2, and so on.Two sets are disjoins of their interaction is nil.every set have a represtative which is one member of set.
+
+# Disjoints set is a data structure which provides 3 operations - make sets, union, find sets
+
+# make set is a operation which create a set with one element
+# union take two diff set and merge them and create one
+
+# Let's take an example
+# At begining we have 5 sets {1}, {2}, {3}, {4}, {5} nobody is friend
 Node = Struct.new(:data, :rank, :parent)
 class DisjointSet
   attr_reader :node_hash
