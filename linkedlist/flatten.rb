@@ -1,3 +1,60 @@
+
+def flatten(head)
+  return head if head.nil?
+
+  head.next = sort(head.next, head.down)
+  head.down = nil
+  flatten(head.next)
+
+end  
+
+def sort(l1, l2)
+  if l1.nil?
+    return l2
+  end
+  
+  if l2.nil?
+    return l1
+  end
+
+  if l1.data <= l2.data
+    res = l1
+    res.next = sort(l1.next, l2)
+  else
+    res = l2
+    res.next = sort(l1, l2.next)  
+  end 
+  res 
+end
+
+def print_it(h)
+  curr = h
+  while(!curr.nil?)
+    print curr.data
+    down = curr.down
+    while(!down.nil?)
+      print "-->d #{down.data}"
+      down = down.next
+    end  
+    puts ""
+    curr = curr.next
+  end  
+end  
+
+
+Node = Struct.new(:data, :next, :down)
+h1 = Node.new(10)
+h1.next = Node.new(20)
+h1.next.next = Node.new(30)
+h1.down = Node.new(11)
+h1.down.next = Node.new(25)
+h1.next.down = Node.new(22)
+h1.next.down.next = Node.new(23)
+print_it(h1)
+
+flatten(h1)
+
+print_it(h1)
 # Let us create the following linked list
 #       5 -> 10 -> 19 -> 28
 #       |     |     |    |

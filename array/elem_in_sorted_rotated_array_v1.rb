@@ -24,7 +24,11 @@ def search(arr, l, h, key)
   end  
 end  
 arr = [4, 5, 6, 7, 8, 9, 1, 2, 3]
-l = 0; h = arr.length-1; key = 6
+key = 6
+
+arr = [5,7,8,10,1,2]
+key = 1
+l = 0; h = arr.length-1; 
 _index = search(arr, l, h, key)
 if(_index == -1)
   puts "No Index found"

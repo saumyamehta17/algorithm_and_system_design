@@ -5,7 +5,8 @@ def to_binary(num)
     num = num/2
   end
   res  
-end  
+end 
+ 
 def find_diff(num1, num2)
   xor_val = num1 ^ num2
   binary_val = to_binary(xor_val)
