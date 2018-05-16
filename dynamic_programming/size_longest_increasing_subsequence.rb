@@ -1,23 +1,19 @@
 # complexity is o(n^2)
-def get_lis(arr, n)
-  lis = Array.new(n,1)
+def lis(arr)
+  len = arr.length
+  lis = Array.new(len, 1)
 
-  i=0; max = 1
-  while(i < n)
-    j = 0
-    while(j < i)
-      if(arr[i] > arr[j])
-        lis[i] = [lis[j]+1, lis[i]].max
-        max = [max, lis[i]].max
-      end
-      j += 1  
+  for i in 1...len
+    for j in 0..i
+      if arr[i] > arr[j]
+        lis[i] = [lis[i], (lis[j] + 1)].max
+      end  
     end
-    i += 1  
-  end
+  end    
 
-  puts max
+  puts lis.to_s
 end  
 
-arr = [10, 22, 9, 33, 21, 50, 41, 60, 80]
-len = arr.length
-get_lis(arr, len)
+arr = [3, 10, 2, 1, 20]
+arr = [3,4, -1,0,6,2,3]
+lis(arr)

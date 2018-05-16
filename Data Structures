@@ -1,0 +1,102 @@
+Data Structures
+
+* Array
+  is a data structure, where data is placed at continous memory locatons. Idea is to place multiple items of same type together. 
+  Advantage
+  ---------
+  . Fast random access using index - o(1)
+
+  Disadvantage
+  ------------
+  . Fix Size
+  . Inserting new elem is expensive if sorted - o(n)
+  . sorting nlog(n)
+
+* LinkedList
+  a linear data structure, where elements not stored in continous memory locations, elements are linked using pointers.	
+
+  Advantage
+  ---------
+  . Dynamic Size
+  . Ease insertion/deletion - o(1)
+  
+  Disadvantage
+  ------------  
+  . extra space for pointers
+  . No random access, need to traverse - o(n)
+  . sorting nlog(n)
+
+* Stack-LIFO/ Queue-FIFO(Usage CPU Scheduling)
+
+  Advantage
+  ---------
+  push/Add - o(1)
+  pop/remove - o(1)
+  peek - o(1)
+  
+  Disadvantage
+  ------------  
+  search - o(n) use another ds
+
+* Binary Search Tree
+  hierarchical data structure, 		
+  Advantage
+  ---------
+  * insert/search/del in o(h) 
+  * and in o(log(n)) if bst is self balancing tree
+  * better than hash for get sorted elements (Inorder travsersal), extra efforts with hash
+  * order stastics - get kth smallest elem, extra efforts with hash
+  
+  Disadvantage
+  ------------
+  . extra space
+
+
+* Binary Tree
+  hierarchical data structure, type of a tree have atmost 2 children	
+  Advantage
+  ---------
+  
+  Disadvantage
+  ------------   
+
+* Graph
+  Vertices and edges
+
+  Advantage
+  ---------
+  
+  Disadvantage
+  ------------
+
+* Trie
+  searching word in dictonaries
+  
+  Advantage
+  ---------
+  
+  Disadvantage
+  ------------              
+
+* Heap
+  type of binary tree used for priority queues
+  Advantage
+  ---------
+  . get min/max  - o(1)
+  . insertion/deletion - o(log(n))
+
+  Disadvantage
+  ------------   
+  . searching - o(n) bcoz no specific order it maintains
+
+* Hash
+  
+  Advantage
+  ---------
+  insert/del/access in o(1) 
+  
+  Disadvantage
+  ------------
+  reterival of elem in specific order not gurantee
+  extra space than arrays to store hash code
+
