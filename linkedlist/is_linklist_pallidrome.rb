@@ -24,7 +24,7 @@ class LinkedList
       current.next = Node.new(value)
     end  
     @head
-  end  
+  end   
 
   def get_length
 

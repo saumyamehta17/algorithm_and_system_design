@@ -25,7 +25,7 @@ class QSort
     i = low
     j = low
 
-    while(i < hi)
+    while(i < hi) 
       index1 = search(arr1[i])
 
       # normal sorting

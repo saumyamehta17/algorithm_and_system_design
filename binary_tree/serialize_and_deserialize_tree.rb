@@ -62,7 +62,8 @@ class BinaryTree
       end  
 
       i += 1
-    end  
+    end
+    puts "Hiii - #{s.to_s}"  
   end  
     
   def serialize(root)
