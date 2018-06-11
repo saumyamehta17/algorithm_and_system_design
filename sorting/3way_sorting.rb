@@ -24,15 +24,17 @@ def swap(arr, index1, index2)
 end  
 
 def three_way_quick(arr, low, hi)  
+  puts "#{low} -- #{hi}"
   if(low < hi)
 
     i, j = partition(arr, low, hi)
+    
     three_way_quick(arr, low, i)
     three_way_quick(arr, j, hi)
   end  
 end
 
-arr = [2,3,1,3,3,3,1,2]
+arr = [9,1,1,4,9,4,1,4]
 low = 0
 hi = arr.length - 1
 puts arr.to_s

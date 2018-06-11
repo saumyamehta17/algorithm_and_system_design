@@ -12,7 +12,7 @@ def dice(n,k)
   end  
 end
 
-n = 10
+n = 4
 k = 2
 @c = 0
 dice(n,k)  

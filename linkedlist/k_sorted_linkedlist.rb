@@ -1,54 +1,74 @@
-Node = Struct.new(:data, :next)
-def ms(arr, k)
-  i = 0
-  while(i < k-1)
-    l1 = arr[i]
-    l2 = arr[i+1]
+def ksorted(lists)
+  n = lists.length
+  if(n == 1)
+    
+    print_it(lists[0])
+    return true
+  end
 
-    arr[i+1] = rec_ms(l1, l2)
-    i += 1
+  low = 0
+  hi = n - 1
+  res = []
+  while(low < hi)
+    res << sort(lists[low], lists[hi])
+    low += 1
+    hi -= 1
+  end
+  if(low == hi)
+    res << lists[low]
   end  
-  arr[k-1]
-end  
 
-def rec_ms(h1, h2)
-  if h1.nil?
-    return h2
-  end
-  if h2.nil?
-    return h1
-  end
+  if ksorted(res)  
+    return true
+  end  
 
-  if h1.data < h2.data
-    h1.next = rec_ms(h1.next, h2)
-    h1
+end 
+
+def sort(list1, list2)
+  if list1.nil?
+    return list2
+  end
+  
+  if list2.nil?
+    return list1
+  end  
+
+  if list1.data <= list2.data
+    res = list1
+    res.next = sort(list1.next, list2)
   else
-    h2.next = rec_ms(h2.next, h1)
-    h2
-  end    
+    res = list2
+    res.next = sort(list1, list2.next)
+  end
+  res  
 end  
 
-def print_it(res)
-  while(!res.nil?)
-    puts res.data
-    res = res.next
+def print_it(head) 
+  curr = head
+  while(!curr.nil?)
+    print "#{curr.data} ->"
+    curr = curr.next
   end  
-end  
+  puts "\n"
+end
 
-Node.new(:data, :next)
-
-h1 = Node.new(5)
+Node = Struct.new(:data, :next)
+h1 = Node.new(2)
 h1.next = Node.new(7)
-h1.next.next = Node.new(9)
+h1.next.next = Node.new(10)
 
-h2 = Node.new(4)
-h2.next = Node.new(6)
-h2.next.next = Node.new(8)
+h2 = Node.new(1)
+h2.next = Node.new(11)
+h2.next.next = Node.new(12)
 
-h3 = Node.new(1)
-h3.next = Node.new(10)
+h3 = Node.new(3)
+h3.next = Node.new(27)
+h3.next.next = Node.new(30)
 
-arr = [h1, h2, h3]
-k = 3
-res = ms(arr, k)
-print_it res
+puts "-------------Sorted Lists Are----------"
+print_it(h1)
+print_it(h2)
+print_it(h3)
+puts "-------------Merged Lists-------------"
+
+ksorted([h1,h2,h3])
