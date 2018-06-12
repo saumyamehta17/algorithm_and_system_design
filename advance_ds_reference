@@ -1,0 +1,29 @@
+[nil, nil,nil]
+
+random = rand(0..9)
+Array.new(3).map { random }
+
+random = [1,2,3]
+
+arr = Array.new(30) { rand(0..100) }
+
+{ Array.new(3) }
+
+ { |i| Array.new(3) }
+
+{}
+[]
+Set
+
+
+""
+1
+true, false, nil
+1.2
+
+
+#=> [2, 4, 6]
+
+
+
+

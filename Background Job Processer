@@ -1,0 +1,10 @@
+Background Job Processer
+
+Req - which execute lines of code
+
+How 
+-----
+I will have Two modules
+one module will make insertion in db(redis) which will have class name, method_name, args
+
+2nd module will take data from db and starting processing. processs will executed in infinite loop that keep a watch wether db has something to be processed
