@@ -24,6 +24,7 @@ def coin_change(arr, n, sum)
 end  
 
 arr = [1,2,3]
+arr = [6]
 n = arr.length
 sum = 5
 coin_change(arr, n, sum)

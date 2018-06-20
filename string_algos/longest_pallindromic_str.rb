@@ -1,3 +1,5 @@
+# space complexity is o(n^2)
+# time complexity is o(n^2)
 def longest_pallimdromic_substr(str)
   start = 0; maxlength = 1
   n = str.length

@@ -1,3 +1,4 @@
+# Time complexity is o(v+e)
 class GraphList
   attr_accessor :adjacents
 
@@ -50,6 +51,19 @@ class Graph
       end  
     end  
     
+  end
+
+
+  def dfs_using_recursion(v, visited_arr)  
+    puts v
+    visited_arr[v] = true
+    adjacents = list[v].adjacents
+    adjacents.each do |a|
+      if(!visited_arr[a])
+        visited_arr[a] = true
+        dfs_using_recursion(a, visited_arr)
+      end  
+    end  
   end  
 end  
 
@@ -60,5 +74,7 @@ g.add_edge(1, 2)
 g.add_edge(2, 0)
 g.add_edge(2, 3)
 g.add_edge(3, 3)
-g.print_it
+# g.print_it
 g.dfs(2)
+puts "--------------"
+g.dfs_using_recursion(2, Array.new(g.vertices_count, false))

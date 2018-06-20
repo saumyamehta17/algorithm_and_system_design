@@ -1,4 +1,4 @@
-ROMAN_INPUT = {
+ ROMAN_INPUT = {
   'I' => 1,
   'V' => 5,
   'X' => 10,
