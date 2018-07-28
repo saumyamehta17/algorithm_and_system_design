@@ -1,105 +1,101 @@
-require 'pry'
-Node = Struct.new(:data, :next_index, :arr_index)
+Node = Struct.new(:data, :curr_indx, :arr_indx, :len)
+def ksortedarray(arr)
+  k = arr.length
+  minheap = []
+  build_minheap(minheap, k, arr)
+  len = get_max_len_out_of_arr(arr, k)
+  result_arr = Array.new(len, 0)
 
-class KSortedArray
-  attr_reader :min_heap, :output, :n, :k, :arr
-  MAXINT = 4611686018427387903
+  for i in 0...len
+    node = extract(minheap, k)
+    result_arr[i] = node.data
 
-  def initialize(n, k, arr)
-    @arr = arr
-    @n, @k = n, k
-    @min_heap = Array.new(k) {Node.new}
-    @output = Array.new(n*k)
-  end
-
-  def start
-    k.times do |i|
-      min_heap[i].data = arr[i][0] || MAXINT
-      min_heap[i].next_index = 1
-      min_heap[i].arr_index = i
-      check_heap(i)
-    end
-
-    (n*k).times do |i|
-      node = extract
-      output[i] = node.data
-      if node.next_index < n
-        if min_heap[k-1].nil?
-          min_heap[k-1] = Node.new  
-        end  
-        min_heap[k-1].data = arr[node.arr_index][node.next_index] || MAXINT
-        min_heap[k-1].next_index = node.next_index+1
-        min_heap[k-1].arr_index = node.arr_index
-        check_heap(k-1)
-      end
-
-      i += 1  
-    end
-  end  
-
-  def check_heap(indx)
-    while(indx != 0)
-      parent = (indx-1)/2
-      if (min_heap[parent].data || MAXINT) < (min_heap[indx].data || MAXINT)
-        break
-      else
-        heapify(parent)
-        indx = parent
-      end  
+    if node.curr_indx + 1 < node.len
+      curr_arr = arr[node.arr_indx]
+      new_node = Node.new(curr_arr[node.curr_indx + 1],
+                   node.curr_indx + 1,
+                   node.arr_indx,
+                   node.len)
+      insert(minheap, new_node)
     end  
   end
 
-  def heapify(indx)
-    smallest = indx
-    lindx = indx*2+1
-    rindx = indx*2+2
-    if !min_heap[smallest].nil?
-      if(lindx < k &&  min_heap[rindx] && min_heap[lindx].data < min_heap[smallest].data)
-        smallest = lindx
-      end
-      
-      if(rindx < k && min_heap[rindx] && min_heap[rindx].data < min_heap[smallest].data)
-        smallest = rindx
-      end
-    end  
-
-    if(indx != smallest)
-      temp = min_heap[indx]
-      min_heap[indx] = min_heap[smallest]
-      min_heap[smallest] = temp
-      heapify(indx)
-    else
-      return
-    end  
-  end  
-
-  def extract(n = min_heap.length)
-    res = min_heap[0]
-    min_heap[0] = min_heap[n-1]
-    min_heap.pop
-    heapify(0)
-    res
-  end 
+  puts result_arr.to_s  
 end  
-arr = [
-  [2,4],
-  [1,6],
-  [3,8]
-]
 
-n = 3
-k = 3
+def insert(minheap,node)
+    minheap << node
+    indx = minheap.length - 1
+    while(indx != 0)
+      parent = (indx - 1)/2
 
-ks = KSortedArray.new(n ,k, arr)
-ks.start
+      if minheap[parent].data > minheap[indx].data
+        temp = minheap[parent]
+        minheap[parent] = minheap[indx]
+        minheap[indx] = temp
+        indx = parent
+      else
+       break  
+      end  
+    end
+end  
 
 
+def get_max_len_out_of_arr(arr, k)
+  total_len = 0
+  for i in 0...k
+    total_len += arr[i].length
+  end  
+  total_len
+end  
 
+def build_minheap(minheap, k, arr)
+  for i in 0...k
+    _data = arr[i][0]
+    _len = arr[i].length
+    node = Node.new(_data, 0, i, _len)
+    insert(minheap, node)
+  end  
+end
+
+
+def extract(minheap, k)
+  temp_node = minheap[0]
+  len = minheap.length
+  if len > 1
+    minheap[0] = minheap[len - 1]
+  end
+  minheap.pop  
+  heapify(minheap, 0, len-1) if len - 1 > 0
+  temp_node
+end  
+
+
+def heapify(minheap, indx, k)
+  smallest = indx
+  lindx = indx * 2 + 1
+  rindx = indx * 2 + 2
+
+  if lindx < k && minheap[lindx].data < minheap[smallest].data
+    smallest = lindx
+  end
   
+  if rindx < k && minheap[rindx].data < minheap[smallest].data
+    smallest = rindx
+  end
 
- 
+  if indx != smallest
+    temp = minheap[smallest]
+    minheap[smallest] =  minheap[indx]
+    minheap[indx] = temp
+    heapify(minheap, indx, k)
+  end  
 
+end  
 
-
-
-
+arr = [
+  [2,4,9],
+  [1,5,10],
+  [3,6,7,11,23]
+]
+ksortedarray(arr)

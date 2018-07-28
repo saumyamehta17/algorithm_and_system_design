@@ -1,3 +1,4 @@
+# time complexity is o(rxc)
 class RatInMaze
     attr_reader :maze, :n, :paths
 

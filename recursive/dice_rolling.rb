@@ -8,7 +8,10 @@ def dice(n,k)
   end
   
   for x in 1..6
-    dice(n-x, k-1)
+    # dice(n-x, k-1)
+    if dice(n-x, k-1)
+      break
+    end  
   end  
 end
 

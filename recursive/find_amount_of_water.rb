@@ -7,9 +7,9 @@ def water_overflow(a, row, col)
   n = (row*(row+1))/2
   glass = Array.new(n, 0)
   glass[index] = a
+  puts glass.to_s
   for i in 1..row
     for j in 1..i
-
       val = glass[index]
       new_val = val > 1 ? (val-1).to_f/2 : 0
       if new_val.zero?

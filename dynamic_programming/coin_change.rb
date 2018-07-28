@@ -1,3 +1,28 @@
+def coin_change_naive(arr, sum, n)
+  
+  if sum == 0
+    return 1
+  end  
+  if n == 0
+    return 0
+  end  
+  if sum < 0 || (sum != 0 && arr.empty?)
+    return 0
+  end  
+
+  return coin_change(arr, sum - arr[n-1], n) +
+          coin_change(arr, sum , n-1) 
+  
+end
+
+arr = [1,2,3]
+sum = 4
+i = 0
+puts coin_change_naive(arr, sum, arr.length)
+
+
+
+
 def coin_change(arr, n, sum)
   mtrx = Array.new(n){Array.new(sum+1)}
   mtrx[0][0] = 0
@@ -27,4 +52,5 @@ arr = [1,2,3]
 arr = [6]
 n = arr.length
 sum = 5
+
 coin_change(arr, n, sum)

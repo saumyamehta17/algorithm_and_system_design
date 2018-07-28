@@ -6,17 +6,19 @@ class MinHeap
     @arr = []
   end
 
+  def parent(indx)
+    (indx - 1)/2
+  end  
+
   def insert(val)
     arr << val
     indx = arr.length-1
-    while(indx != 0)
-      parent = (indx-1)/2
-      if(arr[parent] < arr[indx])
-        break
-      else
-        heapify(parent)
-        indx = parent
-      end  
+    while(indx != 0 && arr[indx] < arr[parent(indx)])
+      i = parent(indx)
+      temp = arr[i]
+      arr[i] = arr[indx]
+      arr[indx] = temp
+      indx = i
     end  
   end
 

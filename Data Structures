@@ -79,7 +79,10 @@ Data Structures
   ------------              
 
 * Heap
-  type of binary tree used for priority queues
+  type of binary tree has following properties:
+  its a complete binary tree where all levels are filled and last level is filled as left as possible. This property makes it suitable to be stored in array
+  It can be MinHeap/MaxHeap
+  
   Advantage
   ---------
   . get min/max  - o(1)

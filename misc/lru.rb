@@ -31,12 +31,12 @@ class DLL
     end  
   end
 
-  def remove_tail
-    return if tail.nil?
-    node = tail
-    node.prev.next = nil
-    @tail = node.prev
-  end  
+  # def remove_tail
+  #   return if tail.nil?
+  #   node = tail
+  #   node.prev.next = nil
+  #   @tail = node.prev
+  # end  
 end
 
 class LL

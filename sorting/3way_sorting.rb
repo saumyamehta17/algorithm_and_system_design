@@ -35,6 +35,7 @@ def three_way_quick(arr, low, hi)
 end
 
 arr = [9,1,1,4,9,4,1,4]
+arr = [9,2,4,9,2,4]
 low = 0
 hi = arr.length - 1
 puts arr.to_s
