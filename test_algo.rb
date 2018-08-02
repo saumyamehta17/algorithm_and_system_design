@@ -1,22 +1,18 @@
-def eD(n, k)
+def equilibrium(arr)
 
-  if k == 1 || k == 0
-    return k
-  end
+  left_sum = 0
+  right_sum = arr.reduce(:+)
 
-  if n == 1
-    return k
-  end
-
-  min ||= 300000
-
-  for x in 1..k
-    val = [eD(n-1, x-1), eD(n, k-x)].max
-    min = [val, min].min
-  end
-  min + 1 
+  for i in 0...arr.length
+    right_sum -= arr[i]
+    if left_sum == right_sum
+      return i+1
+    end  
+    left_sum += arr[i]
+  end  
+  return -1
 end  
 
-n = 2
-k = 10
-puts eD(n, k)
+arr = [1,3,5,2,2]
+arr = [-7, 1, 5, 2, -4, 3, 6]
+puts equilibrium(arr)

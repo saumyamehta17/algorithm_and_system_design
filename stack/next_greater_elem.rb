@@ -1,39 +1,38 @@
 # input array [4, 5, 2, 25]
 # output array will be [5,25.25,-1]
 
-def print_next_greater_elem(arr)
-  nge = []
-  nge.push(arr[0])
-  i = 1; n = arr.length
+def nge(arr)
+  s = []
+  s.push(arr[0])
 
-  while(i < n)
-    current_elem = arr[i]
-    popped_elem = nge.pop
+  for i in 1...arr.length
+    curr_elem = arr[i]
+    popped_elem = s.pop
+    if curr_elem > popped_elem
+      puts "#{popped_elem} -> #{curr_elem}"
 
-    if(current_elem > popped_elem)
-      puts "#{popped_elem} --> #{current_elem}"
-      # pop while stack is not empty and current elem is greater than popped one
-      while(!nge.empty?)
-        pop_again = nge.pop
-        if(current_elem > pop_again)
-          puts "#{pop_again} --> #{current_elem}"
+      while(!s.empty?)
+        popped_elem = s.pop
+        if(curr_elem > popped_elem)
+          puts "#{popped_elem} -> #{curr_elem}"          
         else
-          nge.push(pop_again)  
+          s.push(popped_elem)
           break
         end  
       end  
-    # else push back to nge stack  
     else
-      nge.push(popped_elem)
+      s.push(popped_elem)
     end  
-    nge.push(current_elem)
-    i += 1
+    s.push(curr_elem)
   end
 
-  # pop each remaing element from stack nge
-  nge.each do |n|
-    puts "#{n} --> -1"
+  while(!s.empty?)
+    puts "#{s.pop} -> -1"
   end  
+
 end  
 
-print_next_greater_elem([4, 5, 27, 25])
+arr = [1,3,2,4]
+arr = [11, 13, 21, 3]
+arr = [5,4,3,2,1]
+nge(arr)

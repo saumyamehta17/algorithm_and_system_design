@@ -1,8 +1,12 @@
 def k(n,w)
 
-  if(n-1 == 0 || w == 0)
+  if(n == 0 || w == 0)
     return 0
   end
+
+  if(@weight[n-1] > w)
+    return k(n-1, w)
+  end  
 
   return [@val[n-1] + k(n-1, w - @weight[n-1]),
           k(n-1, w)].max  
@@ -58,5 +62,8 @@ end
 @weight = [5,4,9]
 w = 9
 
-# puts k(@val.length, w)
-k_using_dp(@val.length, w)
+@val = [1,2,3]
+@weight = [4,5,1]
+w = 4
+puts k(@val.length, w)
+# k_using_dp(@val.length, w)

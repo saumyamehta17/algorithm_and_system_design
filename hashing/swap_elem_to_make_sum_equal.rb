@@ -36,45 +36,40 @@ puts naive(arr1, arr2)
 
 # optimized
 # o(m+n)
+# sumA - a + b = sumB + a - b
+# sumA - sumB = 2(a-b)
+# (sumA - sumB)/2 = a - b
+# diff/2 = a - b
+# diff/2 + a = b
 def using_hash(arr1, arr2)
-  m = arr1.length
-  n = arr2.length
-
-  if m > n
-    temp = arr1
-    arr1 = arr2
-    arr2 = temp
-  end  
-
   sum1 = 0; sum2 = 0
-
   for i in 0...arr1.length
     sum1 += arr1[i]
   end
-
+  
   for i in 0...arr2.length
     sum2 += arr2[i]
-  end
+  end  
 
-  if sum1 == sum2
-    return true
-  end
-
-  diff = (sum2 - sum1).abs/2
+  diff = (sum1 - sum2).abs / 2
 
   hsh = {}
-
-  arr1.each do |a|
-    hsh[a] = true
+  
+  for i in 0...arr2.length
+    hsh[arr2[i]] = true
   end
 
-  arr2.each do |a|
-    if hsh[a + diff] == true
+  for i in 0...arr1.length
+    if hsh[diff + arr1[i]] == true
       return true
     end  
-  end
+  end    
 
-  return false    
+  return false
+
 end  
 
+
+arr1 = [1,8,8]
+arr2 = [3,3]
 puts using_hash(arr1, arr2)
