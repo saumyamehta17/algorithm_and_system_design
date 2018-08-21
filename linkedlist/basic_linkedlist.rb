@@ -46,7 +46,7 @@ class LinkedList
       return nil
     end
 
-    next1 = curr.nextxxc
+    next1 = curr.next
     curr.next = prev
     recursive_reverse(next1, curr)
     return head  

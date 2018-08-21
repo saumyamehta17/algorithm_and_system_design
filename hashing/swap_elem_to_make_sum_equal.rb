@@ -51,6 +51,9 @@ def using_hash(arr1, arr2)
     sum2 += arr2[i]
   end  
 
+  # return if not integer 
+  return false if (sum1 - sum2) % 2 == 0
+
   diff = (sum1 - sum2).abs / 2
 
   hsh = {}

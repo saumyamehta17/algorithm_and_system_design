@@ -1,18 +1,35 @@
-def equilibrium(arr)
+def count_dst(arr, k)
+  n = arr.length
+  return -1 if k >= n-1
+  dst = 0
+  hsh = {}
+  for i in 0...k
+    if hsh[arr[i]]
+      hsh[arr[i]] = hsh[arr[i]] + 1
+    else
+      hsh[arr[i]] = 1
+      dst += 1
+    end
+  end
+  puts "#{dst} "
+  for i in k...n
+    if hsh[arr[i-k]] > 1
+      hsh[arr[i-k]] -= 1
+    else
+      hsh[arr[i-k]] = nil
+      dst -= 1
+    end
 
-  left_sum = 0
-  right_sum = arr.reduce(:+)
-
-  for i in 0...arr.length
-    right_sum -= arr[i]
-    if left_sum == right_sum
-      return i+1
-    end  
-    left_sum += arr[i]
-  end  
-  return -1
+    if hsh[arr[i]] 
+      hsh[arr[i]] += 1
+    else
+      hsh[arr[i]] = 1
+      dst += 1
+    end
+    puts "#{dst} "
+  end      
 end  
 
-arr = [1,3,5,2,2]
-arr = [-7, 1, 5, 2, -4, 3, 6]
-puts equilibrium(arr)
+arr = [1, 2, 1, 3, 4, 2, 3]  
+k = 4
+count_dst(arr, k)

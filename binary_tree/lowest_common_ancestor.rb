@@ -42,6 +42,8 @@ class BinarySearchTree
   end
 
   # BST
+  # o(h) bcoz, its not processing each node, but yes is worst case two nodes might at leaf
+  # recursive will take o(h) space for call stack
   def self.lca(node, n1, n2)
     return 'Not Valid Tree' if node.nil?
 
@@ -52,8 +54,20 @@ class BinarySearchTree
     else
       return node.val  
     end
-
   end
+
+  # without using extra space and time complexity is o(h)
+  def self.lca_without_recursive(node, n1, n2)
+    while(!node.nil?)
+      if node.data > n1 && node.data > n2
+        node = node.left
+      elsif node.data < n1 && node.data < n2
+        node = node.right
+      else
+        return node.data
+      end      
+    end  
+  end  
 
   # Binary Tree
   def get_lca(node, n1, n2)

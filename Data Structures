@@ -70,7 +70,12 @@ Data Structures
   ------------
 
 * Trie
+  a tree to store strings
+  
+  Applications
+  ------------
   searching word in dictonaries
+
   
   Advantage
   ---------

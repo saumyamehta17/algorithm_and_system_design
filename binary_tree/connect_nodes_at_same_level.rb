@@ -84,3 +84,42 @@ end
 root = BinaryTree.sample
 # BinaryTree.connect_nodes(root)
 BinaryTree.connect_nodes_with_queue(root)
+
+
+# if tree is complete binary tree, use extended pre-order traversal
+def connect_nodes_if_complete(node)
+  return if node.nil?
+
+  if node.left
+    node.left.next = node.right
+  end
+  
+  if node.right
+    node.right.next = node.next.nil? ? nil : node.next.left
+  end
+
+  connect_nodes_if_complete(node.left)  
+  connect_nodes_if_complete(node.right)
+end  
+
+Node = Struct.new(:data, :left, :right, :next)
+root = Node.new(20)
+root.left = Node.new(8)
+root.right = Node.new(22)
+root.left.left = Node.new(5)
+root.left.right = Node.new(3)
+root.right.left = Node.new(25)  
+def print_it(node)
+  curr = node
+  while(!curr.nil?)
+    print "#{curr.data} --> "
+    curr = curr.next
+  end  
+end  
+
+connect_nodes_if_complete(root)
+print_it(root)
+puts "-------"
+print_it(root.left)
+puts "-------"
+print_it(root.left.left)
