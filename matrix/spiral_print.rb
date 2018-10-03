@@ -1,48 +1,56 @@
-def spiral_print(arr, m , n)
-  k = 0 #for row
-  l = 0 #for column
-  while(k < m && l < n)
-
-    i = l
-    while( i < n)
-      print arr[k][i].to_s + " "
-      i += 1
+def spirial(mtrx, m, n)
+  i = 0
+  j = 0
+  while(i < m && j < n)
+    k = j
+    while(k < n)
+      print " #{mtrx[i][k]}"
+      k += 1
     end
-    k += 1
+    i += 1
 
-    i = k
-    while(i < m)
-      print arr[i][n-1].to_s + " "
-      i += 1
-    end
-    n -= 1
-
-    if(k < m)
-      i = n-1
-      while(i >= l)
-        print arr[m-1][i].to_s + " "
-        i -= 1
-      end
+    k = i
+    while(k < m)
+      print " #{mtrx[k][n-1]}"
+      k += 1
     end  
-    m -= 1
 
-    if(l < n)
-      i = m-1
-      while(i >= k)
-        print arr[i][l].to_s + " "
-        i -= 1
-      end
+    n = n-1
+
+    if (i >= m || j >= n)
+      break
+    end  
+    k = n - 1
+
+    while(k >= j)
+      print " #{mtrx[m-1][k]}"
+      k -= 1
+    end  
+
+    m = m-1
+    k = m - 1
+    while(k >= i)
+      print " #{mtrx[k][j]}"
+      k -= 1
     end
-    l += 1
-  end    
-end
+    j += 1
+  end  
+end  
 
-arr = [ 
-        [1,  2,  3,  4,  5,  6],
-        [7,  8,  9,  10, 11, 12],
-        [13, 14, 15, 16, 17, 18]
-      ]
+# m = 4
+# n = 4
+# mtrx = [[1,2,3,4],
+#         [5,6,7,8],
+#         [9,10,11,12],
+#         [13,14,15,16]
+#        ]
 
+mtrx = [
+        [1, 2, 3, 4,5, 6],
+        [7, 8, 9,10,11,12],
+        [13,14,15,16,17,18]
+       ] 
 m = 3
-n = 6      
-spiral_print(arr, m , n)  
+n = 6     
+
+spirial(mtrx, m, n)

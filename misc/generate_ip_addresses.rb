@@ -1,42 +1,42 @@
-def gen_ip_address(str, n)
 
-  if(n <= 3 || n > 12)
-    return false
+def valid?(ip_add)
+  ip_add.split('.').each do |i|
+    if i.to_i <= 0 || i.to_i > 255
+      return false
+    end  
+
+    if(ip_add[0].to_i == 0)
+      return false
+    end 
   end  
+  true
+end  
 
-  valid_ips = []
+def gen_ip(str)
+  n = str.length
+  if n <= 3 || n > 12
+    return "Not Possible"
+  end  
   temp_str = str
-  for i in 1...(n-2)
-    for j in (i+1)...(n-1)
-      for k in (j+1)...n
-        temp_str = temp_str[0,k] + "." + temp_str[k,n]
-        temp_str = temp_str[0,j] + "." + temp_str[j,n+1]
-        temp_str = temp_str[0,i] + "." + temp_str[i,n+1]
+  valid_ips = []
 
-        if(valid?(temp_str))
+  for i in 0...(n-2)
+    for j in (i+1)...(n-1)
+      for k in (j+1)...(n)
+        temp_str = temp_str[0,k] + '.' + temp_str[k,n]
+        temp_str = temp_str[0,j] + '.' + temp_str[j,n+1]
+        temp_str = temp_str[0,i] + '.' + temp_str[i,n+2]
+        if valid?(temp_str)
           valid_ips << temp_str
         end
         temp_str = str  
       end
     end
-  end  
-  valid_ips.to_s
+  end
+
+  puts valid_ips.to_s      
 end  
-
-def valid?(ip_address)
-  ip_address.split('.').each do |x|
-    if (x.to_i <= 0 || x.to_i > 255)
-      return false
-    end
-
-    if(ip_address[0].to_i == 0)
-      return false
-    end  
-  end 
-  true 
-end  
-
+str = '2555'
 str = "12211"
-str = "25525511135"
-n = str.length
-puts gen_ip_address(str, n)
+# str = "25525511135"
+gen_ip(str)
