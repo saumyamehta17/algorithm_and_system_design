@@ -1,4 +1,4 @@
-ererwrwwe# Maximum sum such that no two elements are adjacent
+# Maximum sum such that no two elements are adjacent
 
 # Find maximum possible stolen value from houses
 
@@ -20,7 +20,7 @@ def get_max_val(arr, n)
     prev_val = val
     i += 1
   end
-  prev_val  
+  [prev_val, prev_prev_val].max  
 end
 
 arr = [6, 7, 1, 3, 8, 2, 4]

@@ -53,7 +53,7 @@ class LinkedList
     end  
 
     if(slow_ptr == fast_ptr)
-      puts "Yeah Loop exits"
+      puts "Yeah Loop exist"[]
       return fast_ptr 
     else
      puts "No Loop"  

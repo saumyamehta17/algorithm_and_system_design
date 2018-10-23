@@ -33,10 +33,11 @@ def longest_pallimdromic_substr(str)
   end
 
   puts "maxlength is #{maxlen}"
-  puts "string is #{str[start..(start+maxlen)]}"  
+  puts "string is #{str[start..(start+maxlen-1)]}"  
 end  
 
 
 str = "forgeeksskeegfor"
 str = "geeksskeeg"
+str = "appay"
 longest_pallimdromic_substr(str)
