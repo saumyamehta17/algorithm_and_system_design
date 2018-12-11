@@ -1,3 +1,8 @@
+# Avl Tree is self-balacing tree where diff b\w height of left and 
+# right subtree is not greater than 1
+# If tree is skewed, then operations(search, min, max, delete, insert) will go to o(n)
+# Avl tree make it o(logn)
+
 Node = Struct.new(:value, :height, :left, :right) do 
 				 def initialize(*)
 				 	super
