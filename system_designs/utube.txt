@@ -1,1 +1,40 @@
-utube.txt
+* Feature Set
+- upload the video
+- search/view the video
+- likes, dislikes, view count of video
+- comments
+
+* Estimation
+  Let Active Users - 800 Million out of billion users of utube
+  Let One user view 5 video in a day
+  1 day - 800 Million * 5 video 
+  one sec - 80,00,00,000 * 5 / 86400 = 46k video
+
+  Let read-write ratio be 200:1
+  video upload per second will be = 46k/200 = 230 video per second
+
+  Storage
+  -------
+  Let 500 hour worth of video is uploaded per minute
+  Let one minute video has 50 MB data
+  one minute storage would be = 500 * 60 min * 50MB = 1500 GB / minute
+  							  = 1500 / 60 GB = 25GB/sec	
+
+
+* Api
+  
+  uploadVideo(user_id, video_title, video_desc, tags, video_content)
+  successful upload will return 200 and once encoding is done, user will be notified
+
+  searchVideo(query_string)
+
+  viewVideo()
+
+* High level Design
+
+* Data Model
+  User - name, dob, location, email
+  Video - id, user_id, video_title, video_desc, no-of_likes, no_of_views etc
+  comment - video_id, user_id, desc	
+
+* 

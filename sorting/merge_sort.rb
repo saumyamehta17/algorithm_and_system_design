@@ -23,6 +23,7 @@ class MergeSort
   end
 
   def mergesort(low, mid, hi)  
+    puts "#{low} #{mid} #{hi}"
     left_size = mid - low + 1
     right_size = hi - mid
 
@@ -67,6 +68,8 @@ class MergeSort
 end  
 
 arr = [12, 11, 13, 5, 6, 7]
+
+arr = [25, 9, 10, 1, 27]
 ms = MergeSort.new(arr)
 puts "Before Merge Sort"
 puts ms.arr.to_s

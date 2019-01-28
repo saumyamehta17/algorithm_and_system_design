@@ -1,58 +1,62 @@
-Node = Struct.new(:data, :left, :right)
-class Tree
-  attr_accessor :root, :balanced
-
-  def initialize
-    @balanced = true
-  end  
-
-  def isBalanced(node)
-    if !balanced
-      return 0
+@arr = []
+def is_bst?(head)
+  inorder_traversal(head)
+  n = _length(@arr)
+  puts @arr.to_s
+  for i in 1...n
+    if @arr[i] < @arr[i-1]
+      return false
     end  
-
-    if node.nil?
-      return 0
-    end
-
-    left_h = isBalanced(node.left)
-    right_h = isBalanced(node.right)
-
-    if (left_h - right_h).abs > 1
-      @balanced = false
-      return 0
-    end
-
-    [left_h, right_h].max + 1  
   end
-
-  def isBalancedIterative(node)
-    nodes = []
-    depths = []
-    nodes.push([node, 0])
-    while(!nodes.empty?)
-      node, depth = nodes.pop
-      if node.left.nil? && node.right.nil?
-        depths << depth if !depths.include?(depth)
-        if depths.length > 2 || (depths[1].to_i - depths[0].to_i).abs > 1
-          return false
-        end
-      else
-        nodes.push([node.left, depth+1]) if !node.left.nil?
-        nodes.push([node.right, depth+1]) if !node.right.nil?
-      end    
-    end
-    return true  
-  end  
+  true  
 end
 
-tree = Tree.new
-tree.root = Node.new(1)
-tree.root.left = Node.new(2)
-tree.root.right = Node.new(3)
-tree.root.left.left = Node.new(4)
-tree.root.left.left.left = Node.new(5)
-# puts "Tree is Balanced #{tree.balanced}"
-# tree.isBalanced(tree.root)
-# puts "Tree is Balanced #{tree.balanced}"
-puts tree.isBalancedIterative(tree.root)
+def _length(arr)
+  i = 0
+  while(!arr[i].nil?)
+    i += 1
+  end  
+  i
+end  
+@min = -99
+def inorder_traversal(node)
+  return true if node.nil?
+  unless inorder_traversal(node.left)
+    return false
+  end  
+  # @arr << node.data
+  if @min > node.data
+    return false
+  end
+  @min = node.data
+  inorder_traversal(node.right)
+  true
+end  
+
+def isBstRecursion(node, min = -99, max = 99)
+  return true if node.nil?
+
+  if node.data < min || node.data > max
+    return false
+  end  
+
+  isBstRecursion(node.left, min, node.data) &&
+  isBstRecursion(node.right, node.data, max)
+end  
+
+Node = Struct.new(:data, :left, :right)
+root = Node.new(7)
+root.left = Node.new(2)
+root.left.left = Node.new(5)
+root.left.left.left = Node.new(1)
+root.left.right = Node.new(3)
+root.right = Node.new(10)
+
+head = Node.new(4)
+head.left = Node.new(6)
+head.right = Node.new(5)
+head.left.left = Node.new(1)
+head.left.right = Node.new(3)
+# puts is_bst?(root)
+# puts inorder_traversal(root)
+puts isBstRecursion(root)

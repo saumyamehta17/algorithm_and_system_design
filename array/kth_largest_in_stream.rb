@@ -1,79 +1,65 @@
-class KthLargestElem
-  attr_accessor :k, :arr, :count
+class Stream
+  attr_reader :min_heap, :count, :k
 
   def initialize(k)
     @k = k
+    @min_heap = Array.new(k)
     @count = 0
-    @arr = Array.new(k)
   end
 
-  def self.start(k)
-    puts "Lets start................"
-    obj = KthLargestElem.new(k)
-    obj.process
-  end
-
-  def process
+  def find_kth_largest
     while(1)
-      puts "Enter an element"
+      puts "Enter value"
       val = gets.chomp.to_i
-      if(count < k-1)
+
+      if count < k-1
         build_heap(val)
+        puts "Not found kth largest"
+      elsif count == k-1
+        build_heap(val)
+        heapify
+        puts "Kth largest is #{min_heap[0]}"
       else
-        if(count == k-1)
-          build_heap(val)
+        if val > min_heap[0]
+          @min_heap[0] = val
           heapify
-        else
-          if(val > arr[0])
-            @arr[0] = val
-            heapify
-          end    
+          puts min_heap.to_s
+          puts "Kth largest is #{min_heap[0]}"
         end
-        puts "#{k}th largest is #{arr[0]}"  
       end    
-    end  
-    
+    end
   end
 
   def build_heap(val)
-    @arr[count] = val
+    @min_heap[count] = val
     @count += 1
-  end 
-
-  def heapify
-    index = k/2-1
-    while(index >= 0)
-
-      # heapifing
-      while(1)
-        lindex = index*2+1
-        rindex = index*2+2
-        smallest = index
-
-        if(arr[lindex] < arr[smallest])
-          smallest = lindex
-        end
-        
-        if(arr[rindex] < arr[smallest])
-          smallest = rindex
-        end
-
-        if(smallest != index)
-          swap(smallest, index)
-        end  
-        return
-      end  
-
-      index -= 1
-    end  
   end
 
-  def swap(index1, index2)  
-    temp = arr[index2]
-    @arr[index2] = arr[index1]
-    @arr[index1] = temp 
+  def heapify
+    indx = (k-1)/2
+    while(indx >= 0)
+      lindx = indx*2+1
+      rindx = indx*2+2
+      smallest = indx
+      if lindx < k && min_heap[lindx] < min_heap[smallest]
+        smallest = lindx
+      end  
+      if rindx < k && min_heap[rindx] < min_heap[smallest]
+        smallest = rindx
+      end
+      if smallest != indx
+        swap(smallest, indx)
+      end
+      indx -= 1  
+    end
+  end  
+
+  def swap(indx1, indx2)
+    tmp = min_heap[indx1]
+    @min_heap[indx1] = min_heap[indx2]
+    @min_heap[indx2] = tmp
   end  
 end  
 
-k = 3
-KthLargestElem.start(k)
+s = Stream.new(5)
+s.find_kth_largest

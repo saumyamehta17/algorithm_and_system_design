@@ -9,12 +9,19 @@ class BT
   end
 
   def self.sample
-    bt = BT.new(4)
+    bt = BT.new(7)
     root = bt.root
     root.left = Node.new(2)
-    root.left.left = Node.new(1)
+    root.left.left = Node.new(5)
+    root.left.left.left = Node.new(1)
     root.left.right = Node.new(3)
-    root.right = Node.new(5)
+    root.right = Node.new(10)
+
+    # root = bt.root
+    # root.left = Node.new(2)
+    # root.left.left = Node.new(1)
+    # root.left.right = Node.new(3)
+    # root.right = Node.new(5)
     bt
   end 
 
@@ -36,19 +43,30 @@ puts bt.is_bst(bt.root, MIN, MAX)
 # using inorder we can use array(if sorted then its BST) or use global val to track sorting
 def inorder(node)
   return true if node.nil?
-  inorder(node.left)
+  unless inorder(node.left)
+    return false
+  end  
   if @prev > node.data
     return false
   end  
   @prev = node.data
   inorder(node.right) if !node.right.nil?
+  true
 end  
 Node = Struct.new(:data, :left, :right)
-root = Node.new(4)
+# root = Node.new(4)
+# root.left = Node.new(2)
+# root.left.left = Node.new(1)
+# root.left.right = Node.new(3)
+# root.right = Node.new(10)
+
+root = Node.new(7)
 root.left = Node.new(2)
-root.left.left = Node.new(1)
+root.left.left = Node.new(5)
+root.left.left.left = Node.new(1)
 root.left.right = Node.new(3)
 root.right = Node.new(10)
+
 @prev = -4611
 if inorder(root) == false
   puts "No Bst"
