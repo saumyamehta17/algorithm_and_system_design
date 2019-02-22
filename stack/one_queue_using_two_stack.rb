@@ -20,4 +20,24 @@ end
 enqueue(12)
 enqueue(14)
 enqueue(15)
-puts dequeue  
+puts dequeue
+
+# Using: one stack and one functional call
+@s1 = []
+def _enq(val)
+  @s1.push(val)
+end 
+
+def _deq
+  if @s1.empty?
+    puts -1
+    return
+  elsif @s1.length == 1
+    puts @s1.pop
+    return
+  else
+    x = @s1.pop
+    _deq
+    @s1.push(x)
+  end  
+end

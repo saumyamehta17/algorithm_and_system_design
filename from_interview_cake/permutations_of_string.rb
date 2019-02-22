@@ -1,3 +1,7 @@
+# Time complexity is o(n*n!)
+# base function is called n! times and permutations are n! . ex - n = 3, then 3! = 6
+# loop called n times before each base function
+# total = n*n!
 require 'pry'
 def permute(str, choosen = "")
   if str == ""

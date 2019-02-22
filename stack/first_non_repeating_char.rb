@@ -52,7 +52,8 @@ class StringOpr
 end 
 
 # obj = StringOpr.new('GeekszforGeeks')
-# obj.first_non_repeating_chr
-k = 1
-obj1 = StringOpr.new('GeekszforGeeks')
-obj1.kth_non_repeating_chr(k)
+obj = StringOpr.new('xxzbby')
+obj.first_non_repeating_chr
+# k = 1
+# obj1 = StringOpr.new('GeekszforGeeks')
+# obj1.kth_non_repeating_chr(k)

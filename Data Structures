@@ -1,5 +1,7 @@
 Data Structures
 
+Different ways to structure data:
+
 * Array
   is a data structure, where data is placed at continous memory locatons. Idea is to place multiple items of same type together. 
   Advantage
@@ -37,6 +39,8 @@ Data Structures
   Disadvantage
   ------------  
   search - o(n) use another ds
+
+  Example - Using back and forward buttons in browser.
 
 * Binary Search Tree
   hierarchical data structure, 		
