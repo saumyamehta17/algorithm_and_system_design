@@ -1,39 +1,26 @@
 def atoi(str)
   i = 0
-  res = 0
-  sign = 1
   n = str.length
-  return nil if(n == 0)
-
-  if(str[0] == '-')
-    sign = -1
+  negative = 1
+  output = 0
+  if str[i] == '-'
+    negative = -1
     i += 1
   end
 
-  while(i < n)
-    val = str[i].ord - '0'.ord
-    res = res*10 + val
-    i += 1
-  end
-
-  sign*res  
+  for j in i...n
+    digit = str[j].ord - '0'.ord
+    if (0...10) === digit
+      output *= 10  
+    else
+      digit = 0  
+    end  
+      
+    output += digit
+  end 
+  negative * output
 end  
 
-
-# def atoi(str)
-#   i = 0; sign = 1
-#   if str[i] == '-'
-#     sign = -1
-#     i += 1
-#   end  
-#   res = ""
-#   for x in i...str.length
-#     val = str[x].ord - '0'.ord
-#     res += val.to_s
-#   end
-
-#   res.to_i * sign  
-# end
-
-str = "-13a4"
+str ='-883'
+str = '-91sj'
 puts atoi(str)

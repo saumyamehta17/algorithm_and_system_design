@@ -1,0 +1,17 @@
+* Feature set
+  Tweeting
+  Timeline
+   - User (tweets and retweets of user)
+   - Home (we will see all tweets to whom we follow)
+  Following
+  Search a tweet
+  advertisements
+
+* API
+  - Post a tweet
+    postTweet(user_id, )
+  - Get Home Timeline
+  - search a tweet
+* Data Model
+  User - name, email, dob, registration date
+  Tweet - user_id, title    

@@ -73,3 +73,32 @@ res = t.truck_tour
 puts res
 # puts t.print_first_circular_tour
 
+# def tour(input,n)
+#   start = 0 
+#   curr = 1
+#   d = input[start].d
+#   a = input[start].a
+
+#   while(curr > start && start < n)
+#     if a - d < 0
+#       start += 1
+#       d = input[start].d
+#       a = input[start].a
+#     else
+#       d = input[curr].d
+#       a = (a - d + input[curr].a)
+#     end
+#     curr = (curr + 1) % n  
+#   end
+#   if a - d >= 0
+#     puts "Found #{start}"
+#   else
+#     puts "Not Found"
+#   end  
+# end  
+# n = 4
+# Node = Struct.new(:a, :d)
+# input = [Node.new(4,6), Node.new(6,5), Node.new(7,3), Node.new(4,5)]
+# input = [Node.new(6,4), Node.new(3,6), Node.new(7,3)]
+# tour(input,n)
+
