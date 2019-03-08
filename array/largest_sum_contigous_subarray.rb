@@ -16,12 +16,13 @@ end
   
 def kadane(arr)
   n = arr.length
-  curr = arr[0]
+  curr = 0
   max_so_far = arr[0]
   i = 0; start = 0; _end = 0; s = 0
 
   while(i < n)
     curr += arr[i]
+    puts curr
     if(curr > max_so_far)
       max_so_far = curr
       start = s
@@ -41,5 +42,6 @@ def kadane(arr)
 end  
 
 arr = [-2, -3,  -1,4,6,-1]
+arr = [-4,-3]
 kadane(arr)
-kadane_v2(arr)
+# kadane_v2(arr)

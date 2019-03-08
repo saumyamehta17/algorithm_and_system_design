@@ -1,44 +1,40 @@
-# The worst case time complexity of this method is O(n2), 
-# but it works in O(n) on average
-def get_pivot(arr, l , h)
-  pivot = arr[h]
-  i = j = l
-  while(i < h)
-    if(arr[i] <= pivot)
-      swap(arr, i,j) if i != j
-      j += 1
-    end
-    i += 1  
+def find_smallest(arr, k, low = 0, hi = arr.length-1)
+
+  if low <= hi
+    pivot_indx = getPivot(arr, low, hi)
+    if pivot_indx == k-1
+      return arr[pivot_indx]
+    elsif pivot_indx > k-1
+      find_smallest(arr, k, low, pivot_indx-1)
+    else
+      find_smallest(arr, k, pivot_indx+1, hi)
+    end  
   end  
-  swap(arr,i,j) if i != j
+
+end  
+
+def getPivot(arr, low, hi)
+  pi = arr[hi]
+  i = j = low
+
+  while(i <= hi)
+    if arr[i] < pi
+      swap(arr, i, j) if i != j
+      j += 1
+    end  
+    i += 1
+  end
+
+  swap(arr, j, hi) if j != hi
   j
 end
 
-def swap(arr, i , j)
+def swap(arr, i, j)
   tmp = arr[i]
   arr[i] = arr[j]
   arr[j] = tmp
 end  
 
-def kth_smallest(arr, l, h, k)
-  if(l < h)
-    pivot_index = get_pivot(arr, l , h)
-    if k == pivot_index
-      return arr[pivot_index]
-    elsif k < pivot_index
-      kth_smallest(arr, l, pivot_index - 1, k)
-    elsif k > pivot_index
-      kth_smallest(arr, pivot_index + 1, h, k)
-    else
-      "Could not found"
-    end  
-  end
-  # arr  
-end  
-arr = [12, 3, 5, 7, 4, 19, 26]
-puts arr.to_s
-puts "--------------***------------"
-# arr = kth_smallest(arr, 0, arr.length-1, 3)
-# puts arr.to_s
-
-puts kth_smallest(arr, 0, arr.length-1, 3)
+arr = [7,10,4,3,20,15]
+k = 4
+puts find_smallest(arr, k)

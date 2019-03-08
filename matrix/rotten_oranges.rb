@@ -1,89 +1,84 @@
-Point = Struct.new(:x, :y)
-class RotOranges
-  attr_accessor :arr, :m, :n, :time_frame
+class RottenOranges
+  attr_reader :arr, :m , :n, :time_frame
 
-  def initialize(arr, m, n)
-    @arr = arr
-    @m = m
-    @n = n
+  def initialize(arr,m,n)
+    @arr, @m, @n = arr,m,n
     @time_frame = 0
   end
 
   def find
     q = Queue.new
-    i = 0;
-    while(i < m)
-      j = 0
-      while( j < n)
+    for i in 0...m
+      for j in 0...n
         if arr[i][j] == 2
           q.enq(Point.new(i,j))
         end  
-        j += 1
       end
-      i += 1
     end
+
     q.enq(Point.new(-1,-1))
-    
-    while(!q.empty?)  
-      flag = false
-      point = q.deq
-      while(!delimiter?(point))
-        # puts point
-        if    is_valid?(point.x, point.y-1)
-          if !flag
-            flag = true; @time_frame += 1
-          end  
-          arr[point.x][point.y-1] = 2
-          q.enq(Point.new(point.x, point.y-1))
+
+    while(!q.empty?)
+      node = q.deq
+      while(is_not_delimiter(node))
+        i = node.i
+        j = node.j
+
+        if valid(i-1, j)
+          arr[i-1][j] = 2
+          q.enq(Point.new(i-1, j))
         end
-          
-        if is_valid?(point.x, point.y+1)
-          if !flag
-            flag = true; @time_frame += 1
-          end  
-          arr[point.x][point.y+1] = 2
-          q.enq(Point.new(point.x, point.y+1))
+        
+        if valid(i+1, j)
+          arr[i+1][j] = 2
+          q.enq(Point.new(i+1, j))
         end
 
-        if is_valid?(point.x-1, point.y)
-          if !flag
-            flag = true; @time_frame += 1
-          end  
-          arr[point.x-1][point.y] = 2
-          q.enq(Point.new(point.x-1, point.y))
+        if valid(i, j-1)
+          arr[i][j-1] = 2
+          q.enq(Point.new(i, j-1))
         end
 
-        if is_valid?(point.x+1, point.y)
-          if !flag
-            flag = true; @time_frame += 1
-          end  
-          arr[point.x+1][point.y] = 2
-          q.enq(Point.new(point.x+1, point.y))
+        if valid(i, j+1)
+          arr[i][j+1] = 2
+          q.enq(Point.new(i, j+1))
         end  
-        point = q.deq               
+        node = q.deq
       end
-      if(!q.empty?)  
+      @time_frame += 1
+      if !q.empty?
         q.enq(Point.new(-1,-1))
       end  
-    end  
+    end
+
+    for i in 0...m
+      for j in 0...n
+        if arr[i][j] == 1
+          @time_frame = -1
+          return
+        end  
+      end
+    end    
   end
 
-  def delimiter?(point)
-    point.x == -1 && point.y == -1
-  end
-
-  def is_valid?(x,y)
-    (0...m) === x && 
-    (0...n) === y && 
-    arr[x][y] == 1
+  def valid(i,j)
+    i < m && i >= 0 && j >= 0 && j < n && arr[i][j] == 1
   end  
 
-  
+  def is_not_delimiter(node)
+    node.i != -1 && node.j != -1
+  end
+
 end  
+
+Point = Struct.new(:i,:j)
+
 arr = [ [2, 1, 0, 2, 1],
         [1, 0, 1, 2, 1],
         [1, 0, 0, 2, 1]
       ]
-obj = RotOranges.new(arr, 3, 5)
-obj.find
-puts obj.time_frame
+m = 3
+n = 5
+r = RottenOranges.new(arr, m , n)        
+r.find
+puts r.time_frame
