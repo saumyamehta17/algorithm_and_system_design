@@ -1,3 +1,9 @@
+# Solutions to detect loop:
+
+# 1. mark visited node if list modification is allowed
+# 2. compare curr_node with previous nodes for ex - you are ar ith node, compare 
+#     from 0 to (i-1) and so on. complexity is 0+1+2+3+4... = o(n2)
+# 3. using two pointers - o(2n) or o(3n) = o(n) - best
 class Node
   attr_accessor :value, :next_node
 

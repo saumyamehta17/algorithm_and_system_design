@@ -1,40 +1,85 @@
-def find_smallest(arr, k, low = 0, hi = arr.length-1)
-
-  if low <= hi
-    pivot_indx = getPivot(arr, low, hi)
-    if pivot_indx == k-1
-      return arr[pivot_indx]
-    elsif pivot_indx > k-1
-      find_smallest(arr, k, low, pivot_indx-1)
-    else
-      find_smallest(arr, k, pivot_indx+1, hi)
+def flatten(head, tail)
+  return if !head
+  curr = head
+  while(!curr.nil?)
+    child_node = curr.child
+    if child_node
+      tail = append_child(tail, child_node)
     end  
+    curr = curr.next
   end  
-
 end  
 
-def getPivot(arr, low, hi)
-  pi = arr[hi]
-  i = j = low
-
-  while(i <= hi)
-    if arr[i] < pi
-      swap(arr, i, j) if i != j
-      j += 1
-    end  
-    i += 1
+def append_child(tail, child_node)
+  tail.next = child_node
+  child_node.prev = tail
+  while(!child_node.next.nil?)
+    child_node = child_node.next
   end
+  child_node  
+end 
 
-  swap(arr, j, hi) if j != hi
-  j
-end
+def print_it(head)
+  curr = head
+  while(!curr.nil?)
+    print "#{curr.data} -next-> "
+    curr = curr.next
+  end  
+  puts 
+end 
 
-def swap(arr, i, j)
-  tmp = arr[i]
-  arr[i] = arr[j]
-  arr[j] = tmp
+def unflatten(head)
+  node = head
+  exploreAndSeparate(node)
+  curr = head
+  while(!curr.next.nil?)
+    curr = curr.next
+  end
+  tail = curr
+  print_it(head)  
 end  
 
-arr = [7,10,4,3,20,15]
-k = 4
-puts find_smallest(arr, k)
+def exploreAndSeparate(node)
+  while(!node.nil?)
+    child_node = node.child
+    if child_node
+      child_node.prev.next = nil
+      child_node.prev = nil
+      exploreAndSeparate(child_node)
+    end
+    node = node.next  
+  end  
+end  
+
+Node = Struct.new(:data, :next, :child, :prev)
+head =  Node.new(10)
+head.next = Node.new(5)
+head.next.prev = head
+
+head.next.next = Node.new(12)
+head.next.next.prev = head.next
+
+head.next.next.next = Node.new(7)
+head.next.next.next.prev = head.next.next
+
+head.next.next.next.next = Node.new(11)
+head.next.next.next.next.prev = head.next.next.next
+
+head.child = Node.new(4)
+head.child.next = Node.new(20)
+head.child.next.prev = head.child
+
+head.child.next.next = Node.new(13)
+head.child.next.next.prev = head.child.next
+
+head.next.next.next.next.child = Node.new(17)
+
+head.next.next.next.next.child.next = Node.new(6)
+head.next.next.next.next.child.next.prev = head.next.next.next.next.child
+
+tail = head.next.next.next.next
+puts "Flatten Multilist-----------"
+flatten(head, tail)
+print_it(head)
+puts "Un Flatten Multilist-----------"
+unflatten(head)

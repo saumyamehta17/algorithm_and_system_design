@@ -15,7 +15,7 @@ Different ways to structure data:
   . sorting nlog(n)
 
 * LinkedList
-  a linear data structure, where elements not stored in continous memory locations, elements are linked using pointers.	
+  a linear data structure, where elements not stored in continous memory locations, elements are linked using pointers.	It do dynamic allocation for each new element.
 
   Advantage
   ---------
