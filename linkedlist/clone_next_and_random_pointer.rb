@@ -91,7 +91,7 @@ class LinkedList
   def print_it(node = head)
     curr = node
     while(!curr.nil?)
-      puts "#{curr.data} --Random--> #{curr.random.data}" unless curr.random.nil?
+      puts "#{curr.data} --Next--> #{curr.next.data if curr.next}--Random--> #{curr.random.data}" unless curr.random.nil?
       curr = curr.next
     end  
   end  

@@ -18,6 +18,14 @@ class StringOpr
   end
 
   def first_non_repeating_chr
+    # Improvements
+    # 1. incrementing count every time will create new object and assign to it
+    #  to avoid this we can use two string status "occured_once" and "multiple"
+    # 2. use hash if strings are small and arrays for big strings
+    #  if hsh[status_of_char]  is null then set with "occured_once"
+    #  if hsh[status_of_char] is occured_once then set it with multiple
+    # traverse string again and see first char whose status is occured_once
+    
     0.upto(len-1) do |i|
       @arr[str[i].ord].count += 1
       @arr[str[i].ord].index = i

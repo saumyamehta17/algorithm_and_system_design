@@ -12,9 +12,16 @@ def special_keyboard(n)
     for y in 1...(x-3)
       # x - y - 2 + 1 mean
       # x total operations
-      # - y = that are no of A's will be pasted, substracted bcoz operation performed
-      # - 2 = one is select and one is copy, that not help to paste
-      # + 1 = that already one the screen 
+      # - y = that are no of A's that will be pasted, substracted bcoz operation already performed
+      # - 2 = one is select and one is copy, that will not help to paste
+      # + 1 = that already on the screen 
+      ## for example: y=2, x=7
+      # 7 places A_ A_ select_ copy_ paste_ paste_ paste_
+      # first 2 places = 2 operation perfomed = -2, and 
+      #   pasted = + 1
+      # select and copy = 2 operation performed = -2
+      # rest are = 7 - 2 + 1 - 2 = 4, total 4 ctrl V can be used
+
       val = arr[y-1] * (x-y-2+1)
       arr[x-1] = [arr[x-1], val].max
     end

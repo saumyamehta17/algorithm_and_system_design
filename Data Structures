@@ -86,11 +86,14 @@ Different ways to structure data:
   
   Disadvantage
   ------------              
-
+* Complete Binary Tree
+  Here 2^n nodes at each level, where n is level.Therefore each level has one more node than sum of nodes in all preceding level. So, indexes of children of first node is 2i+1 and 2nd node is 2i+2
+  
 * Heap
   type of binary tree has following properties:
   its a complete binary tree where all levels are filled and last level is filled as left as possible. This property makes it suitable to be stored in array
   It can be MinHeap/MaxHeap
+
   
   Advantage
   ---------

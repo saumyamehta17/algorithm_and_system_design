@@ -1,77 +1,98 @@
-require 'pry'
-class MinHeap
-  attr_reader :size, :arr
+def insert(val)
+  @minheap << val
+  indx = @minheap.length - 1
+  insert_and_heapify(indx)
+end
 
-  def initialize
-    @arr = []
-  end
+def insert_and_heapify(indx)
+  while(indx > 0)
+    parent_indx = (indx - 1)/2
+    if(@minheap[parent_indx] > @minheap[indx])
+      swap(parent_indx, indx)
+      indx = parent_indx
+    else
+      return
+    end  
+  end 
+end  
 
-  def parent(indx)
-    (indx - 1)/2
+def delete(indx)
+  if @minheap[indx]
+    n = @minheap.length
+    @minheap[indx] = @minheap[n-1]
+    @minheap.pop
+    heapify(indx, n-1)
+    return 1
+  else
+    return -1
+  end  
+end  
+
+def heapify(indx, size)
+  smallest = indx
+  lindx = indx * 2 + 1
+  rindx = indx * 2 + 2
+
+  if lindx < size && @minheap[smallest] > @minheap[lindx]
+    smallest = lindx
   end  
 
-  def insert(val)
-    arr << val
-    indx = arr.length-1
-    while(indx != 0 && arr[indx] < arr[parent(indx)])
-      i = parent(indx)
-      temp = arr[i]
-      arr[i] = arr[indx]
-      arr[indx] = temp
-      indx = i
-    end  
+  if rindx < size && @minheap[smallest] > @minheap[rindx]
+    smallest = rindx
   end
 
-  def heapify(indx)
-    len = arr.length
-    smaller = indx
-    lindx = indx*2+1
-    rindx = indx*2+2
-    if(lindx < len && arr[lindx] < arr[smaller])
-      smaller = lindx
+  if smallest != indx
+    swap(smallest, indx)
+    heapify(smallest, size)
+  end  
+end 
+
+def extractMin
+  n = @minheap.length
+  if n == 0
+    return -1
+  else n >= 1
+    ouput = @minheap[0]
+    if n == 1
+      @minheap.pop
+    else
+      @minheap[0] = @minheap[n-1]
+      @minheap.pop
     end
-    if(rindx < len && arr[rindx] < arr[smaller])  
-      smaller = rindx
-    end
+    heapify(0, n-1) 
+    return ouput
+  end  
+end 
 
-    if(indx != smaller)
-      temp = arr[indx]
-      arr[indx] = arr[smaller]
-      arr[smaller] = temp
-      heapify(smaller)
-    end  
-  end
+def getMin
+  @minheap[0]
+end  
 
-  def get_min
-    arr[0]
-  end
+def decreaseKey(key, val)
+  if @minheap[key]
+    @minheap[key] = val
+    insert_and_heapify(key)
+  else
+    return -1
+  end  
+end 
 
-  def extract
-    puts "extracted #{arr[0]}"
-    len = arr.length
-    arr[0] = arr[len-1]
-    arr.pop
-    heapify(0)
-  end 
+def swap(i,j)
+  tmp = @minheap[j]
+  @minheap[j] = @minheap[i]
+  @minheap[i] = tmp
+end 
 
-  def delete(key)
-    len = arr.length
-    return -1 if(key >= len)
-    arr[key] = arr[len-1]
-    arr.pop
-    heapify(key)
-  end 
-end   
 
-heap = MinHeap.new
-heap.insert 4
-heap.insert 2
-heap.insert 6
-heap.insert 3
-heap.insert 1
-puts "Before extraction array is.. #{heap.arr.to_s}"
-puts "Min is #{heap.get_min}"
-heap.extract
-puts "After extraction array is.. #{heap.arr.to_s}"
-heap.delete(1)
-puts "After delete array is.. #{heap.arr.to_s}"
+
+@minheap = Array.new
+insert(3)
+insert(2)
+delete(1)
+insert(15)
+insert(4)
+insert(45)
+puts extractMin
+puts getMin
+decreaseKey(2, 1)
+puts getMin
