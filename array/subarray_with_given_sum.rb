@@ -10,8 +10,8 @@
 # @sum = 7
 
 # ex - 3
-# @arr = [1,4]
-# @sum = 0
+@arr = [1,4]
+@sum = 0
 
 
 @start = 0; @end = 0; @len = @arr.length; @max_sum = @arr[0]
@@ -65,5 +65,5 @@ def get_range_for_negative_also(arr, sum)
   puts "No sub array..."  
 end  
 
-# find_range
-get_range_for_negative_also([1,4,20,3,10,5], 33)
+find_range
+# get_range_for_negative_also([1,4,20,3,10,5], 33)

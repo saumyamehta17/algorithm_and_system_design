@@ -2,6 +2,8 @@
 # second comparsion takes o(n-2)
 # third comparsion takes o(n-3) and so on
 # it becomes n(n-1)/2 i.e o(n2). and its not stable
+# stable -> if A precedes B, after sorting A should precedes B
+# for example: [4,3,4,1] -> is not stable with selection
 def selection_sort(arr, start)
 
   len = arr.length
@@ -40,3 +42,25 @@ end
 
 arr = [10,9,2,1,6,7]
 puts selection_sort(arr, 0).to_s
+
+def getMinPos(data, start, len)
+  min = start
+  for which in (start+1)...len
+    if data[which] < data[min]
+      min = which
+    end  
+  end
+  min  
+end
+
+def selectionRecursion(data, start = 0, len)
+  if start == len 
+    puts data.to_s
+  else  
+  swap(data, start, len, getMinPos(data, start, len))
+  selectionRecursion(data, start + 1, len)
+  end
+end
+
+data = [4,3,4,1]
+selectionRecursion(data, 0, data.length)  

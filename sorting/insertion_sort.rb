@@ -1,5 +1,6 @@
-# If elements are already sorted , it takes o(n) time
-# worst case - when elements are sorted in reverse order. o(n2)
+# Best Case - If elements are already sorted , it takes o(n) time
+# worst case and average case - when elements are sorted in reverse order. o(n2)
+# Insertion sort is stable algo
 
 arr = [12, 11, 13, 5, 6]
 

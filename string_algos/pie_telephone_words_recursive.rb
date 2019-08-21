@@ -1,6 +1,7 @@
 # Print all possible strings for a given telephone number
 # Time complexity is 3^1+3^2+3^3......3^n = o(3^n)
 
+# Recursive
 def printNumbers(currIndex = 0)
   if currIndex == @len
     @count += 1

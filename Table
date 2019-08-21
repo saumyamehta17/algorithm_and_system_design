@@ -1,0 +1,56 @@
+Table
+=======
+lists
+
+columns
+========
+id => Int | data => varchar | next_id => int, foreign_key
+
+Example => milliions
+===========
+1 | John | 2   | type = head
+2 | Saumya | 3 | 
+3 | name | nil |
+
+
+query - pick out the head node
+===============================
+
+we have id and next_id
+if i say, if id does not exist in next_id column 
+
+head = 1
+
+lists where id == head
+head= list.next_id
+
+
+table "values" in mysql
+name id
+head 1 => 2
+
+=========
+value = select * from values where name = 'head'
+
+head = select * from lists where id = value.id
+
+
+2 Que
+========================
+If I want delete head element
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

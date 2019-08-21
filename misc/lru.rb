@@ -1,4 +1,4 @@
-class DLL
+  class DLL
   attr_reader :head, :tail
 
   def add(node)

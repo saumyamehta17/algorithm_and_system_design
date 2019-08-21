@@ -1,4 +1,4 @@
-Node = Struct.new(:data, :left, :right)
+  Node = Struct.new(:data, :left, :right)
 DLL = Struct.new(:data, :level, :prev, :next)
 
 class BinaryTree

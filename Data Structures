@@ -2,130 +2,141 @@ Data Structures
 
 Different ways to structure data:
 
-* Array
-  is a data structure, where data is placed at continous memory locatons. Idea is to place multiple items of same type together. 
-  Advantage
-  ---------
-  . Fast random access using index - o(1)
+	* Array
+	  is a data structure, where data is placed at continous memory locatons. Idea is to place multiple items of same type together. 
+	  Advantage
+	  ---------
+	  . Fast random access using index - o(1)
 
-  Disadvantage
-  ------------
-  . Fix Size
-  . Inserting new elem is expensive if sorted - o(n)
-  . sorting nlog(n)
+	  Disadvantage
+	  ------------
+	  . Fix Size
+	  . Inserting new elem is expensive if sorted - o(n)
+	  . sorting nlog(n)
 
-* LinkedList
-  a linear data structure, where elements not stored in continous memory locations, elements are linked using pointers.	It do dynamic allocation for each new element.
+	* LinkedList
+	  a linear data structure, where elements not stored in continous memory locations, elements are linked using pointers.	It do dynamic allocation for each new element.
 
-  Advantage
-  ---------
-  . Dynamic Size
-  . Ease insertion/deletion - o(1)
-  
-  Disadvantage
-  ------------  
-  . extra space for pointers
-  . No random access, need to traverse - o(n)
-  . sorting nlog(n)
+	  Advantage
+	  ---------
+	  . Dynamic Size
+	  . Ease insertion/deletion - o(1)
+	  
+	  Disadvantage
+	  ------------  
+	  . extra space for pointers
+	  . No random access, need to traverse - o(n)
+	  . sorting nlog(n)
 
-* Stack-LIFO/ Queue-FIFO(Usage CPU Scheduling)
+	* Stack-LIFO/ Queue-FIFO(Usage CPU Scheduling)
 
-  Advantage
-  ---------
-  push/Add - o(1)
-  pop/remove - o(1)
-  peek - o(1)
-  
-  Disadvantage
-  ------------  
-  search - o(n) use another ds
+	  Advantage
+	  ---------
+	  push/Add - o(1)
+	  pop/remove - o(1)
+	  peek - o(1)
+	  
+	  Disadvantage
+	  ------------  
+	  search - o(n) use another ds
 
-  Example - Using back and forward buttons in browser.
+	  Example - Using back and forward buttons in browser.
 
-* Binary Search Tree
-  hierarchical data structure, 		
-  Advantage
-  ---------
-  * insert/search/del in o(h) 
-  * and in o(log(n)) if bst is self balancing tree
-  * better than hash for get sorted elements (Inorder travsersal), extra efforts with hash
-  * order stastics - get kth smallest elem, extra efforts with hash
-  
-  Disadvantage
-  ------------
-  . extra space
+	* Binary Search Tree
+	  hierarchical data structure, 		
+	  Advantage
+	  ---------
+	  * insert/search/del in o(h) 
+	  * and in o(log(n)) if bst is self balancing tree
+	  * better than hash for get sorted elements (Inorder travsersal), extra efforts with hash
+	  * order stastics - get kth smallest elem, extra efforts with hash
+	  
+	  Disadvantage
+	  ------------
+	  . extra space
 
 
-* Binary Tree
-  hierarchical data structure, type of a tree have atmost 2 children	
-  Advantage
-  ---------
-  
-  Disadvantage
-  ------------   
+	* Binary Tree
+	  hierarchical data structure, type of a tree have atmost 2 children	
+	  Advantage
+	  ---------
+	  
+	  Disadvantage
+	  ------------   
 
-* Graph
-  Vertices and edges
+	* Graph
+	  Vertices and edges
 
-  Advantage
-  ---------
-  
-  Disadvantage
-  ------------
+	  Advantage
+	  ---------
+	  
+	  Disadvantage
+	  ------------
 
-* Trie
-  a tree to store strings
-  
-  Applications
-  ------------
-  searching word in dictonaries
+	* Trie
+	  a tree to store strings
+	  
+	  Applications
+	  ------------
+	  searching word in dictonaries
 
-  
-  Advantage
-  ---------
-  
-  Disadvantage
-  ------------              
-* Complete Binary Tree
-  Here 2^n nodes at each level, where n is level.Therefore each level has one more node than sum of nodes in all preceding level. So, indexes of children of first node is 2i+1 and 2nd node is 2i+2
-  
-* Heap
-  type of binary tree has following properties:
-  its a complete binary tree where all levels are filled and last level is filled as left as possible. This property makes it suitable to be stored in array
-  It can be MinHeap/MaxHeap
+	  
+	  Advantage
+	  ---------
+	  
+	  Disadvantage
+	  ------------              
+	* Complete Binary Tree
+	  Here 2^n nodes at each level, where n is level.Therefore each level has one more node than sum of nodes in all preceding level. So, indexes of children of first node is 2i+1 and 2nd node is 2i+2
+	  
+	* Heap
+	  type of binary tree has following properties:
+	  its a complete binary tree where all levels are filled and last level is filled as left as possible. This property makes it suitable to be stored in array
+	  It can be MinHeap/MaxHeap
 
-  
-  Advantage
-  ---------
-  . get min/max  - o(1)
-  . insertion/deletion - o(log(n))
+	  
+	  Advantage
+	  ---------
+	  . get min/max  - o(1)
+	  . insertion/deletion - o(log(n))
 
-  Disadvantage
-  ------------   
-  . searching - o(n) bcoz no specific order it maintains
+	  Disadvantage
+	  ------------   
+	  . searching - o(n) bcoz no specific order it maintains
 
-* Hash
-  
-  Advantage
-  ---------
-  insert/del/access in o(1) 
-  
-  Disadvantage
-  ------------
-  reterival of elem in specific order not gurantee
-  extra space than arrays to store hash code
+	* Hash
+	  
+	  Advantage
+	  ---------
+	  insert/del/access in o(1) 
+	  
+	  Disadvantage
+	  ------------
+	  reterival of elem in specific order not gurantee
+	  extra space than arrays to store hash code
 
-* Avl Tree
+	* Avl Tree
 
-  is a balanced Binary Search Tree where height difference b\w left subtree and right subtree is not greater than 1
+	  is a balanced Binary Search Tree where height difference b\w left subtree and right subtree is not greater than 1
 
-  Advantage
-  ---------
-  search, deletion, insertion takes o(logn) where BST can take o(n) if it is skewed.
+	  Advantage
+	  ---------
+	  search, deletion, insertion takes o(logn) where BST can take o(n) if it is skewed.
 
-  Disadvange
-  -----------
-  may cause more rotations during insertion n deletion.
+	  Disadvange
+	  -----------
+	  may cause more rotations during insertion n deletion.
+
+Right question:
+
+1. Sorting
+	what do we know about data: already sorted? mostly sorted? can be there duplicate values? how large data set be?
+
+	what are req for sorting: optimize for best-case, worst-case, average-case? sort need to be stable? 
+
+	what do we know abt system: larger data set to be sorted is smaller than, equal, larger than available memory?
+
+		  
 
 
 
