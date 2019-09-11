@@ -83,9 +83,12 @@ Different ways to structure data:
 	  
 	  Advantage
 	  ---------
-	  
+	  search complexity is o(L) where L is length of string.
+
 	  Disadvantage
 	  ------------              
+	  It need a lot of memory for storing strings.	
+
 	* Complete Binary Tree
 	  Here 2^n nodes at each level, where n is level.Therefore each level has one more node than sum of nodes in all preceding level. So, indexes of children of first node is 2i+1 and 2nd node is 2i+2
 	  

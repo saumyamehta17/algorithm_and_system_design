@@ -13,6 +13,10 @@ class Elevator
 		@max = 0
 	end
 
+	def valid?(floor)
+		floor <= floors
+	end	
+
 	def start
 		while(1)
 			floor_num = gets.chomp.to_i
@@ -28,9 +32,9 @@ class Elevator
 					puts "I am at #{current_floor} #{request_arr.to_s}"
 				end	
 			else
-				puts "Floor dont exist"
+				puts "Floor doesn't exist"
 			end	
-			sleep 5
+			sleep 1
 		end	
 	end		
 
@@ -63,15 +67,16 @@ class ElevatorController
 			floor = request_queue.deq
 			@elevators[0].add_req(floor)
 		end	
+		puts @elevators[0].request_arr.to_s
 	end	
 end	
 
 ec = ElevatorController.new
 ec.add_elevator
-# ec.request_queue.enq(4)
-# ec.request_queue.enq(2)
-# ec.request_queue.enq(6)
-# ec.request_queue.enq(9)
-# ec.request_queue.enq(2)
-# ec.process
+ec.request_queue.enq(4)
+ec.request_queue.enq(2)
+ec.request_queue.enq(6)
+ec.request_queue.enq(9)
+ec.request_queue.enq(2)
+ec.process
 ec.elevators[0].start

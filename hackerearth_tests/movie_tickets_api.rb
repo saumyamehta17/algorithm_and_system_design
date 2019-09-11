@@ -1,22 +1,36 @@
 require 'net/http'
 require 'json'
+def funWithAnagrams(s)
+# Write your code here
+ result_hash = {}
+
+ s.each do |word|
+   sorted = word.chars.sort.join
+   next if result_hash[sorted]
+   result_hash[sorted] = word
+ end
+ result_hash.values.sort
+end
+
+puts funWithAnagrams(['code', 'aaagmnrs', 'anagrams', 'doce'])
+
 def movie_tickets(substr)
-  pageNumber = 1
+  page_number = 1
   titles = []
 
   while(1)
-    url = "https://jsonmock.hackerrank.com/api/movies/search/?Title=#{substr}&page=#{pageNumber}"
+    url = "https://jsonmock.hackerrank.com/api/movies/search/?Title=#{substr}&page=#{page_number}"
     uri = URI(url)
     res = Net::HTTP.get_response(uri)
     output = JSON.parse(res.body)
     if output["data"].empty?
       break 
     end  
-    output["data"].map {|o| titles << o["Title"]}
-    pageNumber += 1
+    titles += output["data"].map { |o| o["Title"] }
+    page_number += 1
   end
-  puts titles.to_s
+  titles.sort
 end  
 
-substr = "Iron"
-movie_tickets(substr)
+substr = "spiderman"
+# movie_tickets(substr)

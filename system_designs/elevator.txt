@@ -1,0 +1,13 @@
+Requirements:
+1. Many elevators in building
+2. elevator can go up and down
+3. Should we consider superstition of 13th floor
+
+UseCase:
+Actors -> 
+	Passengers -> Call Lift, Hall calls, Hold lift
+	System -> move/stop lift, open close doors
+	Admin -> change the conf of lift like Max Floors
+
+Class Diagram:
+ Elevator, Button, ElevatorController 	
