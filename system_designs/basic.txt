@@ -5,3 +5,11 @@
 	c) Latency
 3. Define API's, define actors, design boxes. basically 50 feet above intro
 4. You talk 80% and let interviewer talk 20%. You lead the solution	
+
+
+Object Oriented design 
+
+1. Gather Req
+2. use case diagram
+3. class diagram
+

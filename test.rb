@@ -1,100 +1,51 @@
-class Node 
-  attr_accessor :data, :children, :eow
-
-  def initialize(data)
-    @data = data
-    @children = []
-    @eow = false
-  end
-
-  def insert(chr)
-    if node = has?(chr)
-    else
-      node = Node.new(chr)
-      children << node
-    end 
-    node 
+def getlength(l)
+  c = 0
+  while(l)
+    c += 1
+    l = l.next
   end  
-
-  def has?(chr)
-    children.each do |child|
-      if child.data == chr
-        return child
-      end  
-    end
-    false  
-  end
-
-  def isWord
-    eow
-  end
-
-  def isLastNode
-    children.empty?
-  end  
-
+  c
 end  
 
-class Trie
-  attr_accessor :root
+def move(l, d)
+  d.downto(1).each {|x| l = l.next}
+  l
+end
 
-  def initialize
-    @root = Node.new('')
-  end
-
-  def insert(word)
-    node = root
-    word.split('').each do |chr|
-      child = node.insert(chr)
-      node = child
-    end
-    node.eow = true  
-  end
-
-  def find(word) 
-    node = root
-    word.split('').each do |chr|
-      if child = node.has?(chr)
-        node = child
-      else
-        return false
-      end  
-    end
-    # node.eow == true  
-    node
-  end 
-
-  def print_auto_suggestions(node, word)
-    if node = find(word)
-      auto_suggestion_rec(node, word)
-    else
-      return -1
+def get_intersection(l1, l2)
+  d1 = getlength(l1)
+  d2 = getlength(l2)
+  d = (d1 - d2).abs
+  if d1 > d2
+    l1 = move(l1, d)
+  elsif d1 < d2
+    l2 = move(l2, d)
+  end  
+  
+  while(l1 && l2)
+    if l1.data == l2.data
+      return l1.data
     end  
+    l1 = l1.next
+    l2 = l2.next
   end
+  -1      
+end   
 
-  def auto_suggestion_rec(node, word)
-    puts word if node.isWord
-    if node.isWord && node.isLastNode
-      return
-    end
+Node = Struct.new(:data, :next)
+list1 = Node.new(5)
+list1.next = Node.new(10)
+list1.next.next = Node.new(15)
+list1.next.next.next = Node.new(20)
+list1.next.next.next.next = Node.new(40)
 
-    node.children.each do |child|
-      auto_suggestion_rec(child, word + child.data)
-    end
-  end 
-end  
-
-t = Trie.new
-t.insert('abc')
-t.insert('adef')
-# puts t.find('abc').isWord
-t.insert('hello')
-t.insert('hell')
-t.insert('hel')
-t.insert('help')
-t.insert('helps')
-t.insert('helping')
-t.print_auto_suggestions(t.root, 'hel')
+list2 = Node.new(2)
+list2.next = Node.new(3)
+list2.next.next = Node.new(13)
+list2.next.next.next = Node.new(20)
+list2.next.next.next.next = Node.new(40)
+puts get_intersection(list1, list2)
+# puts mergelists(list1, list2)
 
 # def all_turned_bulbs_shines?(bulbs, i, n)
 #   while(i < n)
