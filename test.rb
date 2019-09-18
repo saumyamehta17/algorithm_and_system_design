@@ -1,50 +1,32 @@
-def getlength(l)
-  c = 0
-  while(l)
-    c += 1
-    l = l.next
-  end  
-  c
+def swap(head)
+  return nil if head.nil?
+  prev = nil
+  curr = head
+  node = curr.next
+  while(curr && curr.next)
+    nn = curr.next
+    curr.next = nn.next
+    nn.next = curr
+    prev.next = nn if prev
+    prev = curr
+    curr = prev.next
+  end
+  puts node  
 end  
 
-def move(l, d)
-  d.downto(1).each {|x| l = l.next}
-  l
-end
-
-def get_intersection(l1, l2)
-  d1 = getlength(l1)
-  d2 = getlength(l2)
-  d = (d1 - d2).abs
-  if d1 > d2
-    l1 = move(l1, d)
-  elsif d1 < d2
-    l2 = move(l2, d)
-  end  
-  
-  while(l1 && l2)
-    if l1.data == l2.data
-      return l1.data
-    end  
-    l1 = l1.next
-    l2 = l2.next
-  end
-  -1      
-end   
-
 Node = Struct.new(:data, :next)
-list1 = Node.new(5)
-list1.next = Node.new(10)
-list1.next.next = Node.new(15)
-list1.next.next.next = Node.new(20)
-list1.next.next.next.next = Node.new(40)
+list1 = Node.new(1)
+list1.next = Node.new(2)
+list1.next.next = Node.new(3)
+list1.next.next.next = Node.new(4)
+list1.next.next.next.next = Node.new(5)
+list1.next.next.next.next.next = Node.new(6)
+list1.next.next.next.next.next.next = Node.new(7)
 
-list2 = Node.new(2)
-list2.next = Node.new(3)
-list2.next.next = Node.new(13)
-list2.next.next.next = Node.new(20)
-list2.next.next.next.next = Node.new(40)
-puts get_intersection(list1, list2)
+puts swap(list1)
+
+
+
 # puts mergelists(list1, list2)
 
 # def all_turned_bulbs_shines?(bulbs, i, n)

@@ -1,0 +1,10 @@
+Hash Map is a data structure to store key-value pair. This is used to map key to value for efficient look-up. There are many ways to implement it
+
+1) using array and linkedlist
+index =  hashCode() % size_array
+look in array with calculated index, and add node in that index if not already populated else add at the end of linkedlist
+
+It will take constant time to get and set key-value in hashmap, but
+if there are collisions then it will take o(n) in worst case
+
+2) We can reduce complexity to o(logn) by using balanced tree instead of linkedlist.

@@ -11,4 +11,5 @@ def josephus(n,k)
   (josephus(n-1, k) + k) % n
 end  
 
-puts josephus(7,3)
+# puts josephus(7,3)
+puts josephus(4,2)

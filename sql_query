@@ -1,0 +1,10 @@
+
+SELECT t1.name, t1.no_of_employee FROM 
+  (SELECT department.name as name, count(employee.id) as no_of_employee FROM department 
+    LEFt JOIN employee on department.id = employee.department_id group by department.id) 
+      as t1 order by t1.no_of_employee desc, t1.name asc;
+
+
+SELECT department.name as name, count(employee.id) as no_of_employee FROM department 
+    LEFt JOIN employee on department.id = employee.department_id group by department.id
+      order by no_of_employee desc, name asc      
