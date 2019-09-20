@@ -1,33 +1,4 @@
-def swap(head)
-  return nil if head.nil?
-  prev = nil
-  curr = head
-  node = curr.next
-  while(curr && curr.next)
-    nn = curr.next
-    curr.next = nn.next
-    nn.next = curr
-    prev.next = nn if prev
-    prev = curr
-    curr = prev.next
-  end
-  puts node  
-end  
 
-Node = Struct.new(:data, :next)
-list1 = Node.new(1)
-list1.next = Node.new(2)
-list1.next.next = Node.new(3)
-list1.next.next.next = Node.new(4)
-list1.next.next.next.next = Node.new(5)
-list1.next.next.next.next.next = Node.new(6)
-list1.next.next.next.next.next.next = Node.new(7)
-
-puts swap(list1)
-
-
-
-# puts mergelists(list1, list2)
 
 # def all_turned_bulbs_shines?(bulbs, i, n)
 #   while(i < n)
