@@ -1,47 +1,44 @@
-require 'pry'
-def three_sum_closest(nums, target)
-  nums = nums.sort
-  n = nums.length
-  closet_sum = 9999
+def is_match(s, p)
+   m = s.length
+   n = p.length
+   mtrx = Array.new(m+1) {Array.new(n+1)}
 
-  for i in 0...n
-
-    left = i+1
-    right = n-1
-
-
-    while(left < right)
-      sum = (nums[i] + nums[left] + nums[right])
-
-      return target if(sum == target)
-
-      if(target-sum).abs < (target-closet_sum).abs
-        closet_sum = sum
-      end
-
-      if(sum < target)
-        left += 1
-      elsif sum > target
-        right -= 1
-      else
-        return target
-      end
-    end
-  end
-  closet_sum
+   mtrx[0][0] = true
+   
+   for i in (1...m+1)
+       mtrx[i][0] = false
+   end
+    
+  for i in (1...n+1)
+      mtrx[0][i] = p[i-1] == '*' ? mtrx[0][i-2] : false
+  end  
+   
+   for i in (1...m+1)
+       for j in (1...n+1)
+           mtrx[i][j] = if s[i-1] == p[j-1] || p[j-1] == '.'
+                        mtrx[i-1][j-1]
+                elsif p[j-1] == '*'
+                    mtrx[i][j-2] || ((s[i-1] == p[j-2] || p[i-2] == '.') && mtrx[i-1][j-1])
+               else
+                    false
+               end
+               
+       end
+   end
+   puts mtrx.to_s 
+   puts mtrx[m][n] 
 end
-
-nums = [1,2,4,8,16,32,64,128]
-target = 82
-puts three_sum_closest(nums, target)
+s = 'aa'
+p = '.*'
+is_match(s,p)
 # def all_turned_bulbs_shines?(bulbs, i, n)
 #   while(i < n)
 #     if bulbs[i] == 1
 #       return false
-#     end
+#     end 
 #     i += 1
 #   end
-#   true
+#   true    
 # end
 
 # def find_moments(arr)
@@ -58,18 +55,18 @@ puts three_sum_closest(nums, target)
 #       while(bulbs[k] && bulbs[k] == 1)
 #         bulbs[k] = 2
 #         k += 1
-#       end
+#       end  
 
 #       if all_turned_bulbs_shines?(bulbs, j, n)
 #         moments += 1
-#       end
+#       end  
 #     else
 #       bulbs[j] = 1
-#     end
-#   end
+#     end  
+#   end  
 
 #   moments
-# end
+# end  
 
 # arr = [2,1,3,5,4]
 # arr = [2,3,4,1,5]
@@ -81,8 +78,8 @@ puts three_sum_closest(nums, target)
 #     return n
 #   end
 
-#   fib(n-1) + fib(n-2)
-# end
+#   fib(n-1) + fib(n-2)  
+# end  
 
 # def print_permutations(str)
 # 	map = Hash.new(0)
