@@ -62,7 +62,16 @@ Different ways to structure data:
 	  ---------
 	  
 	  Disadvantage
-	  ------------   
+	  ------------
+
+	* Red-Black Tree
+	  its a self-balancing binary search tree similar to AVL Tree, but its less restrictive and number of rotations are also less. So, its more efficient.
+	  Each node has an extra bit to represent color to ensure that tree remains approximately balanced during the insertions and deletions.
+
+	  Time Complexities of operations are:
+	  * Search    	o(logn)
+	  * insertions  o(logn)
+	  * Deletion    o(logn)
 
 	* Graph
 	  Vertices and edges
@@ -140,6 +149,32 @@ Right question:
 	what do we know abt system: larger data set to be sorted is smaller than, equal, larger than available memory?
 
 		  
+
+AMAZON
+==========
+Data Structures:
+
+Array
+Linked List
+Binary Tree, Binary Search Tree, Red-Black Tree
+Heap
+Hash Table
+Stack
+Queue
+Trie
+Graph (both directed and undirected)
+ 
+
+Algorithms:
+
+Sorting
+Bubble Sort
+Merge Sort
+Quick Sort
+Radix/Bucket Sort
+Traversals (On multiple data structures)
+Depth First Search
+Breadth First Search		  
 
 
 
