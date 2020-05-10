@@ -1,5 +1,5 @@
 # it sort taking least significant digit to most significant digit
-# while using setter methos, digit = digit * 10 will consider digit as local variable so do @digit = digit * 10
+
 require 'pry'
 class RadixSort
   attr_accessor :arr, :digit, :len
@@ -16,10 +16,10 @@ class RadixSort
     while(i < len)
       if(largest < arr[i])
         largest = arr[i]
-      end 
-      i += 1 
+      end
+      i += 1
     end
-    largest  
+    largest
   end
 
   def start
@@ -29,19 +29,19 @@ class RadixSort
       sorting
       puts "digit is #{digit}"
       @digit = digit * 10
-    end  
-  end  
+    end
+  end
 
   def sorting
     count_arr = Array.new(10, 0)
     output_arr = Array.new(len)
     i = 0
     while(i < len)
-      
+
       val = arr[i] / digit % 10
       count_arr[val] += 1
       i += 1
-    end 
+    end
 
     i = 1
     while(i < len)
@@ -56,14 +56,15 @@ class RadixSort
       output_arr[indx] = arr[i]
       count_arr[val] -= 1
       i += 1
-    end 
-    binding.pry
+    end
+    # binding.pry
     output_arr.each_with_index do |v,i|
       arr[i] = output_arr[i+1]
-    end  
-  end  
+    end
+  end
 end
 
 @rs = RadixSort.new([101,4,1,2,7,5,2])
+@rs = RadixSort.new([2,5,6,1,0])
 @rs.start
-@rs.arr
+puts @rs.arr.to_s

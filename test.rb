@@ -1,39 +1,59 @@
-require 'pry'
-def three_sum_closest(nums, target)
-  nums = nums.sort
-  n = nums.length
-  closet_sum = 9999
+# @param {Character[][]} board
+# @return {Boolean}
+def find_judge(n, trust)
+    sum = (n*(n+1))/2
 
-  for i in 0...n
+    trustee_sum = 0
+    hsh = Hash.new []
 
-    left = i+1
-    right = n-1
-
-
-    while(left < right)
-      sum = (nums[i] + nums[left] + nums[right])
-
-      return target if(sum == target)
-
-      if(target-sum).abs < (target-closet_sum).abs
-        closet_sum = sum
-      end
-
-      if(sum < target)
-        left += 1
-      elsif sum > target
-        right -= 1
-      else
-        return target
-      end
+    trust.each do |t|
+        trustee_sum += t[0] if hsh[t[0]].empty?
+        hsh[t[0]] += [t[1]]
     end
-  end
-  closet_sum
-end
 
-nums = [1,2,4,8,16,32,64,128]
-target = 82
-puts three_sum_closest(nums, target)
+    return -1 if hsh.keys.length != n-1
+
+    candidate = sum - trustee_sum
+
+    hsh.each do |k,v|
+        return -1 if !v.include?(candidate)
+    end
+    return candidate
+end
+n = 2
+trust = [[1,2]]
+puts find_judge(n, trust)
+
+def reverse_k_group(head, k)
+    return head if k <= 1 || head.nil? || head.next.nil?
+
+    c = 0; prev = nil; curr = head
+
+    while(c <= k && !curr.nil?)
+        nn = curr.next
+        curr.next = prev if prev
+        prev = curr
+        curr = nn
+        c += 1
+    end
+
+    if c == k && curr.nil?
+        return prev
+    elsif curr.nil?
+        return head
+    else
+        head.next = reverse_k_group(curr, k)
+    end
+    return prev
+end
+Node = Struct.new(:data, :next)
+head = Node.new(1)
+head.next = Node.new(2)
+head.next.next = Node.new(3)
+head.next.next.next = Node.new(4)
+head.next.next.next.next = Node.new(5)
+k = 2
+# puts reverse_k_group(head, k)
 # def all_turned_bulbs_shines?(bulbs, i, n)
 #   while(i < n)
 #     if bulbs[i] == 1
