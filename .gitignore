@@ -48,7 +48,7 @@ build-iPhoneSimulator/
 
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
 .rvmrc
-/system_designs
+/system_designs/preparation_tips.md
 /design_pattern
 untitled
 abc.html

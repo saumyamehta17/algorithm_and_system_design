@@ -1,11 +1,11 @@
-1. List small features set, go deep in it. It should MVP
+1. List small features set, go deep in it. It should be MVP
 2. Scale
 	a) How many requests per second
 	b) How much data to handle
 	c) Latency
 3. Define API's, define actors, design boxes. basically 50 feet above intro
 4. You talk 80% and let interviewer talk 20%. You lead the solution	
-
+5. Tradeoffs and improvements
 
 Object Oriented design 
 

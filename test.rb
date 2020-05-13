@@ -1,59 +1,32 @@
 # @param {Character[][]} board
 # @return {Boolean}
-def find_judge(n, trust)
-    sum = (n*(n+1))/2
 
-    trustee_sum = 0
-    hsh = Hash.new []
+def single_non_duplicate(nums)
+  n = nums.length
+  returns nums[0] if n == 1
 
-    trust.each do |t|
-        trustee_sum += t[0] if hsh[t[0]].empty?
-        hsh[t[0]] += [t[1]]
-    end
+  left = 0
+  right = n-1
 
-    return -1 if hsh.keys.length != n-1
+  while(left <= right)
+    mid = (left+right)/2
+    even = (mid+1)%2 == 0 ? true : false
 
-    candidate = sum - trustee_sum
-
-    hsh.each do |k,v|
-        return -1 if !v.include?(candidate)
-    end
-    return candidate
-end
-n = 2
-trust = [[1,2]]
-puts find_judge(n, trust)
-
-def reverse_k_group(head, k)
-    return head if k <= 1 || head.nil? || head.next.nil?
-
-    c = 0; prev = nil; curr = head
-
-    while(c <= k && !curr.nil?)
-        nn = curr.next
-        curr.next = prev if prev
-        prev = curr
-        curr = nn
-        c += 1
-    end
-
-    if c == k && curr.nil?
-        return prev
-    elsif curr.nil?
-        return head
+    if (mid == 0 && nums[mid] != nums[mid+1]) ||
+       (mid == n-1 && nums[mid] != nums[mid+1]) ||
+       (nums[mid] != nums[mid-1] && nums[mid] != nums[mid+1])
+       return nums[mid]
+    elsif (even && nums[mid] != nums[mid-1]) || (!even && nums[mid] != nums[mid+1])
+      right = mid-1
     else
-        head.next = reverse_k_group(curr, k)
+      left = mid+1
     end
-    return prev
+  end
 end
-Node = Struct.new(:data, :next)
-head = Node.new(1)
-head.next = Node.new(2)
-head.next.next = Node.new(3)
-head.next.next.next = Node.new(4)
-head.next.next.next.next = Node.new(5)
-k = 2
-# puts reverse_k_group(head, k)
+nums = [2,2,3,3,4]
+# nums = [1,1,2,3,3,4,4,8,8]
+puts single_non_duplicate(nums)
+
 # def all_turned_bulbs_shines?(bulbs, i, n)
 #   while(i < n)
 #     if bulbs[i] == 1
@@ -105,30 +78,30 @@ k = 2
 # end
 
 # def print_permutations(str)
-# 	map = Hash.new(0)
-# 	str.each_char { |chr| map[chr] += 1}
-# 	chars = map.keys.sort
-# 	count = Array.new(0, chars.size)
-# 	chars.each_with_index { |chr, i| count[i] = map[chr]}
-# 	helper(chars, count, 0, Array.new(str.length))
+#   map = Hash.new(0)
+#   str.each_char { |chr| map[chr] += 1}
+#   chars = map.keys.sort
+#   count = Array.new(0, chars.size)
+#   chars.each_with_index { |chr, i| count[i] = map[chr]}
+#   helper(chars, count, 0, Array.new(str.length))
 # end
 
 # def helper(chars, count, level, result)
-# 	if level == result.length
-# 		puts result.join
-# 		return
-# 	end
+#   if level == result.length
+#     puts result.join
+#     return
+#   end
 
-# 	for i in 0...count.length
-# 		next if count[i] == 0
-# 		new_count = count.dup
-# 		new_count[i] -= 1
-# 		result[level] = chars[i]
-# 		helper(chars, new_count, level + 1, result.dup)
-# 	end
+#   for i in 0...count.length
+#     next if count[i] == 0
+#     new_count = count.dup
+#     new_count[i] -= 1
+#     result[level] = chars[i]
+#     helper(chars, new_count, level + 1, result.dup)
+#   end
 # end
 
 # for str in ['BCA', 'ABB']
-# 	puts "Input: #{str}"
-# 	print_permutations str
+#   puts "Input: #{str}"
+#   print_permutations str
 # end
