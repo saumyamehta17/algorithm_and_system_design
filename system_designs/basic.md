@@ -1,19 +1,5 @@
-1. List small features set, go deep in it. It should be MVP
-2. Scale
-	a) How many requests per second
-	b) How much data to handle
-	c) Latency
-3. Define API's, define actors, design boxes. basically 50 feet above intro
-4. You talk 80% and let interviewer talk 20%. You lead the solution	
-5. Tradeoffs and improvements
+### Reverse Proxy 
 
-Object Oriented design 
-
-1. Gather Req
-2. use case diagram
-3. class diagram
-
-Reverse Proxy 
 a server/website public face, which take request from client and forward it to backend servers and even works with one webserver/application server
 - security, no information about backend servers are known to outside world. Many reverse proxy servers include features rejecting traffic/blacklisting particular ips, limiting the number of connections from each client
 - scalability and flexibility, because client can see this public face you are free to change the configuration of your backend infrastructure
@@ -21,15 +7,9 @@ a server/website public face, which take request from client and forward it to b
 - SSL - decryption and encryption can be computationally expensive, By decrypting incoming requests and encrypting server responses, the reverse proxy frees up resources on backend servers.
 - Caching - Before returning the backend server’s response to the client, the reverse proxy stores a copy of it locally. When the client (or any client) makes the same request, the reverse proxy can provide the response itself from the cache instead of forwarding the request to the backend server. This both decreases response time to the client and reduces the load on the backend server.
 
-Load Balancer
-- distribute requests to group of servers
-- health check
-- session persistence
+### HAProxy
 
-
--------
-
-HAProxy, which stands for High Availability Proxy, is a popular open source software TCP/HTTP Load Balancer
+which stands for High Availability Proxy, is a popular open source software TCP/HTTP Load Balancer
 
 Types:
 
@@ -45,10 +25,6 @@ Algorithms
 * source     - selects servers based on hash of requested ip address. mainly used to ensure that user will be connect to same server.
 
 
-Health Check
-
-Single Point of failure if we have one load balancer, so we can active/passive HA setup.
-
-https://www.digitalocean.com/community/tutorials/an-introduction-to-haproxy-and-load-balancing-concepts
+Health Check - Single Point of failure if we have one load balancer, so we can active/passive HA setup.
 
 

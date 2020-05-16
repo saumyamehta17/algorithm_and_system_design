@@ -1,31 +1,36 @@
 # @param {Character[][]} board
 # @return {Boolean}
+def kadane(arr, n)
 
-def single_non_duplicate(nums)
-  n = nums.length
-  returns nums[0] if n == 1
-
-  left = 0
-  right = n-1
-
-  while(left <= right)
-    mid = (left+right)/2
-    even = (mid+1)%2 == 0 ? true : false
-
-    if (mid == 0 && nums[mid] != nums[mid+1]) ||
-       (mid == n-1 && nums[mid] != nums[mid+1]) ||
-       (nums[mid] != nums[mid-1] && nums[mid] != nums[mid+1])
-       return nums[mid]
-    elsif (even && nums[mid] != nums[mid-1]) || (!even && nums[mid] != nums[mid+1])
-      right = mid-1
-    else
-      left = mid+1
-    end
+  max_sum = arr[0]
+  local_sum = 0
+  for i in 0...n
+    local_sum = [arr[i], local_sum+arr[i]].max
+    max_sum = [max_sum, local_sum].max
   end
+
+  max_sum
 end
-nums = [2,2,3,3,4]
-# nums = [1,1,2,3,3,4,4,8,8]
-puts single_non_duplicate(nums)
+
+def max_subarray_sum_circular(a)
+  return a.max if a.all?(&:negative?)
+  n = a.length
+  k_max = kadane(a, n)
+  total = 0
+
+  for i in 0...n
+    total += a[i]
+    a[i] = -a[i]
+  end
+
+  k1_max = kadane(a, n)
+
+  total = total + k1_max
+  [total, k_max].max
+end
+
+a = [-1,-2,-3]
+puts max_subarray_sum_circular(a)
 
 # def all_turned_bulbs_shines?(bulbs, i, n)
 #   while(i < n)

@@ -86,5 +86,10 @@ its a global load balancer, which gives multiple ip addresses(which is of entrie
 outside traffic will come encrypted with port 443, and it can be decrypted at loadbalancer of datacenter and its safe there. then it can communicate with further with port 80, sql server default port is 3306 etc
 
 
+### Latency
+p99
+p95
+
+
 
 
