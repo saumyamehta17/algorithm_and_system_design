@@ -23,8 +23,8 @@ class RearrangeChar
       freq = char_arr[str[i].ord - 'a'.ord]
       if freq != 0
         insert(str[i], freq)
-        char_arr[str[i].ord - 'a'.ord] = 0  
-      end  
+        char_arr[str[i].ord - 'a'.ord] = 0
+      end
       i += 1
     end
 
@@ -44,10 +44,10 @@ class RearrangeChar
       @prev_char = cur_elem[0]
       @prev_freq = cur_elem[1] -= 1
 
-    end 
+    end
 
-    puts "No Possible" if(prev_freq > 0) 
-  end  
+    puts "No Possible" if(prev_freq > 0)
+  end
 
   def insert(char, freq)
     max_heap << [char, freq]
@@ -59,9 +59,9 @@ class RearrangeChar
       else
         heapify(parent)
         indx = parent
-      end  
-    end  
-  end  
+      end
+    end
+  end
 
   def extract
     n = max_heap.length
@@ -69,7 +69,7 @@ class RearrangeChar
     max_heap.pop
     heapify(0)
   end
-  
+
   def heapify(indx)
     n = max_heap.length
     largest = indx
@@ -90,16 +90,17 @@ class RearrangeChar
       max_heap[largest] = temp
       heapify(indx)
     else
-      return  
-    end  
-  end  
+      return
+    end
+  end
 
 
-end  
+end
 
 str = 'aabb'
 str = 'bbbaa'
 str = 'geeksforgeeks'
+str = 'tree'
 # str = 'bbbb'
 rc = RearrangeChar.new(str)
 rc.process

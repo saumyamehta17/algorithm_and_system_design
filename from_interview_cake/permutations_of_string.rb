@@ -24,8 +24,9 @@ def permute(str, choosen = "")
       choosen = choosen.chop
       str = str.insert(i,c)
       i += 1
-    end  
-  end 
+    end
+  end
+
 end
 
 str = "rat"

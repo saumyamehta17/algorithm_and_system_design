@@ -11,9 +11,9 @@ def kadane_v2(arr)
     i += 1
   end
 
-  puts max_sum  
-end  
-  
+  puts max_sum
+end
+
 def kadane(arr)
   n = arr.length
   curr = 0
@@ -32,14 +32,14 @@ def kadane(arr)
     if(curr < 0)
       curr = 0
       s = i+1
-    end  
+    end
     i += 1
   end
 
   puts "max sum is #{max_so_far}"
   puts "start from #{start}"
-  puts "ends at #{_end}"  
-end  
+  puts "ends at #{_end}"
+end
 
 arr = [-2, -3,  -1,4,6,-1]
 arr = [-4,-3]

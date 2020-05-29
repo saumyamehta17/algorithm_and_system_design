@@ -6,8 +6,12 @@ sync files on multiple devices
 
 editing file
 
+history of file/versioning
+
 Estimations
 ------------
+huge Read and writes 
+
 Assume number of users = 1 Billion
 
 number of active user = 100 Million
@@ -18,9 +22,9 @@ one user have files = 100
 
 total files = 10000 Million = 1 Billion
 
-Each file size = 100 KB
+Each file size = 50 MB
 
-Total space = 100KB * 10000Million = 1 PB
+Total space = 50MB * 10000Million = 500 PB
 
 High Level Design
 -----------------
@@ -88,6 +92,16 @@ MetaData partitioning
   calculating hash of fileId and distribute according to hash
 
 #### Consistent Hashing
+
+MetaData Database?
+------------------
+here we need strong consistency, ACID properties are important then go for SQL, but how it will be scaled?
+
+
+Messaging Queue Service
+-----------------------
+Request Queue - request to update metadata
+Response Queue - corresponds to individual subscribed clients
 
 Simplicity - Every one like simple system/solution
 ------------

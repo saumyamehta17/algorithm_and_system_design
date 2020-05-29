@@ -9,6 +9,10 @@
 # which mean (y1-y0) * (x2-x1) == (y2-y1) * (x1-x0) OR diffY * (x2-x1) == diffX * (y2-y1)
 # Ref: https://www.youtube.com/watch?v=f2n9NOkqvZQ
 
+# slope is change in y/ change in x
+# slope = rise/run
+# https://docs.google.com/drawings/d/1wB8bar-4Adb8xEtjatVajqfpGfYDm2zFUz40seqDC6A/edit
+
 def check_straight_line(coordinates)
   n = coordinates.length
   return true if n == 2
@@ -35,4 +39,3 @@ end
 
 # Input: coordinates = [[1,2],[2,3],[3,4],[4,5],[5,6],[6,7]]
 # Output: true
-

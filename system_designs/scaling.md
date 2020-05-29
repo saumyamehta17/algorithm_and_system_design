@@ -1,3 +1,5 @@
+## The Catchies
+
 
 ## vertical scalling 
 
@@ -19,15 +21,15 @@ Reading 1MB from cache take 250 microseconds and SSD takes 4x and from disk take
 
 We can assume that there is always a ceiling, don't cross that, even buy more cheaper/slower computers instead one big good machine which expensive
 
-So how would we handler more than machine, where user will request.
+So how would we handle more than machine, where user will send request.
 Here's come Load Balancer
 
-Now Loader Balancer can have public ips and other machine can private ips
+Now **Loader Balancer** can have public ips and other machine can private ips
 benefits:
 - Bad guys on internet can not access our machine private ips directly
 - public ips(version 4- 32 bit ip) are expensive and world is running out of these, and other private ips could be 192.168 0r 10.0 like which we have at our home. This will alleviate the pressure of buying public ips for each machine
 
-How Loadbalancer distribute
+### How Loadbalancer distribute requests
 - Round Robin, first send to server1, then to server2 and so on. Here Problem is some server by bad luck get heavy requests and other server may get just simple login request.
 - distribute based on load
 - distribute based on nature of server. Like rails request goes to rails server and image request goes to image server.
@@ -38,9 +40,9 @@ one more load balancer can be connected to first to form a cluster. Each LB moni
 
 ``Problem: Session``
 
-Session is not a problem when you have one rails server but when your website become so popular and now you have many rails servers
+Session is not a problem when you have one server but when your website become so popular and now you have many servers
 
-user might have logged in on one server, what if next page load its being sent to another server and it will ask for login details again. There is tmp folder in linux system where sessions are stored as serialzed text file which meam session might be sitting on hard drive of one system.
+user might have logged in on one server, what if next page load its being sent to another server and it will ask for login details again. There is tmp folder in linux system where sessions are stored as serialzed text file which mean session might be sitting on hard drive of one system.
 
 Then probabaly Round Robin will not help.
 
