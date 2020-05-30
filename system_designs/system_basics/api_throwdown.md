@@ -13,7 +13,7 @@ Mircoservices must exchange data and need to agree on:
 - Scalability
 - Inter operatbility with many languages
 - authentication, monitoring, logging
-What is one framework which can solve everything above: Which is RPC
+What is one framework which can solve everything above: Which is **gRPC**
 
 #### gRPC, also a RPC by Google
 build on top of HTTP/2
@@ -53,7 +53,7 @@ listMessages(conversion_id)
 
 	Its easy to add new function to RPC Api
 	LightWeight Payloads
-	self-documented
+	
 
 - UseCase:
 
@@ -67,7 +67,7 @@ For low overhead messages. When you have large microservices internal and they c
 resources as an api 
 
 - Benefits:
-decoupling client and server, reuses http(http verb, cache semantic, content negotiation) http toolbox
+decoupling client and server, reuses http(http verb, cache semantic, content negotiation) http toolbox, self-documented
 
 - Problems: 
  Big Payload

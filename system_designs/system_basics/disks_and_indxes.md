@@ -3,19 +3,24 @@ this is collection of blocks and blocks contains records. We keep data in disks 
 
 Whenever there is query to CPU, then RAM have to bring blocks in RAM and check whether there is desired data, if not it will bring another block and so on. This process has high I/O costs. Indexes reduces I/O costs
 
-Given hard disk, where block size = 1000 bytes
+Given hard disk, where 
+```
+block size = 1000 bytes
 each record takes = 250 bytes
 total records are = 10000
-if blocks are **unordered**, then what is average time complexity to search a record from HD?
+```
+**If blocks are unordered, then what is average time complexity to search a record from HD?**
 
+```
 number of records in block = 1000/250 = 4 records
 No of blocks needed = 10000/4 = 2500 blocks 
 best case = 1, which mean it find in first block
 worst case = 2500, which mean record was in last block
 average = 2500/2 = o(n/2) = o(n) = linear complexity
+```
 
 what if blocks sorted: then it will do o(log(n)) = log(2500) = 12
-Index table is also saved on disk and bring into RAM when required. Data in RAM also sorted. Index table will have key and pointer(which point to a block on disk)
+Index table is also saved on disk and bring into RAM when required. Index table will have key and pointer(which point to a block on disk)
 
 Dense -> number of entries in actual table and index table will be same. This mean we will have 10k entries as per above example.
 Sparse -> leader(one record from a block) can be added to index table instead of all. Here we will have 2500 as per blocks count. But data has to be sorted.
@@ -43,7 +48,7 @@ complexity is = log(200) = 8+1 = 9
 ```
 
 ### How disk works
-[image here](https://drive.google.com/drive/u/0/my-drive)
+[image here](https://drive.google.com/file/d/1-RPD4OcvAOd5yEQNeO4HPh5A7DMiX0zb/view)
 
 each block has some size for example: 512 bytes(0-511). We always read and write in terms of blocks.
 To find specific address on disk, then we need track_number, sector_number, and this offset of block.
@@ -81,7 +86,7 @@ so m-way, it can of anysize further
 ```
 
 `Example of 4 way tree` which mean each node will have 3 keys
-Now to use it indexes, we also need to have record pointer with each key along with children pointer.
+Now to use it in indexes, we also need to have record pointer with each key along with children pointer.
 
 `Problem with M-way`
 There is no creation process for m-way. For example take degree 10(10-way) which mean 9 keys
@@ -94,7 +99,8 @@ but this way it will have o(n) as height of m-way tree which is n
 So we need some guidelines to control m-way search tree. Here come B-tree which is m-way with some rules
 
 ### B-tree
-Rules
+Rules are:
+
 - every node, you must fill half which is m/2 = 10/2 = 5, to controll the height of tree 
 - Root can have min 2 children or 1 key
 - All leaf at same level
