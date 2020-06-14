@@ -32,5 +32,5 @@ def find_complement_v2(num)
 end
 
 num = 33
-puts find_complement(num)
+# puts find_complement(num)
 puts find_complement_v2(num)

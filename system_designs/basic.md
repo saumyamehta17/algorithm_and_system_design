@@ -1,14 +1,16 @@
 ### Pickies
-- FR, NFR, Estimation, API, High Level Design, Model & indexes, Low Level Design, Scaling
+- FR, NFR, Estimation, API(which api), High Level Design, Model & indexes, Low Level Design, Scaling
 - User or Clients
 - Expensive Joins, denormalize
 - Think about entities could daily or monthly ?
 - Is it read-heavy or write-heavy?
+- drive upload/writes from reads available from ratio like 1:200
 - Should we run back-of-envelope usage calculations? Million - 6 zeros, Billion - 1000 Million. 	Mistake - number_of_records * what(12 months, 365 days)
 - How much code expected to write?
 - Do we need asynchrouns processing, think about kafka
 - LB, Shard DB(Range Based, Feature Based, CH), Replicas, Caching
 - Trade-offs and future improvements
+- latency, bandwidth
 
 ### Read-heavy or write-heavy
 

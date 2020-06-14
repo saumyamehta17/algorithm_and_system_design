@@ -76,7 +76,7 @@ complexity is more less = log(20) + 1(index table lookup) + 1(actual table looku
 ### M-way search tree 
 its a extension of BST. or we can say BST is type of degree-2 of m-way tree. As in BST, we have root and smaller left child and bigger right children and searching in BST is very efficient.
 
-Similarl y if we extend the idea, that we have 2 keys(k1 < k2) at any node  and 3 children. Where left children will be less than k1 and mid children lies b\w k1 & k2 and right children greater than k2.
+Similarly if we extend the idea, that we have 2 keys(k1 < k2) at any node  and 3 children. Where left children will be less than k1 and mid children lies b\w k1 & k2 and right children greater than k2.
 
 which mean:
 ```
@@ -101,7 +101,7 @@ So we need some guidelines to control m-way search tree. Here come B-tree which 
 ### B-tree
 Rules are:
 
-- every node, you must fill half which is m/2 = 10/2 = 5, to controll the height of tree 
+- every node, you must fill half which is m/2 = 10/2 = 5, to control the height of tree 
 - Root can have min 2 children or 1 key
 - All leaf at same level
 - Creation process is bottom up

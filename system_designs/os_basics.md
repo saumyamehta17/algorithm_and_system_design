@@ -2,12 +2,10 @@
 
 1 CPU core can only run one process at a time. but number of processes is not limited by the number of CPU cores. they are kept in memory. often Process waits for I/O or other calls, mean while instead of sitting ideal, OS switch to another process which are not waiting. Thus we usually have many more processes than CPUs. 
 
-one core can run one instruction set at a time
-
 Steps:
 Program/application is code which is stored on computer, program such as web browsing, emailing, playing music etc. Program typically stored on disk in a form that can be executed by computer. Prior to that they created with some languages. Then code is either compiled(converting to binary form in advance in order to run) or interpreted(converting to binary form at time of run) but end result is same. 
 
-
+one core can run one instruction set at a time
 
 When program is run then it is loaded into memory in binary form. Now these programs become active processes and now CPU will turn them into running process. There can multiple instance of this program loaded in memory but running instance is a process.
 

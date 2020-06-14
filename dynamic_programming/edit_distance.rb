@@ -12,12 +12,12 @@ def edit_distance_using_recursion(str1, str2, m, n)
     return edit_distance_using_recursion(str1, str2, m-1, n-1)
   else
 
-    # 1. insert a char to str1 
+    # 1. insert a char to str1
     # 2. remove a char to str1
     # 2. replace a char in str1
     return [edit_distance_using_recursion(str1, str2, m, n-1),
             edit_distance_using_recursion(str1, str2, m-1, n),
-            edit_distance_using_recursion(str1, str2, m-1, n-1)].min + 1  
+            edit_distance_using_recursion(str1, str2, m-1, n-1)].min + 1
   end
 end
 
@@ -48,11 +48,11 @@ def edit_distance_dp(str1, str2, m, n)
       end
 
     end
-  end 
+  end
 
-  puts mtrx[m][n]   
+  puts mtrx[m][n]
 
-end  
+end
 
 str1 = "cat"
 str2 = "cut"
@@ -60,5 +60,8 @@ str2 = "cut"
 str1 = "sunday"
 str2 = "saturday"
 
-# puts edit_distance_using_recursion(str1, str2, str1.length, str2.length)
-edit_distance_dp(str1, str2, str1.length, str2.length)
+str1 = "dinitrophenylhydrazine"
+str2 = "benzalphenylhydrazone"
+
+puts edit_distance_using_recursion(str1, str2, str1.length, str2.length)
+# edit_distance_dp(str1, str2, str1.length, str2.length)

@@ -1,36 +1,5 @@
-# @param {Character[][]} board
-# @return {Boolean}
-def can_finish(num_courses, prerequisites)
-    hsh = Hash.new {[]}
-    prerequisites.each do |pre|
-        s = pre[0]; d = pre[1]
-        hsh[s] += [d]
-    end
-    s = Array.new(num_courses, false)
-    v = Array.new(num_courses, false)
 
-    num_courses.times do |n|
-      return false if cycle?(hsh,s,v,n)
-    end
-    true
-end
 
-def cycle?(hsh,s,v,n)
-  return true if s[n]
-  # return false if v[n]
-
-  s[n] = true
-  v[n] = true
-
-  hsh[n].each do |i|
-    return true if cycle?(hsh, s, v, i)
-  end
-  s[n] = false
-end
-
-num_courses = 4
-prerequisites = [[0,1], [1, 2], [2,3]]
-puts can_finish(num_courses, prerequisites)
 # def all_turned_bulbs_shines?(bulbs, i, n)
 #   while(i < n)
 #     if bulbs[i] == 1
