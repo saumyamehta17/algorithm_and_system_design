@@ -1,17 +1,17 @@
 def vertx_with_min_distance(spl_set_arr, distance_arr, i, v)
-  min = 4611; min_indx = -1
+  min = Float::INFINITY; min_indx = -1
   for i in 0...v
     if !spl_set_arr[i] && distance_arr[i] < min
       min = distance_arr[i]
       min_indx = i
-    end  
-  end  
+    end
+  end
 
   min_indx
-end  
+end
 
 def dijkstra(graph, src, v)
-  infinit_val = 4611
+  infinit_val = Float::INFINITY
   distance_arr = Array.new(v, infinit_val)
   spl_set_arr = Array.new(v, false)
   distance_arr[src] = 0
@@ -23,13 +23,13 @@ def dijkstra(graph, src, v)
         if graph[u][j] != 0 && distance_arr[u] != infinit_val &&
            (distance_arr[u] + graph[u][j]) < distance_arr[j]
            distance_arr[j] = distance_arr[u] + graph[u][j]
-        end   
+        end
       end
   end
 
 
-  puts distance_arr.to_s    
-end  
+  puts distance_arr.to_s
+end
 
 
 graph = [[0, 4, 0, 0, 0, 0, 0, 8, 0],

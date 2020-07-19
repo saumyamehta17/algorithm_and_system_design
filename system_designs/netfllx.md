@@ -1,6 +1,6 @@
 ### FR
 - User can search video
-- User can view the videos
+- User can view/download the videos
 - System should recommend videos
 
 ### Two tier of load balancing
@@ -23,7 +23,7 @@ For all this Netflix creates around 1200 copies
 ####Background
 Because subscribers and actual hours of service usage growing:
 Tens of Billions of requests per day
-Hundreds of TB tranferred per day
+Hundreds of TB transferred per day
 
 #### ZUUL 1.0
 - Microservice Authentication and Security at gateway layer

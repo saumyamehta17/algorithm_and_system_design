@@ -1,4 +1,172 @@
+class Node
+    attr_accessor :val, :isLeaf, :topLeft, :topRight, :bottomLeft, :bottomRight
+    def initialize(val=false, isLeaf=false, topLeft=nil, topRight=nil, bottomLeft=nil, bottomRight=nil)
+        @val = val
+        @isLeaf = isLeaf
+        @topLeft = topLeft
+        @topRight = topRight
+        @bottomLeft = bottomLeft
+        @bottomRight = bottomRight
+    end
+end
+def construct(grid)
+  len = grid.length
+  i = j = 0
 
+  def evaluate(grid, i, j, len)
+    # puts "i #{i}, j #{j}, m #{len}"
+    # Base Condition
+    if len == 1
+      return Node.new(grid[i][j] == 1 ? true : false, true)
+    end
+
+    top_left  = evaluate(grid, i,       j,       len/2)
+    top_right = evaluate(grid, i,       j+len/2, len/2)
+    bot_left  = evaluate(grid, i+len/2, j,       len/2)
+    bot_right = evaluate(grid, i+len/2, j+len/2, len/2)
+
+    if all_leaf?(top_left, top_right, bot_left, bot_right) && same_val?(top_left, top_right, bot_left, bot_right)
+      puts "i #{i}, j #{j}, m #{len}"
+      return Node.new(top_left.val, true)
+    elsif all_leaf?(top_left, top_right, bot_left, bot_right)
+
+      curr_node = Node.new(true, false)
+      curr_node.topLeft = top_left
+      curr_node.topRight = top_right
+      curr_node.bottomLeft = bot_left
+      curr_node.bottomRight = bot_right
+      return curr_node
+    else
+      return Node.new(true, false)
+    end
+  end
+  def print_me(root)
+    return if root.nil?
+    @res << [root.isLeaf == true ? 1 : 0, root.val == true ? 1 : 0]
+    print_me(root.topLeft)
+    print_me(root.topRight)
+    print_me(root.bottomLeft)
+    print_me(root.bottomRight)
+  end
+
+  root = evaluate(grid,i,j,len)
+  @res = []
+  print_me(root)
+  puts @res.to_s
+  root
+end
+
+def all_leaf?(top_left, top_right, bot_left, bot_right)
+  top_left.isLeaf && top_right.isLeaf && bot_left.isLeaf && bot_right.isLeaf
+end
+
+def same_val?(top_left, top_right, bot_left, bot_right)
+  top_left.val == top_right.val && top_right.val ==  bot_left.val && bot_left.val == bot_right.val
+end
+
+grid = [[1,1], [1,1]]
+# grid = [[0]]
+# grid = [[0,1],[1,0]]
+grid = [[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0],[1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1],[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0]]
+# grid = [[1,1,0,0],[1,1,0,0],[0,0,1,1],[0,0,1,1]]
+# grid = [[0,1],[1,0]]
+construct(grid)
+
+# require 'pry'
+# def find_words(board, words)
+#   trie = build_trie(words)
+#   m = board.length
+#   n = board[0].length
+#   visited = Array.new(m) { Array.new(n, false) }
+#   @res = []
+#
+#   def process(i,j,word)
+#     if trie
+#   end
+#
+#   for i in 0...m
+#     for j in 0...n
+#       process(i,j,"")
+#     end
+#   end
+#
+#   @res
+# end
+#
+# class TrieLetter
+#   attr_reader :val, :children
+#   attr_accessor :eow
+#
+#   def initialize(val)
+#     @val = val
+#     @eow = false
+#     @children = []
+#   end
+#
+#   def insert(letter)
+#     node = find(letter)
+#     unless node
+#       node = TrieLetter.new(letter)
+#       children << node
+#     end
+#     node
+#   end
+#
+#   def find(letter)
+#     children.each do |child|
+#       if child.val == letter
+#         return child
+#       end
+#     end
+#     nil
+#   end
+# end
+#
+# class TrieWord
+#   attr_reader :head
+#
+#   def initialize
+#     @head = TrieLetter.new("")
+#   end
+#
+#   def insert(word)
+#     curr = head
+#     word.each_char do |chr|
+#       curr = curr.insert(chr)
+#     end
+#     curr.eow = true
+#   end
+#
+#   def find(word)
+#     curr = head
+#     word.each_char do |chr|
+#       curr = curr.find(chr)
+#       return false unless curr
+#     end
+#     curr.eow
+#   end
+# end
+#
+# def build_trie(words)
+#   t = TrieWord.new
+#   words.each do |word|
+#     t.insert(word)
+#   end
+#   t
+#   # puts t.find("oat")
+#   # puts t.find("oath")
+#   # puts t.find("eat")
+# end
+#
+#
+# board = [
+#     ['o','a','a','n'],
+#     ['e','t','a','e'],
+#     ['i','h','k','r'],
+#     ['i','f','l','v']
+# ]
+# words = ['oath', 'eat', 'rain']
+# find_words(board, words)
 
 # def all_turned_bulbs_shines?(bulbs, i, n)
 #   while(i < n)

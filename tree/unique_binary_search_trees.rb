@@ -5,20 +5,15 @@ def num_trees(n)
   arr = Array.new(n+1,1)
 
   for i in 2..n
-    j = 1; sum = 0
-    while(j <= i)
-      left = arr[j-1]
-      right = arr[i-j]
-      sum += (left*right)
-      j += 1
+    for j in 0...i
+      arr[i] += (arr[j] * arr[i-j-1])
     end
-    arr[i] = sum
   end
   arr[n]
 end
 
 n = 5
-puts num_trees(n)
+# puts num_trees(n)
 
 # overlapping sub problem
 def num_trees_with_overlapping(n)
@@ -28,12 +23,17 @@ end
 
 
 def bst_count(s, e)
-  return 1 if s <= 0 || s >= e
+  if s <= 0 || s >= e
+    return 1
+  end
   c = 0
   for i in s..e
       left = bst_count(s, i-1)
       right = bst_count(i+1, e)
+      puts (s..e).to_s
       c += (left*right)
   end
   c
 end
+n = 3
+puts num_trees_with_overlapping(n)
