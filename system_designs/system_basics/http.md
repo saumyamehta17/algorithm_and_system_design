@@ -14,3 +14,17 @@ http://www.google.com/
 Protocol, subdomain name, domain name, TLD top level domain name, path
 single '/', get me root of hard drive
 
+Private IP address are like
+192.168.x.y
+172.16.x.y
+10.z.z.z class A gives million ip address
+
+- DNS hosting companies like goDaddy or nameCheap will setup up our domain name and ip address their and can tell to registrar
+It just a database, having domain_name and ip_address
+ - CName, cononical name
+ - AName
+ - MX
+ - NX
+ 
+ 
+
