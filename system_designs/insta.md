@@ -10,7 +10,7 @@
 ```
 Daily Active Users = 10 Million
 1 user uploads in a day = 2
-1 sec all users = 20 Million/86400 = 20 M/(5 zeros) ~= 2k requests per second
+1 sec all users = 20 Million/86400 = 20 M/(5 zeros) ~= 200 requests per second
 
 1 photo size = 50 KB
 1 day photos = 20 Million * 50KB
@@ -27,24 +27,25 @@ Photo uploads might slow down application even can block user who are just readi
 - photo table with id, owner_id, path, size, type
 - follower table with id, follower_id, following_id
 
-### Reliablity
+### Reliability
 Losing file is not an option. So, create replica of db
 
 ### Data Sharding
+Partition the data over multiple machines, following could be the strategies
+#### user_id based
 
-##### user_id based
 Now that we have approx 3.6 PB data, we can 4 shards and find the shard for user we will do 
 ```user_id % 4```
 Problem: What if hot users came in one shard, then its not a uniform-distribution
 
-##### photo_id based
+#### photo_id based
 generate unique photo_id across the system and then find the shard
 
 ### NewsFeed
 
 steps: 
 
-1) find all users which I follow
+1) find all users whom I follow
 ```
 select following_ids from followers where follower_id = user_id
 ```

@@ -9,5 +9,13 @@
   
   #### Complexity Analysis
   `Time Complexity` is o(n) as I am processing each node only once in a tree **and** `Space Complexity` o(n) as adding each node in queue(BFS)
+  
+- [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)
 
-## System Design
+  Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.
+  #### Complexity Analysis
+    `Time Complexity` is o(n) as we are processing string once **and** `Space Complexity` is o(1)
+
+## System Designs
+
+- [Instagram Design](system_designs/insta.md)
