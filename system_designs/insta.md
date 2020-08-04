@@ -1,9 +1,13 @@
-### Requirements
+### Functional Requirements
 - User can upload/download photo
 - User can follow/unfollow other users
 - NewsFeed
 - User can comment
+
+### Non-Functional Requirements
 - System should scalable
+- Highly Available
+- Reliable(any upload should not get lost)
 
 ### Estimation
 
@@ -20,7 +24,7 @@ Daily Active Users = 10 Million
 ### High Level Design + Scalable
 Photo uploads might slow down application even can block user who are just reading. Its read-heavy application.
 
-[here](https://docs.google.com/drawings/d/1tD9EMtDOpYioFsz0ngHd4MTN3uQ8EaRjCmKxpHsQSl0/edit)
+[here](https://docs.google.com/drawings/d/1tD9EMtDOpYioFsz0ngHd4MTN3uQ8EaRjCmKxpHsQSl0/edit?usp=sharing)
 
 ### Data Model
 - user model with id, name, email, reg_date
@@ -28,13 +32,13 @@ Photo uploads might slow down application even can block user who are just readi
 - follower table with id, follower_id, following_id
 
 ### Reliability
-Losing file is not an option. So, create replica of db
+Losing file is not an option. So, we can create replicas of db. Creating copies of each photo will handle single point of failure.
 
 ### Data Sharding
 Partition the data over multiple machines, following could be the strategies
 #### user_id based
 
-Now that we have approx 3.6 PB data, we can 4 shards and find the shard for user we will do 
+Now that we have approx 3.6 PB data, we can have 4 shards(each shard 1 PB lets say) and find the shard for user we will do 
 ```user_id % 4```
 Problem: What if hot users came in one shard, then its not a uniform-distribution
 
@@ -51,7 +55,7 @@ select following_ids from followers where follower_id = user_id
 ```
 
 2) fetch meta data info of 100 photos for each user and send them to ranking algorithm, Problem: Higher Latency
-So, dedicated servers to pre-generate feeds which continously generating feeds based on last time of generation. And user ask for feeds it will query this table.
+So, dedicated servers to pre-generate feeds which continuously generating feeds based on last time of generation. And user ask for feeds it will query this table.
 
 ##### Sending Feeds to users:
 1) Pull: Client will pull news feed from server on regular basis, Problem is many time it will have empty response and wastage of network calls
