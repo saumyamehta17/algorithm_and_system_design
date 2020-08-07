@@ -16,6 +16,12 @@
   #### Complexity Analysis
     `Time Complexity` is o(n) as we are processing string once **and** `Space Complexity` is o(1)
 
+- [Find All Duplicates](https://leetcode.com/problems/find-all-duplicates-in-an-array/submissions/)
+
+  #### Complexity Analysis
+     `Time Complexity` is o(n) as we are processing string once **and** no extra `space`  
+    
+
 ## System Designs
 
 - [Instagram Design](system_designs/insta.md)
