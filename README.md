@@ -19,8 +19,16 @@
 - [Find All Duplicates](https://leetcode.com/problems/find-all-duplicates-in-an-array/submissions/)
 
   #### Complexity Analysis
-     `Time Complexity` is o(n) as we are processing string once **and** no extra `space`  
-    
+     `Time Complexity` is o(n) as we are processing string once **and** no extra `space`
+
+- [Rotting Oranges](https://leetcode.com/problems/rotting-oranges/submissions/)
+
+  #### Complexity Analysis
+     `Time Complexity` is o(m*n) **and** `space complexity` is also o(m*n)       
+
+- [Find Missing Number](https://leetcode.com/problems/missing-number/submissions/) 
+  #### Complexity Analysis
+     `Time Complexity` is o(n) **and** `space complexity` is also o(1)  
 
 ## System Designs
 
