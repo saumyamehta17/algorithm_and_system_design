@@ -28,7 +28,12 @@
 
 - [Find Missing Number](https://leetcode.com/problems/missing-number/submissions/) 
   #### Complexity Analysis
-     `Time Complexity` is o(n) **and** `space complexity` is also o(1)  
+     `Time Complexity` is o(n) **and** `space complexity` is also o(1)
+
+- [Max Path Sum in Binary Tree](https://leetcode.com/problems/binary-tree-maximum-path-sum/submissions/)
+
+  #### Complexity Analysis      
+    `Time Complexity` is o(n) as we are touching each node once and space is o(1) 
 
 ## System Designs
 
