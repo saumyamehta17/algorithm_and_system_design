@@ -21,7 +21,7 @@
   #### Complexity Analysis
      `Time Complexity` is o(n) as we are processing string once **and** no extra `space`
 
-- [Rotting Oranges](https://leetcode.com/problems/rotting-oranges/submissions/)
+- [Rotten Oranges](https://leetcode.com/problems/rotting-oranges/submissions/)
 
   #### Complexity Analysis
      `Time Complexity` is o(m*n) **and** `space complexity` is also o(m*n)       
@@ -33,8 +33,17 @@
 - [Max Path Sum in Binary Tree](https://leetcode.com/problems/binary-tree-maximum-path-sum/submissions/)
 
   #### Complexity Analysis      
-    `Time Complexity` is o(n) as we are touching each node once and space is o(1) 
+    `Time Complexity` is o(n) as we are touching each node once and space is o(h) for average case but o(n) for worst case if tree is skewed
+     because in recursion, call stack is being taking place for nodes
 
+- [Pascal's Triangle](https://leetcode.com/problems/pascals-triangle-ii/submissions/)
+  
+  `Time Complexity` is o(n) and space is o(1). And n = number of index given
+          
+- ToDo Next
+  https://leetcode.com/problems/verifying-an-alien-dictionary/
+  https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/
+  
 ## System Designs
 
 - [Instagram Design](system_designs/insta.md)
