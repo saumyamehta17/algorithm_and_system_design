@@ -39,9 +39,11 @@
 - [Pascal's Triangle](https://leetcode.com/problems/pascals-triangle-ii/submissions/)
   
   `Time Complexity` is o(n) and space is o(1). And n = number of index given
-          
+
+- [Verify Alien Dictionary](https://leetcode.com/problems/verifying-an-alien-dictionary/submissions/)
+  `Time Complexity` is o(m*n) and space is o(1)
+            
 - ToDo Next
-  https://leetcode.com/problems/verifying-an-alien-dictionary/
   https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/
   
 ## System Designs
