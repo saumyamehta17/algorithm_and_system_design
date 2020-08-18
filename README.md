@@ -42,6 +42,12 @@
 
 - [Verify Alien Dictionary](https://leetcode.com/problems/verifying-an-alien-dictionary/submissions/)
   `Time Complexity` is o(m*n) and space is o(1)
+
+- [Buy and Sell Stock 1](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
+  `Time Complexity` is o(n) and space is o(1)
+  
+- [Buy and Sell Stock 2](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/)
+  `Time Complexity` is o(n) and space is o(1)    
             
 - ToDo Next
   https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/
@@ -49,3 +55,4 @@
 ## System Designs
 
 - [Instagram Design](system_designs/insta.md)
+- [Dropbox Design](system_designs/dropbox.md)
