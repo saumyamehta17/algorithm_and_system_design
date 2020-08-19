@@ -38,22 +38,22 @@ def find_water_optimized(arr, n)
     while(low <= hi)
       if(arr[low] < arr[hi])
         if(arr[low] > left_max)
-            left_max = arr[low]
+           left_max = arr[low]
         else
-            res += (left_max - arr[low])
-            low += 1
-        end    
+           res += (left_max - arr[low])
+           low += 1
+        end
       else
         if(arr[hi] > right_max)
           right_max = arr[hi]
         else
           res += (right_max - arr[hi])
           hi -= 1
-        end  
-      end    
+        end
+      end
     end
-    res    
-end  
+    res
+end
 
 arr = [3,0,0,2,0,4]
 trapped_water(arr, arr.length)

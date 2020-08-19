@@ -47,7 +47,13 @@
   `Time Complexity` is o(n) and space is o(1)
   
 - [Buy and Sell Stock 2](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/)
-  `Time Complexity` is o(n) and space is o(1)    
+  `Time Complexity` is o(n) and space is o(1)
+  
+- [Trapping Rain Water](https://leetcode.com/submissions/detail/383047611/)
+  `Time Complexity` is o(n) and `Space Complexity` is o(n)
+
+- [Trapping Rain Water with space o(1)](https://leetcode.com/submissions/detail/383060059/)
+  `Time Complexity` is o(n) and `Space Complexity` is o(1)        
             
 - ToDo Next
   https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/
