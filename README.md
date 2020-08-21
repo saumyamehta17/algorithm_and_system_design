@@ -53,7 +53,10 @@
   `Time Complexity` is o(n) and `Space Complexity` is o(n)
 
 - [Trapping Rain Water with space o(1)](https://leetcode.com/submissions/detail/383060059/)
-  `Time Complexity` is o(n) and `Space Complexity` is o(1)        
+  `Time Complexity` is o(n) and `Space Complexity` is o(1)
+  
+- [Reorder LinkedList](https://leetcode.com/submissions/detail/384050528/)
+  `Time Complexity` is o(n) and `Space Complexity` is o(n) as we are going recursive  
             
 - ToDo Next
   https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/
