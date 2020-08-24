@@ -56,7 +56,10 @@
   `Time Complexity` is o(n) and `Space Complexity` is o(1)
   
 - [Reorder LinkedList](https://leetcode.com/submissions/detail/384050528/)
-  `Time Complexity` is o(n) and `Space Complexity` is o(n) as we are going recursive  
+  `Time Complexity` is o(n) and `Space Complexity` is o(n) as we are going recursive
+  
+- [Sum of left leaves](https://leetcode.com/problems/sum-of-left-leaves/submissions/)
+  `Time Complexity` is o(n) and `Space Complexity` is o(h) for call stack as we are going recursive.    
             
 - ToDo Next
   https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/
