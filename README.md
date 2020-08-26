@@ -63,6 +63,9 @@
 
 - [Minimum Cost For Tickets](https://leetcode.com/submissions/detail/386510911/)
   `Time Complexity` is o(1) and `Space Complexity` is o(1) as we need to process only 365 days
+
+- [Fizz Buzz](https://leetcode.com/problems/fizz-buzz/submissions/)
+  `Time Complexity` is o(1) and `Space Complexity` is o(1)
                
 - ToDo Next
   https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/
