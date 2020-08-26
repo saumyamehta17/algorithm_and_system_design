@@ -60,7 +60,10 @@
   
 - [Sum of left leaves](https://leetcode.com/problems/sum-of-left-leaves/submissions/)
   `Time Complexity` is o(n) and `Space Complexity` is o(h) for call stack as we are going recursive.    
-            
+
+- [Minimum Cost For Tickets](https://leetcode.com/submissions/detail/386510911/)
+  `Time Complexity` is o(1) and `Space Complexity` is o(1) as we need to process only 365 days
+               
 - ToDo Next
   https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/
   
