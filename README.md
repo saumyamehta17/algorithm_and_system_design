@@ -66,9 +66,12 @@
 
 - [Fizz Buzz](https://leetcode.com/problems/fizz-buzz/submissions/)
   `Time Complexity` is o(1) and `Space Complexity` is o(1)
-               
-- ToDo Next
-  https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/
+
+- [Pancake Sorting](https://leetcode.com/problems/pancake-sorting/submissions/)
+  `Time Complexity` is o(n^2) and `Space Complexity` is o(n)
+
+- [Min Remove valid parentheses](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/submissions/)
+  `Time Complexity` is o(n) and `Space Complexity` is o(n)
   
 ## System Designs
 
