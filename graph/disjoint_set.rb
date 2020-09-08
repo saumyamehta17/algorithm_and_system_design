@@ -1,4 +1,5 @@
-# Disjoints set is a data structure which maintain a collection s1, s2, and so on.Two sets are disjoins of their interaction is nil.every set have a represtative which is one member of set.
+# Disjoints set is a data structure which maintain a collection s1, s2, and so on.
+# Two sets are disjoins if their interaction is nil. Every set has a representative which is one member of set.
 
 # Disjoints set is a data structure which provides 3 operations - make sets, union, find sets
 
@@ -23,7 +24,7 @@ class DisjointSet
     node_hash[data] = node
   end
 
-  def union(data1, data2) 
+  def union(data1, data2)
     node1 = node_hash[data1]
     node2 = node_hash[data2]
 
@@ -52,16 +53,16 @@ class DisjointSet
     parent = node.parent
     if(node.data == parent.data)
       return parent
-    end  
+    end
 
     node.parent = findset(node.parent)
     return node.parent
   end
 
-  def find_a_set(val) 
+  def find_a_set(val)
     findset(node_hash[val]).data
-  end  
-end  
+  end
+end
 
 
 ds = DisjointSet.new

@@ -72,6 +72,8 @@
 
 - [Min Remove valid parentheses](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/submissions/)
   `Time Complexity` is o(n) and `Space Complexity` is o(n)
+
+- [Merge Sort](sorting/merge_sort.rb)
   
 ## System Designs
 
