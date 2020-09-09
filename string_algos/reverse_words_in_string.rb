@@ -1,35 +1,41 @@
-str = "I Love Algo and  Stuff"
+# Time Complexity is o(n), n = length of sentence
+# Space Complexity is o(n)
+def reverse_words(sentence)
+  l, r = 0, sentence.length-1
 
-str = str.split(/\s/)
-len = str.length
-result = ""
-str.each_with_index do |word, i|
-  if( i == len - 1 )
-    result = word + result
-  else  
-    result = " " + word + result
-  end  
+  while(l <= r && sentence[l] == '')
+    l += 1
+  end
+
+  while(r >=0  && sentence[r] == '')
+    r -= 1
+  end
+
+  words, word = '', ''
+  while(l <= r)
+    if sentence[l] == ' ' && !word.empty?
+      words = word + ' ' + words
+      word = ''
+    else
+      word += sentence[l] if sentence[l] != ' '
+    end
+    l += 1
+  end
+  words = word + ' ' + words if word
+
+  puts words.strip
 end
 
-puts result  
+sentence = 'The Sky is blue'
+reverse_words(sentence) # blue is Sky The
 
+sentence = '  hello world! '
+reverse_words(sentence) # world! hello
 
-def reverse_words(str)
-  arr = my_split(str)
-  low = 0
-  hi = own_length(arr) - 1
-  while(low < hi)
-    tmp = arr[low]
-    arr[low] = arr[hi]
-    arr[hi] = tmp
-    low += 1
-    hi -= 1
-  end  
-  puts arr.to_s
-  # puts arr.join(' ')
-end  
+sentence = '  hello    ?'
+reverse_words(sentence) # ? hello
 
-def my_split(str)
+def own_split(str)
   size = 0
   n = str.length
   for i in 0...n
@@ -62,8 +68,3 @@ def own_length(str)
     end  
   end  
 end  
-
-str = "I am very active"
-reverse_words(str)
-# my_split(str)
-# own_length(str)
