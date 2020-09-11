@@ -79,6 +79,9 @@
   `Time Complexity` is o(n) and `Space Complexity` is o(n)
 
 - [Reverse words in string](string_algos/reverse_words_in_string.rb)
+
+- [Bulls and Cows](https://leetcode.com/problems/bulls-and-cows/submissions/)
+  `Time Complexity` is o(n) and `Space Complexity` is o(1) because digits are fixed which is 0 to 9
   
 ## System Designs
 
