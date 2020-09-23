@@ -83,7 +83,11 @@
 - [Bulls and Cows](https://leetcode.com/problems/bulls-and-cows/submissions/)
   `Time Complexity` is o(n) and `Space Complexity` is o(1) because digits are fixed which is 0 to 9
 
-- [Delete Node from BST](tree/delete_node_in_bst.rb)  
+- [Delete Node from BST](tree/delete_node_in_bst.rb)
+
+- [Majority Elements ||](https://leetcode.com/problems/majority-element-ii/submissions/)
+  `Time Complexity` is o(n) and `Space Complexity` is o(1)
+    
 ## System Designs
 
 - [Instagram Design](system_designs/insta.md)
