@@ -87,7 +87,10 @@
 
 - [Majority Elements ||](https://leetcode.com/problems/majority-element-ii/submissions/)
   `Time Complexity` is o(n) and `Space Complexity` is o(1)
-    
+
+- [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/submissions/)
+  `Time Complexity` is o(n) and `Space Complexity` is o(1)
+      
 ## System Designs
 
 - [Instagram Design](system_designs/insta.md)
