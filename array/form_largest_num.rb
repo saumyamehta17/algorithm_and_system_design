@@ -89,5 +89,5 @@ end
 
 arr = [54,546,548,60]
 puts arr.to_s
-sort(arr, 0, 3)  
+sort(arr, 0, 3)
 puts arr.to_s

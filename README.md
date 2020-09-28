@@ -90,7 +90,18 @@
 
 - [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/submissions/)
   `Time Complexity` is o(n) and `Space Complexity` is o(1)
-      
+
+- [Largest Number](https://leetcode.com/problems/largest-number/submissions/)
+  `Time Complexity` is o(nlogn) and `Space Complexity` is o(n)
+
+- [Pallindrome LinkedList](https://leetcode.com/problems/palindrome-linked-list/submissions/)
+  Best Solution `Time Complexity` is o(n) and `Space Complexity` is o(1)
+
+- [Evaluate Division](https://leetcode.com/problems/evaluate-division/submissions/)
+  - m = no of queries, n = no of equation
+  
+  `Time Complexity` is o(m*n) and `Space Complexity` is o(n)
+       
 ## System Designs
 
 - [Instagram Design](system_designs/insta.md)
