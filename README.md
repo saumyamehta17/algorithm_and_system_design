@@ -101,7 +101,10 @@
   - m = no of queries, n = no of equation
   
   `Time Complexity` is o(m*n) and `Space Complexity` is o(n)
-       
+
+- [First Missing Positive](https://leetcode.com/problems/first-missing-positive/submissions/)
+    `Time Complexity` is o(n) and `Space Complexity` is o(1)
+         
 ## System Designs
 
 - [Instagram Design](system_designs/insta.md)
