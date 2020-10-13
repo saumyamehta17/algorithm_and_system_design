@@ -1,14 +1,12 @@
 require 'pry'
 def word_break(s, word_dict)
   trie = make_trie(word_dict)
-  result = [false]
-  explore(s, trie, 0, s.length, result)
-  result.first
+  explore(s, trie, 0, s.length)
 end
 
-def explore(s, trie, start_indx, last_indx, result)
+def explore(s, trie, start_indx, last_indx)
   curr = trie
-  return true if result.first || (start_indx >= last_indx)
+  return true if start_indx >= last_indx
   return false if curr.find(s[start_indx]).nil?
   eows = []
   for i in start_indx...last_indx
@@ -18,7 +16,7 @@ def explore(s, trie, start_indx, last_indx, result)
   end
   # binding.pry
   res = eows.map do |x|
-    explore(s, trie, x, last_indx, result)
+    explore(s, trie, x, last_indx)
   end
   if res.include?(true)
     result[0] = true
@@ -82,5 +80,6 @@ s = "acaaaaabbbdbcccdcdaadcdccacbcccabbbbcdaaaaaadb"
 # s = "acaaaaabbbdbcccd"
 word_dict = ["abbcbda","cbdaaa","b","dadaaad","dccbbbc","dccadd","ccbdbc","bbca","bacbcdd","a","bacb","cbc","adc","c","cbdbcad","cdbab","db","abbcdbd","bcb","bbdab","aa","bcadb","bacbcb","ca","dbdabdb","ccd","acbb","bdc","acbccd","d","cccdcda","dcbd","cbccacd","ac","cca","aaddc","dccac","ccdc","bbbbcda","ba","adbcadb","dca","abd","bdbb","ddadbad","badb","ab","aaaaa","acba","abbb"]
 s = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab"
+s = "aaa"
 word_dict = ["a","aa","aaa","aaaa","aaaaa","aaaaaa","aaaaaaa","aaaaaaaa","aaaaaaaaa","aaaaaaaaaa"]
 puts word_break(s, word_dict)
