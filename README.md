@@ -107,7 +107,9 @@
 
 - [Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/submissions/)         
   `Time Complexity` is o(n) and `Space Complexity` is o(n)
-  
+
+- [Website Visit Pattern](leet_code/website_visit_pattern.rb)
+    
 ## System Designs
 
 - [Instagram Design](system_designs/insta.md)

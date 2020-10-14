@@ -16,18 +16,17 @@ Avoid re-computation(for example - calculate average salary frequently, could be
 
 ### Requirements
 
-what is size of cache for 1 month, lets say in TB
-what is eviction policy, lets say LRU
+- what is size of cache for 1 month, lets say in TB
+- what is eviction policy, lets say LRU
+- handle Stale data, should we add TTL
+- What would be the access patterns?
+
 System should be scalable
 System should be ofcourse 100% available
-
-handle Stale data - when data is updated, removed or added new. Can be mitigated by setting TTL
 Should we make distributed? based on load
-
 cache hit/cache miss
 
-
-### cache invalidation - when to update cache
+### Access Patterns
 
 `write-through`
 write to cache and cache will write to db store at same time. High Latency
@@ -38,6 +37,9 @@ write to cache and respond to user and then cache will enqueue data to store in 
 `write-around`
 write to db first bypassing cache and return response from db itself, next time that data read will have cache miss and then cache will be updated. High Latency
 
+### Estimation
+- How many requests per second, lets say 1M 
+- Nginx can handle 50k to 80k requests per second
 ### Thrashing
 
 ### eviction policy
