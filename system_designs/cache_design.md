@@ -38,8 +38,13 @@ write to cache and respond to user and then cache will enqueue data to store in 
 write to db first bypassing cache and return response from db itself, next time that data read will have cache miss and then cache will be updated. High Latency
 
 ### Estimation
-- How many requests per second, lets say 1M 
-- Nginx can handle 50k to 80k requests per second
+- How many requests per second, lets say 10M 
+- Nginx can handle static 50k to 80k requests per second, so our server could serve lets say 5k concurrent requests/sec
+- Lets say latency would be 50 ms for a request, so 1 sec could server 20 requests
+- Overall our server could handle 20*5k = 100K requests/sec, which mean we need 10M/100k = 100 machines
+- Adding 20-30% more, we will get 120 machines
+- Also for storage, high memory ec2 instances could give us 
+
 ### Thrashing
 
 ### eviction policy

@@ -1,4 +1,4 @@
-  class DLL
+class DLL
   attr_reader :head, :tail
 
   def add(node)
@@ -13,7 +13,7 @@
   end
   
   def remove(node = tail)
-    curr = node
+    curr = node``
     return if node.nil?
 
     if node.prev.nil?

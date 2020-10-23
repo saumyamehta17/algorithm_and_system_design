@@ -1,13 +1,6 @@
 ## Algorithm
 
 - [Top k frequent elements](/array/top_k_frequent_elements.rb)
-
-- [Binary Tree Level Order zigzag](/tree/zigzag_level_order.rb)
-
-- [Max Width of Binary Tree](https://leetcode.com/problems/maximum-width-of-binary-tree/submissions/)
-  Its maximum width among all levels
-  
-  #### Complexity Analysis
   `Time Complexity` is o(n) as I am processing each node only once in a tree **and** `Space Complexity` o(n) as adding each node in queue(BFS)
   
 - [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)
@@ -30,11 +23,7 @@
   #### Complexity Analysis
      `Time Complexity` is o(n) **and** `space complexity` is also o(1)
 
-- [Max Path Sum in Binary Tree](https://leetcode.com/problems/binary-tree-maximum-path-sum/submissions/)
 
-  #### Complexity Analysis      
-    `Time Complexity` is o(n) as we are touching each node once and space is o(h) for average case but o(n) for worst case if tree is skewed
-     because in recursion, call stack is being taking place for nodes
 
 - [Pascal's Triangle](https://leetcode.com/problems/pascals-triangle-ii/submissions/)
   
@@ -75,8 +64,6 @@
 
 - [Merge Sort](sorting/merge_sort.rb)
 
-- [Sum of Root To Leaf Binary Numbers](https://leetcode.com/problems/sum-of-root-to-leaf-binary-numbers/submissions)
-  `Time Complexity` is o(n) and `Space Complexity` is o(n)
 
 - [Reverse words in string](string_algos/reverse_words_in_string.rb)
 
@@ -105,11 +92,31 @@
 - [First Missing Positive](https://leetcode.com/problems/first-missing-positive/submissions/)
     `Time Complexity` is o(n) and `Space Complexity` is o(1)
 
-- [Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/submissions/)         
-  `Time Complexity` is o(n) and `Space Complexity` is o(n)
-
 - [Website Visit Pattern](leet_code/website_visit_pattern.rb)
-    
+
+- [Prison Cells After N days](https://leetcode.com/submissions/detail/409319545/)
+  `Time Complexity` is o(64), as it can maximum goes to 2**6. `Space` is o(64)    
+  
+ ### Tree
+ 
+ - [Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/submissions/)         
+   `Time Complexity` is o(n) and `Space Complexity` is o(n)
+   
+ - [Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/submissions/)
+  `Time Complexity` is o(n) and `Space Complexity` is o(n)
+ 
+ - [Sum of Root To Leaf Binary Numbers](https://leetcode.com/problems/sum-of-root-to-leaf-binary-numbers/submissions)
+   `Time Complexity` is o(n) and `Space Complexity` is o(n)
+   
+- [Max Path Sum in Binary Tree](https://leetcode.com/problems/binary-tree-maximum-path-sum/submissions/)
+  `Time Complexity` is o(n) as we are touching each node once and space is o(h) for average case but o(n) for worst case if tree is skewed
+     because in recursion, call stack is being taking place for nodes
+ 
+ - [Binary Tree Level Order zigzag](/tree/zigzag_level_order.rb)
+ 
+ - [Max Width of Binary Tree](https://leetcode.com/problems/maximum-width-of-binary-tree/submissions/)
+   Its maximum width among all levels
+   
 ## System Designs
 
 - [Instagram Design](system_designs/insta.md)
