@@ -22,8 +22,9 @@ average = 2500/2 = o(n/2) = o(n) = linear complexity
 what if blocks sorted: then it will do o(log(n)) = log(2500) = 12
 Index table is also saved on disk and bring into RAM when required. Index table will have key and pointer(which point to a block on disk)
 
-Dense -> number of entries in actual table and index table will be same. This mean we will have 10k entries as per above example.
-Sparse -> leader(one record from a block) can be added to index table instead of all. Here we will have 2500 as per blocks count. But data has to be sorted.
+`Dense` -> number of entries in actual table and index table will be same. This mean we will have 10k entries as per above example.
+
+`Sparse` -> leader(one record from a block) can be added to index table instead of all. Here we will have 2500 as per blocks count. But data has to be sorted.
 
 #### calculation with sparse indexes
 ```

@@ -147,6 +147,8 @@
 		 worst case - o(n^2)
 		 best case - o(n)
 		 stable - yes
+		
+		- Count Sorting takes o(n) as n inputs is bounded with value k
 
 		- radix sort,  
 

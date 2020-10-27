@@ -12,7 +12,7 @@ class CountingSort
   def start
 
     i = 0
-    # count each digit occured and save in count array
+    # count each digit occurred and save in count array
     while(i < len)
       val = arr[i]
       count_arr[val] += 1
@@ -25,7 +25,7 @@ class CountingSort
       count_arr[i] = count_arr[i] + count_arr[i-1]
       i += 1
     end  
-
+    puts count_arr.to_s
     i = 0
     # val = take value from arr
     # use val to find index where output arr will keep val
@@ -42,6 +42,6 @@ end
 
 @cs = CountingSort.new([1,4,1,2,7,5,2])
 @cs.start
-puts @cs.output_arr
+puts @cs.output_arr.to_s
 
 

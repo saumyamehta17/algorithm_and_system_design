@@ -14,7 +14,7 @@
 
 ### Read-heavy or write-heavy
 
-### Reverse Proxy 
+### Reverse Proxy
 
 a server/website public face, which take request from client and forward it to backend servers and even works with one webserver/application server
 - security, no information about backend servers are known to outside world. Many reverse proxy servers include features rejecting traffic/blacklisting particular ips, limiting the number of connections from each client
@@ -43,11 +43,12 @@ Algorithms
 
 Health Check - Single Point of failure if we have one load balancer, so we can active/passive HA setup.
 
-### Reliability(performance standard) vs availibility
-https://trello.com/c/gOSxI82y/57-scalling
+### [Reliability vs Availability](https://trello.com/c/gOSxI82y/57-scalling#comment-5eb78b19a685567b9beb18b3)
 
-### Data Partitioning
-https://trello.com/c/gOSxI82y/57-scalling, and search "Sharding or partition"
+
+### [Data Partitioning](https://trello.com/c/gOSxI82y/57-scalling#comment-59cafd75f577e0c5eeaa812c)
+
+### [Consistent Hashing](https://trello.com/c/gOSxI82y/57-scalling#comment-5a69113bd9f26853d6f1bd96)
 
 ### Long-Polling vs WebSockets vs Server-Sent Events
 
@@ -58,7 +59,7 @@ client repeatedly makes a request for server data. If no data is availble then e
 It allows server to push data when its available. Client make a HTTP connection(hanging GET), server holds it for some time and respond back when data is availble. These requests also has timeout.
 
 ##### Websockets
-
+Its a full duplex which is two-way communications over TCP connection. It provides a persistent connection b\w client and server where both can use to start sending data ay any time.
 
 ##### Server-Sent Events
 

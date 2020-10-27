@@ -1,15 +1,15 @@
 ## The Catchies
 
+## Scaling
+It is a capacity of system to grow to manage increased demands eg. increased data volume, increased amount of work
 
-## vertical scalling 
+## vertical scaling - adding more power to existing machine(Eg Mysql)
 
-- increasing process, memory, cores but at some point its not enough resource
-
-Even though now a days CPU come with many cores, for example quadcores which has 4 cores or 4 brains in one chip.
-
+increasing process, memory, cores but at some point its not enough resource. Even though now a days CPU come with many cores, for example quadcores which has 4 cores or 4 brains in one chip.
 in old days, when one core which perform 4 tasks like - printing, google map opening etc are happening simultenously but in reality, CPU is spliting and scheduling all 4 program serially.
-
 But with 4 cores - 4 requests can be served at the same time.
+
+Single Machine is limited to some capacity
 
 ## Disks and Memory
 
@@ -17,17 +17,16 @@ Reading 1MB from cache take 250 microseconds and SSD takes 4x and from disk take
 1 second - 1k miliseconds, 1 milisecond - 1k microsecond
 1 second - 1000000
 
-## Horizontal scalling
+## Horizontal scaling
 
-We can assume that there is always a ceiling, don't cross that, even buy more cheaper/slower computers instead one big good machine which expensive
-
+We can assume that there is always a ceiling, don't cross that, even buy more cheaper/slower computers instead one big good machine which is expensive
 So how would we handle more than machine, where user will send request.
 Here's come Load Balancer
 
 Now **Loader Balancer** can have public ips and other machine can private ips
 benefits:
 - Bad guys on internet can not access our machine private ips directly
-- public ips(version 4- 32 bit ip) are expensive and world is running out of these, and other private ips could be 192.168 0r 10.0 like which we have at our home. This will alleviate the pressure of buying public ips for each machine
+- public ips(version 4 - 32 bit ip) are expensive and world is running out of these, and other private ips could be 192.168 0r 10.0 like which we have at our home. This will alleviate the pressure of buying public ips for each machine
 
 ### How Loadbalancer distribute requests
 - Round Robin, first send to server1, then to server2 and so on. Here Problem is some server by bad luck get heavy requests and other server may get just simple login request.
@@ -48,15 +47,15 @@ Then probabaly Round Robin will not help.
 
 Should we save session in db?
 
-Load Balancer Softwares - ELB, HAProxy, LVS
-Load Balancer Hardwares - Citrix
+`LB Softwares` - ELB, HAProxy, LVS
+
+`LB Hardwares` - Citrix
 
 ``Sticky Session``
 No matter how many times you do a request, it gonna end in same server
 
 ``Cookies``
-it has finite size , few KB
-May be keep server_id in cookie and load-balancer will remember that which id is which server.
+it has finite size , few KB and may be keep server_id in cookie and load-balancer will remember that which id is which server.
 
 
 ### Caching
