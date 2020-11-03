@@ -1,5 +1,7 @@
 Locks - used to lock critical sections to save from threats of same process
+
 Mutex - lock critical sections to save from threats of multiple processes, at any given time one client can acquire lock
+
 Semaphore - used across processes
 
 ### Distributed Locks

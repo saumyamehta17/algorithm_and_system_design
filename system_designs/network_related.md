@@ -1,11 +1,11 @@
 ### OSI Model
-Layers/Network Stack
+#### Layers/Network Stack
 1. Physical
 2. Data Link
 3. Internet Protocol(IP)
 4. Transport Control Protocol(TCP)
 5. Application
-
+-----
 7. Application
 6. Presentation
 5. Session

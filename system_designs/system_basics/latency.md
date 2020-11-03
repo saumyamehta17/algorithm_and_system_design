@@ -3,7 +3,7 @@
 ### Percentiles
 
 - Why Not Averages
-Because averages are not real user experience or it can mislead. For example, we have few data points in miliseconds:
+Because averages are not real user experience or it can mislead. For example, we have few data points in milliseconds:
  `70, 100, 920, 850, 200`
  If we calculate average then it would be **428** which is not representative of your user experience
  

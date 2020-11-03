@@ -16,7 +16,7 @@ Scalable
 ### Throttling(controlling the usage of api) types
 - Hard throttling(can not exceeds)
 - Soft throttling(Can exceeds say 10%)
-- Elastic/dynamic throttling(can exceed if resources are avaiable)
+- Elastic/dynamic throttling(can exceed if resources are available)
 
 ### Api
 api/v1/limit?key=user_id

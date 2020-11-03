@@ -162,22 +162,6 @@
 
 	what do we know abt system: larger data set to be sorted is smaller than, equal, larger than available memory?
 		  
-
-AMAZON
-==========
-Data Structures:
-
-Array
-Linked List
-Binary Tree, Binary Search Tree, Red-Black Tree
-Heap
-Hash Table
-Stack
-Queue
-Trie
-Graph (both directed and undirected)
- 
-
 Algorithms:
 
 Sorting

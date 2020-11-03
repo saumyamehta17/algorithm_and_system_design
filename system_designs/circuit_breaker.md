@@ -1,6 +1,6 @@
 ### Circuit Breaker Pattern
 
-Widely adopted in microseervices architecture. An Example of simple two microservices:
+Widely adopted in micro services architecture. An Example of simple two microservices:
 Backend and Front-end service. Client calling front-end, and backend is down or may be database called by backend is down.
 The only sane solution is to **fail-fast**, front-end should be made aware that something has gone wrong on backend side and return failure to its own clients immediately.
 

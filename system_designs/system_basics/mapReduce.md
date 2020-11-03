@@ -1,5 +1,5 @@
 ### Distributed Computation with Hadoop
-its pretty easy to have computation in one system system, and then going in multiple threaded way, it could be terrible.
+its pretty easy to have computation in one system, and then going in multiple threaded way, it could be terrible.
 But when you want to distribute computations over multiple computers, life will become truly terrible. But we have tools for this **Map Reduce**
 
 `Map`, which will give all words in file, like: 

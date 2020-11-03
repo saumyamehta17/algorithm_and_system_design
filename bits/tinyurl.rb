@@ -2,7 +2,7 @@ class TinyUrl
   # total 62 chars a-z, A-Z, 0-9
   POSSIBLE_CHARS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
 
-  # id is taken from db corresponsing to long url
+  # id is taken from db corresponding to long url
   # let id = 12345
   def get_shortcode(id)
     id = id.to_i

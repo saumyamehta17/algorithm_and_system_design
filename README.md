@@ -11,7 +11,7 @@
 
 - [Find All Duplicates](https://leetcode.com/problems/find-all-duplicates-in-an-array/submissions/)
 
-  #### Complexity Analysis
+  #### Complexity Analysiss
      `Time Complexity` is o(n) as we are processing string once **and** no extra `space`
 
 - [Rotten Oranges](https://leetcode.com/problems/rotting-oranges/submissions/)
@@ -22,8 +22,6 @@
 - [Find Missing Number](https://leetcode.com/problems/missing-number/submissions/) 
   #### Complexity Analysis
      `Time Complexity` is o(n) **and** `space complexity` is also o(1)
-
-
 
 - [Pascal's Triangle](https://leetcode.com/problems/pascals-triangle-ii/submissions/)
   
@@ -44,12 +42,6 @@
 - [Trapping Rain Water with space o(1)](https://leetcode.com/submissions/detail/383060059/)
   `Time Complexity` is o(n) and `Space Complexity` is o(1)
   
-- [Reorder LinkedList](https://leetcode.com/submissions/detail/384050528/)
-  `Time Complexity` is o(n) and `Space Complexity` is o(n) as we are going recursive
-  
-- [Sum of left leaves](https://leetcode.com/problems/sum-of-left-leaves/submissions/)
-  `Time Complexity` is o(n) and `Space Complexity` is o(h) for call stack as we are going recursive.    
-
 - [Minimum Cost For Tickets](https://leetcode.com/submissions/detail/386510911/)
   `Time Complexity` is o(1) and `Space Complexity` is o(1) as we need to process only 365 days
 
@@ -64,13 +56,10 @@
 
 - [Merge Sort](sorting/merge_sort.rb)
 
-
 - [Reverse words in string](string_algos/reverse_words_in_string.rb)
 
 - [Bulls and Cows](https://leetcode.com/problems/bulls-and-cows/submissions/)
   `Time Complexity` is o(n) and `Space Complexity` is o(1) because digits are fixed which is 0 to 9
-
-- [Delete Node from BST](tree/delete_node_in_bst.rb)
 
 - [Majority Elements ||](https://leetcode.com/problems/majority-element-ii/submissions/)
   `Time Complexity` is o(n) and `Space Complexity` is o(1)
@@ -95,7 +84,17 @@
 - [Website Visit Pattern](leet_code/website_visit_pattern.rb)
 
 - [Prison Cells After N days](https://leetcode.com/submissions/detail/409319545/)
-  `Time Complexity` is o(64), as it can maximum goes to 2**6. `Space` is o(64)    
+  `Time Complexity` is o(64), as it can maximum goes to 2**6. `Space` is o(64)
+      
+ ### LinkedList
+  - [Reorder LinkedList](https://leetcode.com/submissions/detail/384050528/)
+    `Time Complexity` is o(n) and `Space Complexity` is o(n) as we are going recursive
+    
+  - [Merge Two sorted List](https://leetcode.com/problems/merge-two-sorted-lists/submissions/)
+  `Time Complexity is o(m+n)`
+  
+  - [Insertion Sort List](https://leetcode.com/problems/insertion-sort-list/submissions/)
+  `Time Complexity` is o(n^2) and `Space Complexity` is nothing
   
  ### Tree
  
@@ -117,6 +116,10 @@
  - [Max Width of Binary Tree](https://leetcode.com/problems/maximum-width-of-binary-tree/submissions/)
    Its maximum width among all levels
    
+ - [Delete Node from BST](tree/delete_node_in_bst.rb)
+ 
+ - [Sum of left leaves](https://leetcode.com/problems/sum-of-left-leaves/submissions/)
+    `Time Complexity` is o(n) and `Space Complexity` is o(h) for call stack as we are going recursive.
 ## System Designs
 
 - [Instagram Design](system_designs/insta.md)
