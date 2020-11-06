@@ -77,7 +77,7 @@ class Graph
     end
     
     node.parent = find_set(node.parent)
-    return node.parent  
+    return node.parent
   end 
 
 end  

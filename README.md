@@ -19,28 +19,48 @@
   #### Complexity Analysis
      `Time Complexity` is o(m*n) **and** `space complexity` is also o(m*n)       
 
+### Array
+
 - [Find Missing Number](https://leetcode.com/problems/missing-number/submissions/) 
   #### Complexity Analysis
      `Time Complexity` is o(n) **and** `space complexity` is also o(1)
 
+- [Majority Elements ||](https://leetcode.com/problems/majority-element-ii/submissions/)
+  `Time Complexity` is o(n) and `Space Complexity` is o(1)
+
+- [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/submissions/)
+  `Time Complexity` is o(n) and `Space Complexity` is o(1)
+
+- [Largest Number](https://leetcode.com/problems/largest-number/submissions/)
+  `Time Complexity` is o(nlogn) and `Space Complexity` is o(n)
+  
 - [Pascal's Triangle](https://leetcode.com/problems/pascals-triangle-ii/submissions/)
   
   `Time Complexity` is o(n) and space is o(1). And n = number of index given
 
-- [Verify Alien Dictionary](https://leetcode.com/problems/verifying-an-alien-dictionary/submissions/)
-  `Time Complexity` is o(m*n) and space is o(1)
+- [First Missing Positive](https://leetcode.com/problems/first-missing-positive/submissions/)
+    `Time Complexity` is o(n) and `Space Complexity` is o(1)
+
+- [Prison Cells After N days](https://leetcode.com/submissions/detail/409319545/)
+  `Time Complexity` is o(64), as it can maximum goes to 2**6. `Space` is o(64)
+
+- [Minimum Cost to Move Chips to The Same Position](https://leetcode.com/problems/minimum-cost-to-move-chips-to-the-same-position/submissions/)
+  `Time Complexity` is o(n) and `Space` is o(1)
 
 - [Buy and Sell Stock 1](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
   `Time Complexity` is o(n) and space is o(1)
   
 - [Buy and Sell Stock 2](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/)
   `Time Complexity` is o(n) and space is o(1)
-  
+
 - [Trapping Rain Water](https://leetcode.com/submissions/detail/383047611/)
   `Time Complexity` is o(n) and `Space Complexity` is o(n)
 
 - [Trapping Rain Water with space o(1)](https://leetcode.com/submissions/detail/383060059/)
   `Time Complexity` is o(n) and `Space Complexity` is o(1)
+      
+- [Verify Alien Dictionary](https://leetcode.com/problems/verifying-an-alien-dictionary/submissions/)
+  `Time Complexity` is o(m*n) and space is o(1)
   
 - [Minimum Cost For Tickets](https://leetcode.com/submissions/detail/386510911/)
   `Time Complexity` is o(1) and `Space Complexity` is o(1) as we need to process only 365 days
@@ -61,32 +81,17 @@
 - [Bulls and Cows](https://leetcode.com/problems/bulls-and-cows/submissions/)
   `Time Complexity` is o(n) and `Space Complexity` is o(1) because digits are fixed which is 0 to 9
 
-- [Majority Elements ||](https://leetcode.com/problems/majority-element-ii/submissions/)
-  `Time Complexity` is o(n) and `Space Complexity` is o(1)
-
-- [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/submissions/)
-  `Time Complexity` is o(n) and `Space Complexity` is o(1)
-
-- [Largest Number](https://leetcode.com/problems/largest-number/submissions/)
-  `Time Complexity` is o(nlogn) and `Space Complexity` is o(n)
-
-- [Pallindrome LinkedList](https://leetcode.com/problems/palindrome-linked-list/submissions/)
-  Best Solution `Time Complexity` is o(n) and `Space Complexity` is o(1)
-
 - [Evaluate Division](https://leetcode.com/problems/evaluate-division/submissions/)
   - m = no of queries, n = no of equation
-  
   `Time Complexity` is o(m*n) and `Space Complexity` is o(n)
-
-- [First Missing Positive](https://leetcode.com/problems/first-missing-positive/submissions/)
-    `Time Complexity` is o(n) and `Space Complexity` is o(1)
 
 - [Website Visit Pattern](leet_code/website_visit_pattern.rb)
 
-- [Prison Cells After N days](https://leetcode.com/submissions/detail/409319545/)
-  `Time Complexity` is o(64), as it can maximum goes to 2**6. `Space` is o(64)
       
  ### LinkedList
+ - [Pallindrome LinkedList](https://leetcode.com/problems/palindrome-linked-list/submissions/)
+   Best Solution `Time Complexity` is o(n) and `Space Complexity` is o(1)
+   
   - [Reorder LinkedList](https://leetcode.com/submissions/detail/384050528/)
     `Time Complexity` is o(n) and `Space Complexity` is o(n) as we are going recursive
     
@@ -94,7 +99,7 @@
   `Time Complexity is o(m+n)`
   
   - [Insertion Sort List](https://leetcode.com/problems/insertion-sort-list/submissions/)
-  `Time Complexity` is o(n^2) and `Space Complexity` is nothing
+  `Time Complexity` is o(n^2) and `Space Complexity` is o(1)
   
  ### Tree
  
