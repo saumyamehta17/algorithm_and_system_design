@@ -23,5 +23,19 @@
 - POST update_frequency(search_text)
 
 #### Data Store
+- We can keep phrase and frequency somewhere and then periodically(hourly basis) update our trie, because updating trie 
+ for each read request would not be efficient.
+- For this we can use any NoSql db
+- Primarily our data structure would be Trie and at each node we can keep top k words to return for low latency
+
+### Scaling
+- if requests grow, then one Trie/ one machine could not serve that much requests
+- When requests come, then shard tries over multiple machines like a-k one machine and k-z on another
+- We can keep some configuration tool like *ZooKeeper* to manage this mapping.
+
+### Improvements  
+- Keep a Redis/memcache on top of this trie machines
+- Add CDN, which is usually close to the end users instead of touching data centers
+
 
     
