@@ -13,7 +13,7 @@ class MyClass{
     System.out.println("Hello I am called by JVM");
   }
 }
-// public, is a access indentifier and its made public so that JVM can call it from outside of this class
+// public, is a access identifier and its made public so that JVM can call it from outside of this class
 // static, is a keyword and JVM can call it without creating object from it as its class method
 // void, which method will not return anything
 // main, is method name which JVM will look for. This is where main execution take place.
@@ -26,3 +26,17 @@ class Main {
     }
   }
 }   // java Main 1 2 3
+
+// Interfaces
+interface Food{
+ public void taste(); // No Body
+}
+// can not make object of interface
+
+class IndianFood implements Food{
+    public void taste(){
+     System.out.println("Indian Food is exotic");
+    }
+}
+IndianFood food = new IndianFood();
+food.taste();
