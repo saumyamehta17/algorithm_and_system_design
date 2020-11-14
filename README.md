@@ -129,7 +129,10 @@
     `Time Complexity` is o(n) and `Space Complexity` is o(h) for call stack as we are going recursive.
  - [Binary Tree Tilt](https://leetcode.com/problems/binary-tree-tilt/submissions/)
    `Time Complexity` is o(n) and space is o(n) as its recursive
-     
+
+ - [Populating Next Right Pointers in Each Node](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/submissions/)
+   `Time Complexity` is o(n) and space is o(1)
+       
 ## System Designs
 
 - [Instagram Design](system_designs/insta.md)
