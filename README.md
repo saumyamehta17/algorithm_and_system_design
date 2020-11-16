@@ -132,7 +132,10 @@
 
  - [Populating Next Right Pointers in Each Node](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/submissions/)
    `Time Complexity` is o(n) and space is o(1)
-       
+ 
+ - [Range Sum of BST](https://leetcode.com/problems/range-sum-of-bst/submissions/)
+   `Time Complexity` is o(n) and using stack `space` o(n)
+        
 ## System Designs
 
 - [Instagram Design](system_designs/insta.md)
