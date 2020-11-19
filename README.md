@@ -135,7 +135,13 @@
  
  - [Range Sum of BST](https://leetcode.com/problems/range-sum-of-bst/submissions/)
    `Time Complexity` is o(n) and using stack `space` o(n)
-        
+ 
+ - [Longest Mountain](array/longest_mountain.java)  
+ `Time Complexity` is o(n) and using stack `space` o(1)
+ 
+ - [Merge Intervals](https://leetcode.com/problems/merge-intervals/submissions/)
+ `Time Complexity` is o(nlogn) and using stack `space` o(n)  
+ 
 ## System Designs
 
 - [Instagram Design](system_designs/insta.md)

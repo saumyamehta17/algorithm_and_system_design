@@ -1,0 +1,1 @@
+// ArrayList, is a dynamic array and used when need to access random elements and can only add at end.
