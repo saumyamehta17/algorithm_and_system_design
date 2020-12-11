@@ -22,8 +22,7 @@
 ### Array
 
 - [Find Missing Number](https://leetcode.com/problems/missing-number/submissions/) 
-  #### Complexity Analysis
-     `Time Complexity` is o(n) **and** `space complexity` is also o(1)
+   `Time Complexity` is o(n) **and** `space complexity` is also o(1)
 
 - [Majority Elements ||](https://leetcode.com/problems/majority-element-ii/submissions/)
   `Time Complexity` is o(n) and `Space Complexity` is o(1)
@@ -87,7 +86,15 @@
 
 - [Website Visit Pattern](leet_code/website_visit_pattern.rb)
 
-      
+- [Longest Mountain](array/longest_mountain.java)  
+ `Time Complexity` is o(n) and using stack `space` o(1)
+
+- [Valid Mountain](https://leetcode.com/problems/valid-mountain-array/submissions/) 
+`Time Complexity` is o(n) and using stack `space` o(1)
+
+- [Merge Intervals](https://leetcode.com/problems/merge-intervals/submissions/)
+ `Time Complexity` is o(nlogn) and using stack `space` o(n)  
+       
  ### LinkedList
  - [Pallindrome LinkedList](https://leetcode.com/problems/palindrome-linked-list/submissions/)
    Best Solution `Time Complexity` is o(n) and `Space Complexity` is o(1)
@@ -136,12 +143,9 @@
  - [Range Sum of BST](https://leetcode.com/problems/range-sum-of-bst/submissions/)
    `Time Complexity` is o(n) and using stack `space` o(n)
  
- - [Longest Mountain](array/longest_mountain.java)  
- `Time Complexity` is o(n) and using stack `space` o(1)
- 
- - [Merge Intervals](https://leetcode.com/problems/merge-intervals/submissions/)
- `Time Complexity` is o(nlogn) and using stack `space` o(n)  
- 
+ - [BST Iterator](https://leetcode.com/problems/binary-search-tree-iterator/submissions/)
+  `Time Complexity` is o(n) and using stack `space` o(h)
+  
 ## System Designs
 
 - [Instagram Design](system_designs/insta.md)

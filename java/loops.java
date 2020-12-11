@@ -32,3 +32,10 @@ public static void main(String args[]){
         x ++;
     }while(x < 3);
 }
+
+// iterate over chars in word
+string word = "London";
+String[] word_arr = word.split("");
+for(String ch:word_arr){
+  System.out.println("chr: "+ ch);
+}

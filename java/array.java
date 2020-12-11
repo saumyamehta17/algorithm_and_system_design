@@ -19,3 +19,5 @@ for(int i = 0; i < nums.length; i++){
         System.out.println("num is "+ nums[i][j]);
     }
 }
+
+int[][] nums = new int[4][5]
