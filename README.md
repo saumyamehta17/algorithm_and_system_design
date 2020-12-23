@@ -94,7 +94,10 @@
 
 - [Merge Intervals](https://leetcode.com/problems/merge-intervals/submissions/)
  `Time Complexity` is o(nlogn) and using stack `space` o(n)  
-       
+
+- [Squares of sorted Array](https://leetcode.com/submissions/detail/431142208/)
+  `Time Complexity` is o(n) and using stack `space` o(n)
+    
  ### LinkedList
  - [Pallindrome LinkedList](https://leetcode.com/problems/palindrome-linked-list/submissions/)
    Best Solution `Time Complexity` is o(n) and `Space Complexity` is o(1)
@@ -145,7 +148,10 @@
  
  - [BST Iterator](https://leetcode.com/problems/binary-search-tree-iterator/submissions/)
   `Time Complexity` is o(n) and using stack `space` o(h)
-  
+
+ - [Is Balanced Tree](tree/is_balanced_tree.rb)
+    `Time Complexity` is o(n) and using internal stack `space` o(n) when tree is skewed
+
 ## System Designs
 
 - [Instagram Design](system_designs/insta.md)

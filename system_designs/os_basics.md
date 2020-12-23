@@ -52,7 +52,7 @@ https://www.backblaze.com/blog/whats-the-diff-programs-processes-and-threads/
 
 ### Compilation & Interpretation
 
-Compiler - which create a executable file(machine understandable file) and can tranfer to others.
+Compiler - which create a executable file(machine understandable file) and can transfer to others.
  Advantage:
   Ready to run, source code is not public, 
  Disadvantages:
@@ -65,4 +65,38 @@ Advantage:
 Disadvantage:
   interpreter required
   source code is public, like javascript on web browser
+
+### Static vs Dynamic typed language
+  
+Static typing refers the following qualities:
+
+• The compiler unearths type errors at compile time.
+
+• Visible type information serves as documentation.
+
+• Compiled code is optimized to run quickly.
+
+These qualities represent strengths in a programming language only if you accept this set of corresponding assumptions:
+
+• Runtime type errors will occur unless the compiler performs type checks.
+
+• Programmers will not otherwise understand the code; they cannot infer an object’s type from its context.
+
+• The application will run too slowly without these optimizations. 
+
+Dynamic typing proponents list these qualities:
+
+• Code is interpreted and can be dynamically loaded; there is no compile/make cycle.
+
+• Source code does not include explicit type information.
+
+• Metaprogramming is easier.
+
+These qualities are strengths if you accept this set of assumptions:
+
+• Overall application development is faster without a compile/make cycle.
+
+• Programmers find the code easier to understand when it does not contain type declarations; they can infer an object’s type from its context.
+
+• Metaprogramming is a desirable language feature. 
 
