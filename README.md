@@ -112,7 +112,11 @@
   `Time Complexity` is o(n^2) and `Space Complexity` is o(1)
  
   - [Add Two Numbers](https://leetcode.com/problems/add-two-numbers-ii/submissions/)
-   `Time Complexity` is o(n+m) where n and m is length if list and `Space Complexity` is o(maxOfNandM) 
+   `Time Complexity` is o(n+m) where n and m is length if list and `Space Complexity` is o(maxOfNandM)
+
+  - [Next Greater Elem 3](https://leetcode.com/submissions/detail/433966183/)
+    `Time Complexity` is o(n) and `Space Complexity` is o(n)
+    
  ### Tree
  
  - [Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/submissions/)         
