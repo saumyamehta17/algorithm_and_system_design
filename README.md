@@ -97,7 +97,10 @@
 
 - [Squares of sorted Array](https://leetcode.com/submissions/detail/431142208/)
   `Time Complexity` is o(n) and using stack `space` o(n)
-    
+  
+- [Next Greater Elem 3](https://leetcode.com/submissions/detail/433966183/)
+    `Time Complexity` is o(n) and `Space Complexity` is o(n)
+        
  ### LinkedList
  - [Pallindrome LinkedList](https://leetcode.com/problems/palindrome-linked-list/submissions/)
    Best Solution `Time Complexity` is o(n) and `Space Complexity` is o(1)
@@ -114,7 +117,7 @@
   - [Add Two Numbers](https://leetcode.com/problems/add-two-numbers-ii/submissions/)
    `Time Complexity` is o(n+m) where n and m is length if list and `Space Complexity` is o(maxOfNandM)
 
-  - [Next Greater Elem 3](https://leetcode.com/submissions/detail/433966183/)
+  - [Swap Nodes in pair](linkedlist/swap_nodes_pair.rb)
     `Time Complexity` is o(n) and `Space Complexity` is o(n)
     
  ### Tree
