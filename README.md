@@ -100,6 +100,8 @@
   
 - [Next Greater Elem 3](https://leetcode.com/submissions/detail/433966183/)
     `Time Complexity` is o(n) and `Space Complexity` is o(n)
+
+- Jump Game IV: [Problem Derail](https://leetcode.com/problems/jump-game-iv/) and [Solution with o(n)](https://leetcode.com/submissions/detail/435437842/)
         
  ### LinkedList
  - [Pallindrome LinkedList](https://leetcode.com/problems/palindrome-linked-list/submissions/)
