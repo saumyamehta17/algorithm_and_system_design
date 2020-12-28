@@ -17,6 +17,7 @@ public class QueueExample{
     System.out.println("Remove Element: " + que.remove());
     System.out.println("Queue elements: " + que);
     System.out.println("Queue size: " + que.size());
+    System.out.println("Queue empty?: " + que.isEmpty());
   }
 }
 

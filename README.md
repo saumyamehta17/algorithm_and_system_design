@@ -158,6 +158,8 @@
 
  - [Is Balanced Tree](tree/is_balanced_tree.rb)
     `Time Complexity` is o(n) and using internal stack `space` o(n) when tree is skewed
+### Strings
+  Decode Ways: [Problem Detail](https://leetcode.com/problems/decode-ways/) and [Solution](dynamic_programming/decode_ways.rb) 
 
 ## System Designs
 
