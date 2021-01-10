@@ -163,6 +163,11 @@
 ### Strings
   Decode Ways: [Problem Detail](https://leetcode.com/problems/decode-ways/) and [Solution](dynamic_programming/decode_ways.rb) 
 
+### Graph
+  Word Laddar: [Problem Detail](https://leetcode.com/problems/word-ladder/) and [Solution](https://leetcode.com/submissions/detail/440998216/)
+  `Time Complexity` is o(26*n*n*w) where n is length of each word in word list, another n is comparision with endWord and 
+     w is number of words in wordList.
+     
 ## System Designs
 
 - [Instagram Design](system_designs/insta.md)

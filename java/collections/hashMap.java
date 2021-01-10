@@ -11,6 +11,7 @@ class HashMapExample{
   public static void main(String[] args)
   {
       HashMap<Integer, String> map = new HashMap<>();
+//       HashMap<Character, Integer> map = new HashMap<>();
       // inserting
       map.put(1, "Bolsonaro");
       map.put(2, "Putin");
@@ -30,6 +31,11 @@ class HashMapExample{
 
       // Remove
       map.remove(2);
+
+      // contains key
+      map.containsKey("Putin");
+      // get value from map
+      map.get("Putin");
 
       // Change values
       map.put(1, "Jair Bolsonaro");

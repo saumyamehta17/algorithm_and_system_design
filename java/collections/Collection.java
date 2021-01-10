@@ -36,6 +36,7 @@ public class StackExample{
     System.out.println("Top element: " + stack.peek());
     stack.pop();
     System.out.println("Stack: " + stack);
+    System.out.println("Stack is empty?: " + stack.empty();
 
 
     System.out.println("Search 5: " + search(5, stack));

@@ -20,4 +20,6 @@ for(int i = 0; i < nums.length; i++){
     }
 }
 
-int[][] nums = new int[4][5]
+int[][] nums = new int[4][5];
+int arr[] = new int[]{};
+
