@@ -25,10 +25,16 @@ class ArrayListExample{
     //list.remove(10); // object removal
     System.out.println("After Removal List: " + list);
 
+    list.get(1);  // access element
+    list.size();  // length of list
+
     //Iterating ArrayList
     Iterator itr = list.iterator();
     while(itr.hasNext()){
      System.out.println(itr.next());
     }
+
+    // sorting
+    Collections.sort(list);
   }
 }

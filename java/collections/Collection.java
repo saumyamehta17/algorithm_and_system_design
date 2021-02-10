@@ -9,7 +9,13 @@ public class QueueExample{
     que.add(1);
     que.add(2);
     que.add(9);
+    que.clear(); // to empty the queue
 
+    // iterator
+    Iterator<Integer> it = q1.iterator();
+    while(it.hasNext())  {
+       q2.add(it.next());
+    }
 
     System.out.println("Queue elements: " + que);
     System.out.println("Queue size: " + que.size());
@@ -20,6 +26,7 @@ public class QueueExample{
     System.out.println("Queue empty?: " + que.isEmpty());
   }
 }
+
 
 
 // Stack

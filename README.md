@@ -20,7 +20,8 @@
      `Time Complexity` is o(m*n) **and** `space complexity` is also o(m*n)       
 
 ### Array
-
+- Find kth largest element: [Problem Derail](https://leetcode.com/problems/kth-largest-element-in-an-array/) [Solutions](https://leetcode.com/problems/kth-largest-element-in-an-array/submissions/)
+ 
 - [Find Missing Number](https://leetcode.com/problems/missing-number/submissions/) 
    `Time Complexity` is o(n) **and** `space complexity` is also o(1)
 
@@ -160,11 +161,14 @@
 
  - [Is Balanced Tree](tree/is_balanced_tree.rb)
     `Time Complexity` is o(n) and using internal stack `space` o(n) when tree is skewed
+ - [Morris Traversal](tree/MorrisAlgo.java)   
+  `Time Complexity` is o(n) and `space` o(1) when tree is skewed
+  
 ### Strings
   Decode Ways: [Problem Detail](https://leetcode.com/problems/decode-ways/) and [Solution](dynamic_programming/decode_ways.rb) 
 
 ### Graph
-  Word Laddar: [Problem Detail](https://leetcode.com/problems/word-ladder/) and [Solution](https://leetcode.com/submissions/detail/440998216/)
+  Word Ladder: [Problem Detail](https://leetcode.com/problems/word-ladder/) and [Solution](https://leetcode.com/submissions/detail/440998216/)
   `Time Complexity` is o(26*n*n*w) where n is length of each word in word list, another n is comparision with endWord and 
      w is number of words in wordList.
      

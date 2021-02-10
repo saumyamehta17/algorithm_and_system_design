@@ -40,7 +40,7 @@ setA.removeAll(setB);
 System.out.println("Diff: " + setA);
 
 // Sorted Set, (insertion order is not maintained, values stored in asc order)
-Set<String> sorted_set = new HashSet<String>();
+SortedSet<String> sorted_set = new HashSet<String>();
 sorted_set.add("B");
 sorted_set.add("B");
 sorted_set.add("A");
