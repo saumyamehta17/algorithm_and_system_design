@@ -165,7 +165,9 @@
   `Time Complexity` is o(n) and `space` o(1) when tree is skewed
   
 ### Strings
-  Decode Ways: [Problem Detail](https://leetcode.com/problems/decode-ways/) and [Solution](dynamic_programming/decode_ways.rb) 
+  Decode Ways: [Problem Detail](https://leetcode.com/problems/decode-ways/) and [Solution](dynamic_programming/decode_ways.rb)
+  Valid Anagram: [Problem Detail](https://leetcode.com/problems/valid-anagram/) and [Solution](https://leetcode.com/submissions/detail/455050398/)
+    - Time Complexity is o(n) and space is constant
 
 ### Graph
   Word Ladder: [Problem Detail](https://leetcode.com/problems/word-ladder/) and [Solution](https://leetcode.com/submissions/detail/440998216/)

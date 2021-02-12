@@ -60,6 +60,8 @@ for(int i = 0; i < s.length; i++){
   System.out.println(s.charAt(i));
 }
 
+for(char chr:s.toCharArray()) System.out.println((int)chr);
+
 // replace char at specific pos
 myString.setCharAt(i, ch);
 
