@@ -38,7 +38,7 @@ MVCC -> multi version concurrency control, store timestamp on each row.
 - Because transactions applies coordination and coordination is hard in distributed system. We can just get one single key to operate on.
 - Distributed Transaction(Cockroach DB)
   - One can achieve Atomicity in the same way by applying transaction_id and status to operations, to read the data it could check the transaction status
-  - Of course it comes with overhead of removing this transaction_id , if status is **committed** now.
+  - Of course, it comes with overhead of removing this transaction_id , if status is **committed** now.
   - There could be conflicts, that transaction_2 started and working on same operation, then solutions could be, 1) wait for first one to finish, 2) abort first one
 
 

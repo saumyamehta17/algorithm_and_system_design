@@ -7,7 +7,7 @@
 # union take two diff set and merge them and create one
 
 # Let's take an example
-# At begining we have 5 sets {1}, {2}, {3}, {4}, {5} nobody is friend
+# At beginning we have 5 sets {1}, {2}, {3}, {4}, {5} nobody is friend
 Node = Struct.new(:data, :rank, :parent)
 class DisjointSet
   attr_reader :node_hash

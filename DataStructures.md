@@ -150,7 +150,13 @@
 		
 		- Count Sorting takes o(n) as n inputs is bounded with value k
 
-		- radix sort,  
+		- radix sort
+    
+    ## Tree Traversal
+        - using Inorder, Preorder, Postorder (it will take o(n) time and space o(n))
+        - using Morris(It will take it will take o(n) time and constant space)
+    
+    ## A start search algorithm
 
 ## Right question:
 

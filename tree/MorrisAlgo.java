@@ -23,7 +23,25 @@ class MorrisAlgo{
       }
     }
   }
-
+  public static void preorder(TreeNode root){
+        TreeNode curr = root;
+        while(curr != null){
+            if(curr.left == null){
+                System.out.print(curr.val + " ");
+                curr = curr.right;
+            }else{
+                TreeNode succ = findPredecessor(curr);
+                if(succ.right == null){
+                    System.out.print(curr.val + " ");
+                    succ.right = curr;
+                    curr = curr.left;
+                }else{
+                    curr = curr.right;
+                    succ.right = null;
+                }
+            }
+        }
+    }
   public static void postorder(TreeNode root){
     TreeNode curr = root;
     while(curr != null){
@@ -79,6 +97,8 @@ class MorrisAlgo{
       inorder(root);
       System.out.println("\nPostorder Morris");
       postorder(root);
+      System.out.println("\nPreorder Morris");
+      preorder(root);
   }
 
 }
